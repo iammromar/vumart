@@ -3,7 +3,7 @@ from django.shortcuts import render
 from account.models import Address
 from blog.models import Post
 from catalog.models import Category, Product, FeaturedProduct, NewProduct, BestSellerProduct
-from core.models import General, Subscription
+from core.models import General, Subscription, Social
 from order.models import Order
 
 
@@ -61,7 +61,9 @@ def index(request):
                     cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
         general = General.objects.last()
+        socials = Social.objects.all()
         context = {
+            "socials": socials,
             "general": general,
             "kampaniya_quantity": 5,
             "new_quantity": 6,
@@ -101,7 +103,9 @@ def subscribe(request):
                     cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
         general = General.objects.last()
+        socials = Social.objects.all()
         context = {
+            "socials": socials,
             "general": general,
             "kampaniya_quantity": 5,
             "new_quantity": 6,

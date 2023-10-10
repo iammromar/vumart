@@ -15,6 +15,8 @@ urlpatterns = [
     path('', core_views.index, name="index"),
 
     path('contact/', core_views.index, name="contact"),
+    path('terms/', core_views.index, name="terms"),
+    path('career/', core_views.index, name="career"),
     path('subscribe/', core_views.subscribe, name="subscribe"),
     path('kampaniyalar/', core_views.index, name="kampaniyalar"),
     path('endirimler/', core_views.index, name="endirimler"),

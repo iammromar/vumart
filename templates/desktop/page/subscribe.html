@@ -501,8 +501,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
 
 
-
-    <!-- Footer Section Start -->
+  <!-- Footer Section Start -->
     <footer class="section-t-space footer-section-2 footer-color-3">
         <div class="container-fluid-lg">
             <div class="main-footer">
@@ -511,28 +510,15 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                         <a href="{% url 'index'%}" class="foot-logo theme-logo">
                             <img src="{{general.logo.url}}" class="img-fluid blur-up lazyload" alt="">
                         </a>
-                        <p class="information-text information-text-2">Supermarket, meyvə və tərəvəz, uşaqlarınız üçün hərşey, kosmetika, özünə qulluq və s. kimi ehtiyaclarınızı Vumart.az'dan onlayn ala bilərsiniz!</p>
+                        <p class="information-text information-text-2">{{general.footer_description}}</p>
                         <ul class="social-icon">
+                            {% for s in socials %}
                             <li class="light-bg">
-                                <a href="https://www.facebook.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="{{s.url}}" target="_blank" class="footer-link-color">
+                                    <i class="{{s.icon}}"></i>
                                 </a>
                             </li>
-                            <li class="light-bg">
-                                <a href="https://www.instagram.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li class="light-bg">
-                                <a href="https://www.linkedin.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="light-bg">
-                                <a href="mailto:info@vumart.az" class="footer-link-color">
-                                    <i class="fa fa-envelope"></i>
-                                </a>
-                            </li>
+                             {% endfor%}
 
                         </ul>
                     </div>
@@ -624,7 +610,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="phone"></i>
-                                        <p>Zəng üçün: +994 55 555 55 55</p>
+                                        <p>Zəng üçün: {{general.phone}}</p>
                                     </div>
                                 </a>
                             </li>
@@ -633,7 +619,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="mail"></i>
-                                        <p>Email: info@vumart.az</p>
+                                        <p>Email: {{general.email}}</p>
                                     </div>
                                 </a>
                             </li>
@@ -644,28 +630,14 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                 </div>
             </div>
 
-            <div class="sub-footer sub-footer-lite section-b-space section-t-space">
+            <div class="sub-footer sub-footer-lite section-b-space section-t-space" style=" padding: 0 0 0 0; ">
                 <div class="left-footer">
-                    <p class="light-text">2023 © Vumart.az - Bütün hüquqlar qorunur!</p>
+                    <p class="light-text">{{general.copyright}}</p>
                 </div>
 
-                <ul class="payment-box">
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/visa.png'%}" class="blur-up lazyload" alt="">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/discover.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/american.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/master-card.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/giro-pay.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                </ul>
+
+                        <img src="{{general.footer_payment_image.url}}" class="blur-up lazyload" alt="">
+
             </div>
         </div>
     </footer>

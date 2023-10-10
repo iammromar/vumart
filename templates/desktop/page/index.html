@@ -1032,28 +1032,15 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                         <a href="{% url 'index'%}" class="foot-logo theme-logo">
                             <img src="{{general.logo.url}}" class="img-fluid blur-up lazyload" alt="">
                         </a>
-                        <p class="information-text information-text-2">Supermarket, meyvə və tərəvəz, uşaqlarınız üçün hərşey, kosmetika, özünə qulluq və s. kimi ehtiyaclarınızı Vumart.az'dan onlayn ala bilərsiniz!</p>
+                        <p class="information-text information-text-2">{{general.footer_description}}</p>
                         <ul class="social-icon">
+                            {% for s in socials %}
                             <li class="light-bg">
-                                <a href="https://www.facebook.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-facebook-f"></i>
+                                <a href="{{s.url}}" target="_blank" class="footer-link-color">
+                                    <i class="{{s.icon}}"></i>
                                 </a>
                             </li>
-                            <li class="light-bg">
-                                <a href="https://www.instagram.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                            </li>
-                            <li class="light-bg">
-                                <a href="https://www.linkedin.com/meduzaaz" target="_blank" class="footer-link-color">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                            </li>
-                            <li class="light-bg">
-                                <a href="mailto:info@vumart.az" class="footer-link-color">
-                                    <i class="fa fa-envelope"></i>
-                                </a>
-                            </li>
+                             {% endfor%}
 
                         </ul>
                     </div>
@@ -1064,19 +1051,19 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                         </div>
                         <ul class="footer-list footer-contact footer-list-light">
                             <li>
-                                <a href="about-us.html" class="light-text">Haqqımızda</a>
+                                <a href="{% url 'about'%}" class="light-text">Haqqımızda</a>
                             </li>
                             <li>
-                                <a href="contact-us.html" class="light-text">Bizimlə Əlaqə</a>
+                                <a href="{% url 'contact'%}" class="light-text">Bizimlə Əlaqə</a>
                             </li>
                             <li>
-                                <a href="term_condition.html" class="light-text">Şərtlər və İstifadə Qaydaları</a>
+                                <a href="{% url 'terms'%}" class="light-text">Şərtlər və İstifadə Qaydaları</a>
                             </li>
                             <li>
-                                <a href="careers.html" class="light-text">Karyera</a>
+                                <a href="{% url 'career'%}" class="light-text">Karyera</a>
                             </li>
                             <li>
-                                <a href="blog-list.html" class="light-text">Bloq Yazıları</a>
+                                <a href="{% url 'blogs'%}" class="light-text">Bloq Yazıları</a>
                             </li>
                         </ul>
                     </div>
@@ -1087,19 +1074,19 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                         </div>
                         <ul class="footer-list footer-list-light footer-contact">
                             <li>
-                                <a href="order-success.html" class="light-text">Son Sifarişlər</a>
+                                <a href="{% url 'orders'%}" class="light-text">Son Sifarişlər</a>
                             </li>
                             <li>
-                                <a href="user-dashboard.html" class="light-text">Profil</a>
+                                <a href="{% url 'profile'%}" class="light-text">Profil</a>
                             </li>
                             <li>
-                                <a href="order-tracking.html" class="light-text">Ünvanlar</a>
+                                <a href="{% url 'addresses'%}" class="light-text">Ünvanlar</a>
                             </li>
                             <li>
-                                <a href="wishlist.html" class="light-text">Sevimlilər Listi</a>
+                                <a href="{% url 'wishlist'%}" class="light-text">Sevimlilər Listi</a>
                             </li>
                             <li>
-                                <a href="faq.html" class="light-text">Şəxsi Məlumatlar</a>
+                                <a href="{% url 'profile'%}" class="light-text">Şəxsi Məlumatlar</a>
                             </li>
                         </ul>
                     </div>
@@ -1110,20 +1097,18 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                         </div>
                         <ul class="footer-list footer-list-light footer-contact">
                             <li>
-                                <a href="vegetables-demo.html" class="light-text">Yeni Məhsullar</a>
+                                <a href="{% url 'yenimehsullar'%}" class="light-text">Yeni Məhsullar</a>
                             </li>
                             <li>
-                                <a href="spice-demo.html" class="light-text">Endirimli Məhsullar</a>
+                                <a href="{% url 'endirimler'%}" class="light-text">Endirimli Məhsullar</a>
                             </li>
                             <li>
-                                <a href="bags-demo.html" class="light-text">Markalar</a>
+                                <a href="{% url 'brands'%}" class="light-text">Markalar</a>
                             </li>
                             <li>
-                                <a href="bakery-demo.html" class="light-text">Kampaniyalar</a>
+                                <a href="{% url 'kampaniyalar'%}" class="light-text">Kampaniyalar</a>
                             </li>
-                            <li>
-                                <a href="grocery-demo.html" class="light-text">Topdan Məhsullar</a>
-                            </li>
+
                         </ul>
                     </div>
 
@@ -1145,7 +1130,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="phone"></i>
-                                        <p>Zəng üçün: +994 55 555 55 55</p>
+                                        <p>Zəng üçün: {{general.phone}}</p>
                                     </div>
                                 </a>
                             </li>
@@ -1154,7 +1139,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                 <a href="javascript:void(0)" class="light-text">
                                     <div class="inform-box">
                                         <i data-feather="mail"></i>
-                                        <p>Email: info@vumart.az</p>
+                                        <p>Email: {{general.email}}</p>
                                     </div>
                                 </a>
                             </li>
