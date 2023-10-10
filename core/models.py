@@ -14,6 +14,14 @@ class Country(models.Model):
         return self.name
 
 
+class Social(models.Model):
+    name = models.CharField(max_length=256)
+    url = models.CharField(max_length=256)
+    icon = models.CharField(max_length=256)
+
+    def __str__(self):
+        return self.name
+
 class General(models.Model):
     logo = models.ImageField()
     address = models.CharField(max_length=256)
@@ -23,6 +31,7 @@ class General(models.Model):
     topbar_text = models.TextField()
     copyright = models.CharField(max_length=256)
     footer_payment_image = models.FileField()
+    footer_description = models.CharField(max_length=256)
 
     def __str__(self):
         return f'Ümumi məlumatlar'

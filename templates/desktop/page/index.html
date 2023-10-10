@@ -1165,28 +1165,14 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                 </div>
             </div>
 
-            <div class="sub-footer sub-footer-lite section-b-space section-t-space">
+            <div class="sub-footer sub-footer-lite section-b-space section-t-space" style=" padding: 0 0 0 0; ">
                 <div class="left-footer">
-                    <p class="light-text">2023 © Vumart.az - Bütün hüquqlar qorunur!</p>
+                    <p class="light-text">{{general.copyright}}</p>
                 </div>
 
-                <ul class="payment-box">
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/visa.png'%}" class="blur-up lazyload" alt="">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/discover.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/american.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/master-card.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                    <li>
-                        <img src="{% static 'desktop/images/icon/paymant/giro-pay.png'%}" alt="" class="blur-up lazyload">
-                    </li>
-                </ul>
+
+                        <img src="{{general.footer_payment_image.url}}" class="blur-up lazyload" alt="">
+
             </div>
         </div>
     </footer>
