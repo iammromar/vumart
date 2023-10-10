@@ -1,6 +1,7 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
+from core.models import General
 from order.models import Order, OrderItem
 from catalog.models import Product, Category
 from .forms import NewUserForm, SetPasswordForm
@@ -22,7 +23,9 @@ def signin(request):
         search = request.POST.get('search')
         search_products = Product.objects.filter(name__icontains=search)
 
+        general = General.objects.last()
         context = {
+            "general": general,
             'main_categories': main_categories,
             'cart_sum': 0,
 

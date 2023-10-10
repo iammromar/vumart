@@ -15,6 +15,14 @@ urlpatterns = [
     path('', core_views.index, name="index"),
 
     path('contact/', core_views.index, name="contact"),
+    path('kampaniyalar/', core_views.index, name="kampaniyalar"),
+    path('endirimler/', core_views.index, name="endirimler"),
+    path('yenimehsullar/', core_views.index, name="yenimehsullar"),
+    path('brands/', core_views.index, name="brands"),
+    path('about/', core_views.index, name="about"),
+    path('blogs/', core_views.index, name="blogs"),
+    path('offers/', core_views.index, name="offers"),
+    path('track/', core_views.index, name="track"),
     path('search/', core_views.index, name="search"),
 
     path('signup/', core_views.index, name="signup"),

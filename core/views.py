@@ -3,10 +3,12 @@ from django.shortcuts import render
 from account.models import Address
 from blog.models import Post
 from catalog.models import Category, Product, FeaturedProduct, NewProduct
+from core.models import General
 from order.models import Order
 
 
 def index(request):
+
     if request.user_agent.is_mobile == True:
         if request.method == 'POST' and request.POST.get("type") == 'unvan':
             for a in request.user.addresses.all():
@@ -21,7 +23,9 @@ def index(request):
         featured_products = FeaturedProduct.objects.all()
         new_products = NewProduct.objects.all()
         posts = Post.objects.all()
+        general = General.objects.last()
         context = {
+            "general": general,
             "cats": cats,
             "featured_cats": featured_cats,
             "featured_products": featured_products,
@@ -55,10 +59,11 @@ def index(request):
                 for o in order.items.all():
                     cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-
-
-
+        general = General.objects.last()
         context = {
+            "general": general,
+            "kampaniya_quantity": 5,
+            "new_quantity": 6,
             "cats": cats,
             "featured_products": featured_products,
             "new_products": new_products,
