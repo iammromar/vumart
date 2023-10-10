@@ -93,3 +93,17 @@ class NewProduct(models.Model):
 
     def __str__(self):
         return self.product.name
+
+
+
+class BestSellerProduct(models.Model):
+    product = models.OneToOneField(Product, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = "Çox Satılan Məhsul"
+        verbose_name_plural = "Çox Satılan Məhsullar"
+
+    def __str__(self):
+        return self.product.name

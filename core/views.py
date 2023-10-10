@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from account.models import Address
 from blog.models import Post
-from catalog.models import Category, Product, FeaturedProduct, NewProduct
+from catalog.models import Category, Product, FeaturedProduct, NewProduct, BestSellerProduct
 from core.models import General
 from order.models import Order
 
@@ -44,6 +44,7 @@ def index(request):
         cats = Category.objects.filter(is_active=True)
         featured_products = FeaturedProduct.objects.all()
         new_products = NewProduct.objects.all()
+        best_products = BestSellerProduct.objects.all()
 
 
 
@@ -67,6 +68,7 @@ def index(request):
             "cats": cats,
             "featured_products": featured_products,
             "new_products": new_products,
+            "best_products": best_products,
             'cart': cart,
             'cart_sum': cart_sum,
         }

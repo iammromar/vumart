@@ -41,3 +41,11 @@ class FeaturedProductAdmin(admin.ModelAdmin):
 
 
 admin.site.register(FeaturedProduct, FeaturedProductAdmin)
+
+
+
+class BestSellerProductAdmin(admin.ModelAdmin):
+    list_display = ('product', 'updated_at', 'created_at')
+
+
+admin.site.register(BestSellerProduct, BestSellerProductAdmin)

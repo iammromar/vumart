@@ -813,6 +813,110 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
 
 
+
+    <div class="title d-block">
+                        <h2>Ən Çox Satılan Məhsullar</h2>
+                        <span class="title-leaf">
+                            <svg class="icon-width">
+                                <use xlink:href="{% static 'desktop/svg/leaf.svg'%}#leaf"></use>
+                            </svg>
+                        </span>
+                        <p>Mağazamızda ən çox satılan məhsullar</p>
+                    </div>
+
+                    <div class="product-border overflow-hidden wow fadeInUp">
+                        <div class="product-box-slider no-arrow">
+                          {% for p in best_products %}
+                               <div>
+                                    <div class="row m-0">
+                                        <div class="col-12 px-0">
+                                            <div class="product-box" style=" padding: 0; ">
+                                                <div class="product-image">
+                                                    <div style="background-image:url({{p.product.brand.logo.url}});background-size: contain; background-position: center; background-repeat: no-repeat; width: 50px; height: 50px; z-index: 1000; position: absolute; right: 5px; top: 5px;"></div>
+                                                    <a href="{% url 'product' p.product.id %}">
+                                                        <img src="{{p.product.main_image.url}}" class="img-fluid blur-up lazyload" alt="">
+                                                    </a>
+                                                    <ul class="product-option">
+                                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="View">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#view">
+                                                                <i data-feather="eye"></i>
+                                                            </a>
+                                                        </li>
+
+
+
+                                                        <li data-bs-toggle="tooltip" data-bs-placement="top" title="Wishlist">
+                                                            <a href="wishlist.html" class="notifi-wishlist">
+                                                                <i data-feather="heart"></i>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="product-detail" style=" padding: 3px 10px 3px 10px; ">
+                                                    <a href="{% url 'product' p.id %}">
+                                                        <h6 class="name">{{p.product.name}}</h6>
+                                                    </a>
+
+                                                    <h5 class="sold text-content">
+                                                        {% if p.prices.last %}
+                                                        {% if p.prices.last.is_discount == True %}
+                                                        <span class="theme-color price">{{p.product.prices.last.discount_price}} AZN</span>
+                                                        <del>{{p.product.prices.last.price}} AZN</del>
+                                                        {% else %}
+                                                         <span class="theme-color price">{{p.product.prices.last.price}} AZN</span>
+                                                        {% endif %}
+                                                        {% endif %}
+                                                    </h5>
+
+                                                    <div class="product-rating mt-sm-2 mt-1">
+                                                        <ul class="rating">
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star" class="fill"></i>
+                                                            </li>
+                                                            <li>
+                                                                <i data-feather="star"></i>
+                                                            </li>
+                                                        </ul>
+
+                                                        <h6 class="theme-color" style="color:#008849 !important;">Anbarda var</h6>
+                                                    </div>
+
+                                                    <div class="add-to-cart-box">
+                                                       {% if user.is_authenticated %}
+                                                         <button class="btn btn-add-cart addcart-button add_to_cart" data-id="{{p.product.id}}">Səbətə At
+                                                            <span class="add-icon">
+                                                                <img src="{% static 'addtocart.png'%}" style="width:30px;">
+                                                            </span>
+                                                        </button>
+                                                         {% else %}
+                                                         <a href="{% url 'login'%}" class="btn btn-add-cart addcart-button">Səbətə At
+                                                            <span class="add-icon">
+                                                                <img src="{% static 'addtocart.png'%}" style="width:30px;">
+                                                            </span>
+                                                        </a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+
+                        </div>
+                    </div>
+
        <!-- Service Section Start -->
     <section class="service-section section-b-space">
         <div class="container-fluid-lg">
