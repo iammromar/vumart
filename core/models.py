@@ -1,6 +1,10 @@
 from django.db import models
 
-
+class Subscription(models.Model):
+    email = models.CharField(max_length=256)
+    is_active = models.BooleanField(default=True)
+    def __str__(self):
+        return self.email
 
 class Country(models.Model):
     name = models.CharField(max_length=256)

@@ -15,6 +15,7 @@ urlpatterns = [
     path('', core_views.index, name="index"),
 
     path('contact/', core_views.index, name="contact"),
+    path('subscribe/', core_views.subscribe, name="subscribe"),
     path('kampaniyalar/', core_views.index, name="kampaniyalar"),
     path('endirimler/', core_views.index, name="endirimler"),
     path('yenimehsullar/', core_views.index, name="yenimehsullar"),
