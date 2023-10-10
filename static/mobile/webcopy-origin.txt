@@ -1,0 +1,400 @@
+Uri: https://askbootstrap.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\cdn-cgi\scripts\5c5dd728\cloudflare-static\email-decode.min.js
+Content Type: application/javascript
+
+Uri: https://askbootstrap.com/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\cdn-cgi\scripts\7d0fa10a\cloudflare-static\rocket-loader.min.js
+Content Type: application/javascript
+
+Uri: https://askbootstrap.com/preview/foodmart/cart.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\cart.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/css/style.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\css\style.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/img/amul-butter.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\amul-butter.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/banner1.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\banner1.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/banner2.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\banner2.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-1.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-1.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-10.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-10.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-11.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-11.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-12.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-12.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-13.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-13.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-14.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-14.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-15.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-15.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-16.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-16.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-17.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-17.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-18.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-18.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-19.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-19.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-2.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-2.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-20.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-20.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-21.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-21.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-22.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-22.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-23.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-23.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-24.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-24.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-3.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-3.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-4.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-4.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-5.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-5.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-6.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-6.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-7.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-7.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-8.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-8.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/category-9.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\category-9.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/clock.gif
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\clock.gif
+Content Type: image/gif
+
+Uri: https://askbootstrap.com/preview/foodmart/img/delivery-boy.jpg
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\delivery-boy.jpg
+Content Type: image/jpeg
+
+Uri: https://askbootstrap.com/preview/foodmart/img/fortune-oil.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\fortune-oil.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/kachighani-oil.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\kachighani-oil.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/kurkure.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\kurkure.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/lays-cream.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\lays-cream.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/lays-hot-potato.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\lays-hot-potato.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/lays-masala.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\lays-masala.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/lays-potato.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\lays-potato.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-1.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-1.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-2.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-2.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-3.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-3.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-4.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-4.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-5.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-5.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-6.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-6.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-7.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-7.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/listing-8.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\listing-8.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/logo.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\logo.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/order-received.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\order-received.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/pickup-delivery.svg
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\pickup-delivery.svg
+Content Type: image/svg+xml
+
+Uri: https://askbootstrap.com/preview/foodmart/img/product-detail-1.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\product-detail-1.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/product-detail-2.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\product-detail-2.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/product-detail-3.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\product-detail-3.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/tab-1.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\tab-1.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/tab-2.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\tab-2.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/tab-3.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\tab-3.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/tab-4.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\tab-4.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/tata-gold.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\tata-gold.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/img/uncle-chips.png
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\img\uncle-chips.png
+Content Type: image/png
+
+Uri: https://askbootstrap.com/preview/foodmart/index.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\index.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/js/custom.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\js\custom.js
+Content Type: application/x-javascript
+
+Uri: https://askbootstrap.com/preview/foodmart/listing.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\listing.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/order-detail.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\order-detail.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/order-received.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\order-received.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/payment-details.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\payment-details.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/payment-option.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\payment-option.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/product-detail.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\product-detail.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/profile.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\profile.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/track-delivery-boy.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\track-delivery-boy.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/track-order.html
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\track-order.html
+Content Type: text/html
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/bootstrap/css/bootstrap.min.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\bootstrap\css\bootstrap.min.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/bootstrap/js/bootstrap.bundle.min.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\bootstrap\js\bootstrap.bundle.min.js
+Content Type: application/x-javascript
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/icofont/fonts/icofont.woff
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\icofont\fonts\icofont.woff
+Content Type: application/font-woff
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/icofont/fonts/icofont.woff2
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\icofont\fonts\icofont.woff2
+Content Type: font/woff2
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/icofont/icofont.min.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\icofont\icofont.min.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/jquery/jquery.min.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\jquery\jquery.min.js
+Content Type: application/x-javascript
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/sidebar/demo.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\sidebar\demo.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/sidebar/hc-offcanvas-nav.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\sidebar\hc-offcanvas-nav.js
+Content Type: application/x-javascript
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/ajax-loader.gif
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\ajax-loader.gif
+Content Type: image/gif
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/fonts/slick.eot
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\fonts\slick.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/fonts/slick.eot?
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\fonts\slick-1.eot
+Content Type: application/vnd.ms-fontobject
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/fonts/slick.svg
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\fonts\slick.svg
+Content Type: image/svg+xml
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/fonts/slick.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\fonts\slick.ttf
+Content Type: application/x-font-ttf
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/fonts/slick.woff
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\fonts\slick.woff
+Content Type: application/font-woff
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/slick-theme.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\slick-theme.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/slick.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\slick.css
+Content Type: text/css
+
+Uri: https://askbootstrap.com/preview/foodmart/vender/slick/slick/slick.min.js
+File Name: C:\Downloaded Web Sites\askbootstrap.com\preview\foodmart\vender\slick\slick\slick.min.js
+Content Type: application/x-javascript
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css
+File Name: C:\Downloaded Web Sites\askbootstrap.com\npm\bootstrap-icons@1.10.3\font\bootstrap-icons.css
+Content Type: text/css
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/fonts/bootstrap-icons.woff2?24e3eb84d0bcaf83d77f904c78ac1f47
+File Name: C:\Downloaded Web Sites\askbootstrap.com\npm\bootstrap-icons@1.10.3\font\fonts\bootstrap-icons.woff2
+Content Type: font/woff2
+
+Uri: https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/fonts/bootstrap-icons.woff?24e3eb84d0bcaf83d77f904c78ac1f47
+File Name: C:\Downloaded Web Sites\askbootstrap.com\npm\bootstrap-icons@1.10.3\font\fonts\bootstrap-icons.woff
+Content Type: font/woff
+
+Uri: https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap
+File Name: C:\Downloaded Web Sites\askbootstrap.com\css2
+Content Type: text/css
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-2Y-1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-2Y-1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-B4i1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-h4-1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-h4-1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYi1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-NYi1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-ro-1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-ro-1UA.ttf
+Content Type: font/ttf
+
+Uri: https://fonts.gstatic.com/s/rubik/v26/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-WYi1UA.ttf
+File Name: C:\Downloaded Web Sites\askbootstrap.com\s\rubik\v26\iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-WYi1UA.ttf
+Content Type: font/ttf
+
+Uri: https://static.cloudflareinsights.com/beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816
+File Name: C:\Downloaded Web Sites\askbootstrap.com\beacon.min.js\v52afc6f149f6479b8c77fa569edb01181681764108816
+Content Type: text/javascript
+
