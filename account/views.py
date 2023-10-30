@@ -108,7 +108,7 @@ def signup(request):
         "register_form": form,
         'main_categories': main_categories,
     }
-    return render(request, 'account/signup.html', context)
+    return render(request, 'desktop/account/signup.html', context)
 
 
 def logout_request(request):
