@@ -158,14 +158,14 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 <body class="bg-effect">
 
     <!-- Loader Start -->
-     <div class="fullpage-loader">
+   <!--   <div class="fullpage-loader">
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
         <span></span>
-    </div> 
+    </div> -->
 
 
     <!-- Header Start -->
@@ -405,10 +405,10 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                     <a style=" color: #ffffff; " class="nav-link " href="{% url 'about'%}" data-bs-toggle="dropdown">Haqqımızda</a>
                                             </li>
                                              <li class="nav-item dropdown">
-                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'blogs'%})" data-bs-toggle="dropdown">Bloq yazıları</a>
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'blogs'%}" data-bs-toggle="dropdown">Bloq yazıları</a>
                                             </li>
                                              <li class="nav-item dropdown">
-                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'contact'%})" data-bs-toggle="dropdown">Bizimlə Əlaqə</a>
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'contact'%}" data-bs-toggle="dropdown">Bizimlə Əlaqə</a>
                                             </li>
 
 
@@ -1437,24 +1437,24 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
                            <ul class="dropcart__list" id="cart_inside" style=" height: 70%; max-height: 80%; overflow-y: auto;    padding: 13px 0 0 0; ">
                                {% if cart.items.count == 0 or not user.is_authenticated or not cart %}
-                              <div style=" text-align: center;margin-top:50px; "><img style=" width: 176px; " src="static/catcart.png"/></div>
-                           <div style=" text-align: center; color: #717171; font-size: 12px; ">Səbətinizdə məhsul yoxdur.</div>
+                              <div style=" text-align: center;margin-top:50px; "><img style=" width: 256px; " src="static/desktop/emptycart.jpg"/></div>
+                           <div style=" text-align: center; color: #717171;     font-size: 14px;    font-weight: 700; ">Səbətinizdə məhsul yoxdur.</div>
                               {% endif %}
                               {% for item in cart.items.all %}
                               <li class="dropcart__item">
                                  <div class="dropcart__item-image image image--type--product" ><a class="image__body" href="#">
-                                     <img style=" width: 100px; " class="image__tag" src="{{item.product.main_image.url}}" alt=""></a></div>
+                                     <img style=" width: 80px; " class="image__tag" src="{{item.product.main_image.url}}" alt=""></a></div>
                                  <div class="dropcart__item-info" style=" width: 54%; padding-top: 20px; padding-left: 11px;">
                                     <div class="dropcart__item-name"><a href="#">{{item.product.name}}</a></div>
                                     <ul class="dropcart__item-features">
                                        <li>{{item.product.category.all.last.name}}</li>
                                     </ul>
                                     <div class="dropcart__item-meta">
-                                       <div class="dropcart__item-quantity">{{item.quantity}}</div>
+                                       <div class="dropcart__item-quantity" style=" color: black; font-weight: 700; ">{{item.quantity}}</div>
                                        <div class="dropcart__item-price">₼ {{item.product.price}}</div>
                                     </div>
                                  </div>
-                                 <button type="button" data-id="{{item.id}}" class="remove dropcart__item-remove" style=" margin-top: 21px; ">
+                                 <button type="button" data-id="{{item.id}}" onclick="onCatClick({{item.id}})" class="remove dropcart__item-remove" style=" margin-top: 21px; ">
                                     <svg width="10" height="10">
                                        <path d="M8.8,8.8L8.8,8.8c-0.4,0.4-1,0.4-1.4,0L5,6.4L2.6,8.8c-0.4,0.4-1,0.4-1.4,0l0,0c-0.4-0.4-0.4-1,0-1.4L3.6,5L1.2,2.6
                                           c-0.4-0.4-0.4-1,0-1.4l0,0c0.4-0.4,1-0.4,1.4,0L5,3.6l2.4-2.4c0.4-0.4,1-0.4,1.4,0l0,0c0.4,0.4,0.4,1,0,1.4L6.4,5l2.4,2.4

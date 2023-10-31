@@ -1218,8 +1218,13 @@ $('.category-slider-1').slick({
 $('.slider-7_1').slick({
     arrows: true,
     infinite: true,
-    slidesToShow: 7,
+    slidesToShow: 8,
     slidesToScroll: 1,
+    autoplay:true,
+      autoplaySpeed:1500,
+      arrows:true,
+      prevArrow:'<button type="button" class="slick-prev"></button>',
+      nextArrow:'<button type="button" class="slick-next"></button>',
     responsive: [{
             breakpoint: 1660,
             settings: {

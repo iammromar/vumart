@@ -162,9 +162,10 @@ def remove(request):
             prd['item_id'] = i.id
             prd['cat'] = i.product.category.all().last().name
             prd['id'] = i.product.id
-            prd['image'] = i.product.images.first().image.url
+            prd['image'] = i.product.main_image.url
             prd['qty'] = i.quantity
-            prd['price'] = i.product.price * i.quantity
+
+            prd['price'] = i.product.prices.last().price * i.quantity
             prods.append(prd)
         cart['products'] = prods
         cart['qty'] = 0
