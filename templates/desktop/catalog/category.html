@@ -516,48 +516,29 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
                         <div class="top-filter-menu">
                             <div class="category-dropdown">
-                                <h5 class="text-content">Sort By :</h5>
+                                <h5 class="text-content">Sırala :</h5>
                                 <div class="dropdown">
                                     <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown">
-                                        <span>Most Popular</span> <i class="fa-solid fa-angle-down"></i>
+                                        <span>Standart</span> <i class="fa-solid fa-angle-down"></i>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <li>
-                                            <a class="dropdown-item" id="pop" href="javascript:void(0)">Popularity</a>
+                                            <a class="dropdown-item" id="pop" href="javascript:void(0)">Standart</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="low" href="javascript:void(0)">Low - High
-                                                Price</a>
+                                            <a class="dropdown-item" id="low" href="javascript:void(0)">Bahadan Ucuza</a>
                                         </li>
                                         <li>
-                                            <a class="dropdown-item" id="high" href="javascript:void(0)">High - Low
-                                                Price</a>
+                                            <a class="dropdown-item" id="high" href="javascript:void(0)">Ucuzdan Bahaya</a>
                                         </li>
-                                        <li>
-                                            <a class="dropdown-item" id="rating" href="javascript:void(0)">Average
-                                                Rating</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" id="aToz" href="javascript:void(0)">A - Z Order</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" id="zToa" href="javascript:void(0)">Z - A Order</a>
-                                        </li>
-                                        <li>
-                                            <a class="dropdown-item" id="off" href="javascript:void(0)">% Off - Hight To
-                                                Low</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="grid-option d-none d-md-block">
                                 <ul>
-                                    <li class="three-grid">
-                                        <a href="javascript:void(0)">
-                                            <img src="{% static 'desktop/svg/grid-3.svg'%}" class="blur-up lazyload" alt="">
-                                        </a>
-                                    </li>
+
                                     <li class="grid-btn d-xxl-inline-block d-none active">
                                         <a href="javascript:void(0)">
                                             <img src="{% static 'desktop/svg/grid-4.svg'%}" class="blur-up lazyload d-lg-inline-block d-none" alt="">
@@ -577,7 +558,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                     <div class="row g-sm-4 g-3 row-cols-xxl-6 row-cols-xl-3 row-cols-lg-2 row-cols-md-3 row-cols-2 product-list-section">
                         {% for p in category.products.all%}
                         <div>
-                            <div class="product-box-3 h-100 wow fadeInUp">
+                            <div class="product-box-3 h-100 wow fadeInUp" style="box-shadow: 5px 5px 20px 5px #88888847;border-radius: 10px;">
                                 <div class="product-header">
                                     <div class="product-image">
                                         <a href="{% url 'product' p.id %}">
@@ -602,13 +583,11 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                 </div>
                                 <div class="product-footer">
                                     <div class="product-detail">
-                                        <span class="span-name">Vegetable</span>
+                                        <span class="span-name">{{p.category.last.name}}</span>
                                         <a href="{% url 'product' p.id %}">
                                             <h5 class="name">{{p.name}}</h5>
                                         </a>
-                                        <p class="text-content mt-1 mb-2 product-content">Cheesy feet cheesy grin brie.
-                                            Mascarpone cheese and wine hard cheese the big cheese everyone loves smelly
-                                            cheese macaroni cheese croque monsieur.</p>
+                                        <p class="text-content mt-1 mb-2 product-content">{{p.short_description}}</p>
                                         <div class="product-rating mt-2">
                                             <ul class="rating">
                                                 <li>
@@ -629,8 +608,8 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                             </ul>
                                             <span>(4.0)</span>
                                         </div>
-                                        <h6 class="unit">250 ml</h6>
-                                        <h5 class="price"><span class="theme-color">$08.02</span> <del>$15.15</del>
+
+                                        <h5 class="price"><span class="theme-color" style=" color: #757575 !important; ">{{p.prices.last.price}} ₼</span>
                                         </h5>
                                         <div class="add-to-cart-box bg-white">
                                              {% if user.is_authenticated %}
@@ -655,29 +634,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
                     </div>
 
-                    <nav class="custome-pagination">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="javascript:void(0)" tabindex="-1" aria-disabled="true">
-                                    <i class="fa-solid fa-angles-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="javascript:void(0)">1</a>
-                            </li>
-                            <li class="page-item" aria-current="page">
-                                <a class="page-link" href="javascript:void(0)">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="javascript:void(0)">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="javascript:void(0)">
-                                    <i class="fa-solid fa-angles-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+
                 </div>
             </div>
         </div>
