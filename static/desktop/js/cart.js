@@ -174,7 +174,7 @@ console.log("hehe");
                      $("#checkout_button").css("display", "none");
                      $("#cart_inside").prepend(`
 
-                    <div style=" text-align: center;margin-top:50px; "><img style=" width: 176px; " src="/static/catcart.png"/></div>
+                    <div style=" text-align: center;margin-top:50px; "><img style=" width: 256px; " src="/static/desktop/emptycart.jpg"/></div>
                            <div style=" text-align: center; color: #717171; font-size: 12px; ">Səbətinizdə məhsul yoxdur.</div>
                     `);
                      }

@@ -64,7 +64,7 @@ def signin(request):
         "login_form": form,
         'main_categories': main_categories,
     }
-    return render(request, 'desktop/account/login.html', context)
+    return render(request, 'desktop/account/signin.html', context)
 
 
 def signup(request):

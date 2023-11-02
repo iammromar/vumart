@@ -46,10 +46,26 @@ def product(request, id):
         product = Product.objects.get(pk=id)
         related_products = Product.objects.all()
         best_products = NewProduct.objects.all()
+
+        cart = None
+        if request.user.is_authenticated:
+            cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
+        cart_sum = 0
+        if request.user.is_authenticated:
+            order = Order.objects.filter(is_ordered=False, customer=request.user).last()
+            if order:
+                for o in order.items.all():
+                    cart_sum = cart_sum + o.quantity * o.product.prices.last().price
+        general = General.objects.last()
+        socials = Social.objects.all()
         context = {
             "cats": cats,
             "product": product,
             "best_products": best_products,
             "related_products": related_products,
+            "socials": socials,
+            "general": general,
+            'cart': cart,
+            'cart_sum': cart_sum,
         }
         return render(request, "desktop/catalog/product.html", context)
