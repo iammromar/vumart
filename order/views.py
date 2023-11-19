@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.utils.timezone import now
 from catalog.models import Category
+from core.models import General, Social
 from .models import *
 from order.models import *
 from django.utils.text import slugify
@@ -11,11 +12,14 @@ def search(request):
     context = {}
     return render(request, 'desktop/page/search.html', context)
 def cart(request):
+    general = General.objects.last()
+    socials = Social.objects.all()
+    cats = Category.objects.filter(is_active=True)
     addresses = None
     main_categories = Category.objects.filter(parent=None)
     main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
     orders = Order.objects.filter(customer=request.user, is_ordered=True)[:3]
-
+    order_in_cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
     cart = None
     if request.user.is_authenticated:
         cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
@@ -29,38 +33,38 @@ def cart(request):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
 
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-            'main_address': main_address,
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
     if request.method == "POST" and request.POST.get('remove') == "1":
-        item_id = int(request.POST.get('item'))
+        item_id = int(request.POST.get('product'))
         item = OrderItem.objects.get(pk=item_id)
         item.delete()
+    if request.method == "POST" and request.POST.get('update') == "1":
+        item_id = int(request.POST.get('product'))
+        qty = int(request.POST.get('qty'))
+        item = OrderItem.objects.get(pk=item_id)
+        item.quantity = int(qty)
+        item.save()
     context = {
         "main_categories": main_categories,
         'cart': cart,
         'cart_sum': cart_sum,
         'addresses': addresses,
         'orders': orders,
+        "socials": socials,
+        "general": general,
+        "cats": cats,
+        "order_in_cart": order_in_cart,
 
     }
     return render(request, "desktop/order/cart.html", context)
 
 
 def checkout(request):
+    general = General.objects.last()
+    socials = Social.objects.all()
+    cats = Category.objects.filter(is_active=True)
+    order_in_cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
     addresses = None
     main_categories = Category.objects.filter(parent=None)
     main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
@@ -79,21 +83,7 @@ def checkout(request):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
 
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-            'main_address': main_address,
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
     if request.method == "POST" and request.POST.get('order') == "1":
 
@@ -123,6 +113,9 @@ def checkout(request):
             'addresses': addresses,
             'main_address': main_address,
             'order': order,
+            "socials": socials,
+            "general": general,
+            "cats": cats,
         }
 
         return render(request, 'desktop/order/success.html', context)
@@ -132,12 +125,46 @@ def checkout(request):
         'cart_sum': cart_sum,
         'addresses': addresses,
         'orders': orders,
+        "socials": socials,
+        "general": general,
+        "cats": cats,
+        "order_in_cart": order_in_cart,
 
     }
     return render(request, "desktop/order/checkout.html", context)
 
 def success(request):
+    general = General.objects.last()
+    socials = Social.objects.all()
+    cats = Category.objects.filter(is_active=True)
+    order_in_cart = Order.objects.filter(customer=request.user).last()
+    addresses = None
+    main_categories = Category.objects.filter(parent=None)
+    main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
+    orders = Order.objects.filter(customer=request.user, is_ordered=True)[:3]
+
+    cart = None
+    if request.user.is_authenticated:
+        cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
+    cart_sum = 0
+    if request.user.is_authenticated:
+        addresses = Address.objects.filter(customer=request.user)
+        if not main_address and addresses:
+            main_address = addresses.last()
+        order = Order.objects.filter(is_ordered=False, customer=request.user).last()
+        if order:
+            for o in order.items.all():
+                cart_sum = cart_sum + o.quantity * o.product.prices.last().price
     context = {
+        "main_categories": main_categories,
+        'cart': cart,
+        'cart_sum': cart_sum,
+        'addresses': addresses,
+        'orders': orders,
+        "socials": socials,
+        "general": general,
+        "cats": cats,
+        "order_in_cart": order_in_cart,
 
     }
 

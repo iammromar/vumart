@@ -8,6 +8,9 @@ from catalog.models import Product
 
 class CustomUser(AbstractUser):
     username = models.CharField(verbose_name='Telefon', unique=True, max_length=128, null=True, blank=True)
+    name = models.CharField(max_length=128, null=True, blank=True)
+    telephone = models.CharField(max_length=128, null=True, blank=True)
+    representer = models.CharField(max_length=128, null=True, blank=True)
     email = models.EmailField(max_length=128, unique=True, null=True, blank=True)
     birth_date = models.DateField(null=True, blank=True)
     is_active = models.BooleanField(verbose_name='AKTİVDİR', default=True)
@@ -56,15 +59,16 @@ class City(models.Model):
         return self.name
 class Address(models.Model):
     customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="addresses")
-    city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="addresses")
+    city = models.CharField(max_length=256, null=True, blank=True)
     name = models.CharField(max_length=256)
     street = models.CharField(max_length=256)
     building = models.CharField(max_length=256, null=True, blank=True)
     apartment = models.CharField(max_length=256, null=True, blank=True)
-    floor = models.CharField(max_length=256, null=True, blank=True)
+    zip = models.CharField(max_length=256, null=True, blank=True)
     description = models.CharField(max_length=256, null=True, blank=True)
     lat = models.CharField(max_length=256, null=True, blank=True)
     lon = models.CharField(max_length=256, null=True, blank=True)
+    note = models.CharField(max_length=256, null=True, blank=True)
     is_selected = models.BooleanField(default=False)
 
     updated_at = models.DateTimeField(auto_now=True)

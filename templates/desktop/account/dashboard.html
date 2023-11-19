@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
     <link rel="icon" href="{% static 'favicon.png'%}" type="image/x-icon">
-    <title>User Dashboard</title>
+    <title>İstifadəçi Paneli</title>
 
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -35,7 +35,127 @@
     <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/bulk-style.css'%}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
+   <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/new.css'%}">
+
+      <style>
+
+
+    @media (max-width: 1660px){
+header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .delivery-login-box .delivery-detail {
+    display: block !important;
+}}
+    header .top-nav .navbar-top .rightside-box .right-side-menu .right-side::before {
+    background-color: rgb(0 0 0 / 50%) !important;
+}
+header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-wishlist span {
+
+    background-color: #000000 !important;
+    }
+        @media (min-width: 1400px){
+.catt {
+    width: 12.26667% !important;
+
+    margin: 22px 0 0px 0;
+    padding: 0 7px 0 7px;
+}
+}
+
+
+.newsletter-section .newsletter-box-2:after {
+    background-image: url(static/subscribe.jpeg);
+    }
+
+
+    </style>
+
+    <style>
+
+/* Required Menu CSS */
+.js-menu__context {
+  background: rgba(0,0,0, 0.5);
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 40000;
+}
+
+.js-menu {
+  color: #000;
+  position: absolute;
+  height: 100%;
+  width: 480px;
+  max-width: 85vw;
+  padding: 12px;
+  margin: 0;
+  background: #fff;
+  z-index: 99;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.js-menu--left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.js-menu--right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    position: absolute;
+    right: 0;
+}
+.js-menu__open {
+  cursor: pointer;
+}
+
+.js-menu__close {
+  cursor: pointer;
+}
+
+.js-menu__expanded {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+    <style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>
+
+    <style>
+        .user-dashboard-section .dashboard-left-sidebar .user-nav-pills .nav-item .nav-link.active, .user-dashboard-section .dashboard-left-sidebar .user-nav-pills .nav-item .nav-link .show>.nav-link {
+
+    color: #000000 !important;
+}
+    </style>
 </head>
 
 <body>
@@ -52,7 +172,7 @@
     <!-- Loader End -->
 
       <!-- Header Start -->
-    <header class="pb-md-4 pb-0">
+    <header class=" pb-0">
         <div class="header-top">
             <div class="container-fluid-lg">
                 <div class="row">
@@ -206,7 +326,7 @@
                                                 <i data-feather="user"  style=" color: #000; "></i>
                                             </div>
                                             <div class="delivery-detail">
-                                                <h6>Salam,</h6>
+                                                <h6>Salam, {{user.first_name}}</h6>
                                                 <h5>Şəxsi Kabinet</h5>
                                             </div>
                                         </div>
@@ -288,10 +408,10 @@
                                                     <a style=" color: #ffffff; " class="nav-link " href="{% url 'about'%}" data-bs-toggle="dropdown">Haqqımızda</a>
                                             </li>
                                              <li class="nav-item dropdown">
-                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'blogs'%})" data-bs-toggle="dropdown">Bloq yazıları</a>
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'blogs'%}" data-bs-toggle="dropdown">Bloq yazıları</a>
                                             </li>
                                              <li class="nav-item dropdown">
-                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'contact'%})" data-bs-toggle="dropdown">Bizimlə Əlaqə</a>
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'contact'%}" data-bs-toggle="dropdown">Bizimlə Əlaqə</a>
                                             </li>
 
 
@@ -355,12 +475,12 @@
     <!-- mobile fix menu end -->
 
     <!-- Breadcrumb Section Start -->
-    <section class="breadscrumb-section pt-0">
+    <section class="breadscrumb-section pt-0" >
         <div class="container-fluid-lg">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadscrumb-contain">
-                        <h2>User Dashboard</h2>
+                    <div class="breadscrumb-contain" style=" padding-top: 20px; padding-bottom: 20px; ">
+                        <h2>İstifadəçi Panel</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -368,7 +488,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">User Dashboard</li>
+                                <li class="breadcrumb-item active" aria-current="page">İstifadəçi Panel</li>
                             </ol>
                         </nav>
                     </div>
@@ -379,7 +499,7 @@
     <!-- Breadcrumb Section End -->
 
     <!-- User Dashboard Section Start -->
-    <section class="user-dashboard-section section-b-space">
+    <section class="user-dashboard-section section-b-space" style=" padding-top: 30px; ">
         <div class="container-fluid-lg">
             <div class="row">
                 <div class="col-xxl-3 col-lg-4">
@@ -397,7 +517,7 @@
                             <div class="profile-contain">
                                 <div class="profile-image">
                                     <div class="position-relative">
-                                        <img src="{% static 'desktop/images/inner-page/user/1.jpg'%}" class="blur-up lazyload update_img" alt="">
+                                        <img src="{% static 'company.png'%}" class="blur-up lazyload update_img" alt="">
                                         <div class="cover-icon">
                                             <i class="fa-solid fa-pen">
                                                 <input type="file" onchange="readURL(this,0)">
@@ -407,8 +527,8 @@
                                 </div>
 
                                 <div class="profile-name">
-                                    <h3>Vicki E. Pope</h3>
-                                    <h6 class="text-content">vicki.pope@gmail.com</h6>
+                                    <h3>{{user.name}}</h3>
+                                    <h6 class="text-content">{{user.email}}</h6>
                                 </div>
                             </div>
                         </div>
@@ -416,35 +536,36 @@
                         <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link active" id="pills-dashboard-tab" data-bs-toggle="pill" data-bs-target="#pills-dashboard" type="button" role="tab" aria-controls="pills-dashboard" aria-selected="true"><i data-feather="home"></i>
-                                    DashBoard</button>
+                                    Əsas Panel</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button" role="tab" aria-controls="pills-order" aria-selected="false"><i data-feather="shopping-bag"></i>Order</button>
+                                <button class="nav-link" id="pills-order-tab" data-bs-toggle="pill" data-bs-target="#pills-order" type="button" role="tab" aria-controls="pills-order" aria-selected="false"><i data-feather="shopping-bag"></i>Sifariş Tarixçəsi</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-wishlist-tab" data-bs-toggle="pill" data-bs-target="#pills-wishlist" type="button" role="tab" aria-controls="pills-wishlist" aria-selected="false"><i data-feather="heart"></i>
-                                    Wishlist</button>
+                                    Favori List</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="false"><i data-feather="credit-card"></i> Saved Card</button>
+                                <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="false"><i data-feather="credit-card"></i> Müqavilə</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-address-tab" data-bs-toggle="pill" data-bs-target="#pills-address" type="button" role="tab" aria-controls="pills-address" aria-selected="false"><i data-feather="map-pin"></i>
-                                    Address</button>
+                                    Ünvanlar</button>
                             </li>
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i data-feather="user"></i>
-                                    Profile</button>
+                                    Şəxsi Məlumatlar</button>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="pills-security-tab" data-bs-toggle="pill" data-bs-target="#pills-security" type="button" role="tab" aria-controls="pills-security" aria-selected="false"><i data-feather="shield"></i>
-                                    Privacy</button>
+
+                             <li class="nav-item" role="presentation">
+                                <a class="nav-link"  href="{% url 'logout'%}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                    Çıxış</a>
                             </li>
                         </ul>
                     </div>
@@ -458,7 +579,7 @@
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel" aria-labelledby="pills-dashboard-tab">
                                 <div class="dashboard-home">
                                     <div class="title">
-                                        <h2>My Dashboard</h2>
+                                        <h2>Şəxsi kabinet</h2>
                                         <span class="title-leaf">
                                             <svg class="icon-width bg-gray">
                                                 <use xlink:href="{% static 'desktop/svg/leaf.svg#leaf"></use>
@@ -467,10 +588,10 @@
                                     </div>
 
                                     <div class="dashboard-user-name">
-                                        <h6 class="text-content">Hello, <b class="text-title">Vicki E. Pope</b></h6>
-                                        <p class="text-content">From your My Account Dashboard you have the ability to
-                                            view a snapshot of your recent account activity and update your account
-                                            information. Select a link below to view or edit information.</p>
+                                        <h6 class="text-content">Salam, <b class="text-title">{{user.first_name}}</b></h6>
+                                        <p class="text-content">
+                                            Şəxsi kabinetinizdə sifarişlərinizi izləyə bilər, şəxsi məlumatlarını redaktə edə bilər və tarixçənizi izləyə bilərsiniz.
+                                        </p>
                                     </div>
 
                                     <div class="total-box">
@@ -480,8 +601,8 @@
                                                     <img src="{% static 'desktop/images/svg/order.svg'%}" class="img-1 blur-up lazyload" alt="">
                                                     <img src="{% static 'desktop/images/svg/order.svg'%}" class="blur-up lazyload" alt="">
                                                     <div class="totle-detail">
-                                                        <h5>Total Order</h5>
-                                                        <h3>3658</h3>
+                                                        <h5>Toplam Sifariş</h5>
+                                                        <h3>{{total_orders}}</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -491,8 +612,8 @@
                                                     <img src="{% static 'desktop/images/svg/pending.svg'%}" class="img-1 blur-up lazyload" alt="">
                                                     <img src="{% static 'desktop/images/svg/pending.svg'%}" class="blur-up lazyload" alt="">
                                                     <div class="totle-detail">
-                                                        <h5>Total Pending Order</h5>
-                                                        <h3>254</h3>
+                                                        <h5>Gözləmədə Olan Sifarişlər</h5>
+                                                        <h3>{{pending_orders}}</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -502,8 +623,8 @@
                                                     <img src="{% static 'desktop/images/svg/wishlist.svg'%}" class="img-1 blur-up lazyload" alt="">
                                                     <img src="{% static 'desktop/images/svg/wishlist.svg'%}" class="blur-up lazyload" alt="">
                                                     <div class="totle-detail">
-                                                        <h5>Total Wishlist</h5>
-                                                        <h3>32158</h3>
+                                                        <h5>Favori Məhsullarınız</h5>
+                                                        <h3>{{wishlist_count}}</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -511,55 +632,41 @@
                                     </div>
 
                                     <div class="dashboard-title">
-                                        <h3>Account Information</h3>
+                                        <h3>Şəxsi Məlumatlar</h3>
                                     </div>
 
                                     <div class="row g-4">
                                         <div class="col-xxl-6">
                                             <div class="dashboard-contant-title">
-                                                <h4>Contact Information <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Edit</a>
+                                                <h4>Məlumatlar<a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Redaktə Et</a>
                                                 </h4>
                                             </div>
                                             <div class="dashboard-detail">
-                                                <h6 class="text-content">MARK JECNO</h6>
-                                                <h6 class="text-content">vicki.pope@gmail.com</h6>
-                                                <a href="javascript:void(0)">Change Password</a>
+                                                <h6 class="text-content">{{user.first_name}}</h6>
+                                                <h6 class="text-content">{{user.email}}</h6>
+                                                <a href="javascript:void(0)">Şifrəni dəyiş</a>
                                             </div>
                                         </div>
 
                                         <div class="col-xxl-6">
-                                            <div class="dashboard-contant-title">
-                                                <h4>Newsletters <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Edit</a></h4>
-                                            </div>
-                                            <div class="dashboard-detail">
-                                                <h6 class="text-content">You are currently not subscribed to any
-                                                    newsletter</h6>
-                                            </div>
+
                                         </div>
 
                                         <div class="col-12">
                                             <div class="dashboard-contant-title">
-                                                <h4>Address Book <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Edit</a></h4>
+                                                <h4>Çatdırılma Ünvanları <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Redaktə Et</a></h4>
                                             </div>
 
                                             <div class="row g-4">
                                                 <div class="col-xxl-6">
                                                     <div class="dashboard-detail">
-                                                        <h6 class="text-content">Default Billing Address</h6>
-                                                        <h6 class="text-content">You have not set a default billing
-                                                            address.</h6>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Edit Address</a>
+                                                        <h6 class="text-content">Əsas Çatdırılma Ünvanı</h6>
+                                                        <h6 class="text-content">Ünvan əlavə edilməyib</h6>
+                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Ünvan əlavə et</a>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-xxl-6">
-                                                    <div class="dashboard-detail">
-                                                        <h6 class="text-content">Default Shipping Address</h6>
-                                                        <h6 class="text-content">You have not set a default shipping
-                                                            address.</h6>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Edit Address</a>
-                                                    </div>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -967,320 +1074,112 @@
                             <div class="tab-pane fade show" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
                                 <div class="dashboard-order">
                                     <div class="title">
-                                        <h2>My Orders History</h2>
+                                        <h2>Sifariş Tarixçəsi</h2>
                                         <span class="title-leaf title-leaf-gray">
                                             <svg class="icon-width bg-gray">
                                                 <use xlink:href="{% static 'desktop/svg/leaf.svg#leaf"></use>
                                             </svg>
                                         </span>
                                     </div>
-
-                                    <div class="order-contain">
-                                        <div class="order-box dashboard-bg-box">
-                                            <div class="order-container">
-                                                <div class="order-icon">
-                                                    <i data-feather="box"></i>
-                                                </div>
-
-                                                <div class="order-detail">
-                                                    <h4>Delivere <span>Panding</span></h4>
-                                                    <h6 class="text-content">Gouda parmesan caerphilly mozzarella
-                                                        cottage cheese cauliflower cheese taleggio gouda.</h6>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-order-detail">
-                                                <a href="product-left-thumbnail.html" class="order-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/1.png'%}" class="blur-up lazyload" alt="">
-                                                </a>
-
-                                                <div class="order-wrap">
-                                                    <a href="product-left-thumbnail.html">
-                                                        <h3>Fantasy Crunchy Choco Chip Cookies</h3>
-                                                    </a>
-                                                    <p class="text-content">Cheddar dolcelatte gouda. Macaroni cheese
-                                                        cheese strings feta halloumi cottage cheese jarlsberg cheese
-                                                        triangles say cheese.</p>
-                                                    <ul class="product-size">
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Price : </h6>
-                                                                <h5>$20.68</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Rate : </h6>
-                                                                <div class="product-rating ms-2">
-                                                                    <ul class="rating">
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Sold By : </h6>
-                                                                <h5>Fresho</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Quantity : </h6>
-                                                                <h5>250 G</h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="order-box dashboard-bg-box">
-                                            <div class="order-container">
-                                                <div class="order-icon">
-                                                    <i data-feather="box"></i>
-                                                </div>
-
-                                                <div class="order-detail">
-                                                    <h4>Delivered <span class="success-bg">Success</span></h4>
-                                                    <h6 class="text-content">Cheese on toast cheesy grin cheesy grin
-                                                        cottage cheese caerphilly everyone loves cottage cheese the big
-                                                        cheese.</h6>
+                                      <div class="dashboard-home">
+                                       <div class="total-box">
+                                        <div class="row g-sm-4 g-3">
+                                            <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                                <div class="totle-contain">
+                                                    <img src="{% static 'desktop/images/svg/order.svg'%}" class="img-1 blur-up lazyload" alt="">
+                                                    <img src="{% static 'desktop/images/svg/order.svg'%}" class="blur-up lazyload" alt="">
+                                                    <div class="totle-detail">
+                                                        <h5>Toplam Sifariş</h5>
+                                                        <h3>{{total_orders}}</h3>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="product-order-detail">
-                                                <a href="product-left-thumbnail.html" class="order-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/2.png'%}" alt="" class="blur-up lazyload">
-                                                </a>
-
-                                                <div class="order-wrap">
-                                                    <a href="product-left-thumbnail.html">
-                                                        <h3>Cold Brew Coffee Instant Coffee 50 g</h3>
-                                                    </a>
-                                                    <p class="text-content">Pecorino paneer port-salut when the cheese
-                                                        comes out everybody's happy red leicester mascarpone blue
-                                                        castello cauliflower cheese.</p>
-                                                    <ul class="product-size">
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Price : </h6>
-                                                                <h5>$20.68</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Rate : </h6>
-                                                                <div class="product-rating ms-2">
-                                                                    <ul class="rating">
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Sold By : </h6>
-                                                                <h5>Fresho</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Quantity : </h6>
-                                                                <h5>250 G</h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="order-box dashboard-bg-box">
-                                            <div class="order-container">
-                                                <div class="order-icon">
-                                                    <i data-feather="box"></i>
-                                                </div>
-
-                                                <div class="order-detail">
-                                                    <h4>Delivere <span>Panding</span></h4>
-                                                    <h6 class="text-content">Cheesy grin boursin cheesy grin cheesecake
-                                                        blue castello cream cheese lancashire melted cheese.</h6>
+                                            <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                                <div class="totle-contain">
+                                                    <img src="{% static 'desktop/images/svg/pending.svg'%}" class="img-1 blur-up lazyload" alt="">
+                                                    <img src="{% static 'desktop/images/svg/pending.svg'%}" class="blur-up lazyload" alt="">
+                                                    <div class="totle-detail">
+                                                        <h5>Gözləmədə Olan Sifarişlər</h5>
+                                                        <h3>{{pending_orders}}</h3>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div class="product-order-detail">
-                                                <a href="product-left-thumbnail.html" class="order-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/3.png'%}" alt="" class="blur-up lazyload">
-                                                </a>
-
-                                                <div class="order-wrap">
-                                                    <a href="product-left-thumbnail.html">
-                                                        <h3>Peanut Butter Bite Premium Butter Cookies 600 g</h3>
-                                                    </a>
-                                                    <p class="text-content">Cow bavarian bergkase mascarpone paneer
-                                                        squirty cheese fromage frais cheese slices when the cheese comes
-                                                        out everybody's happy.</p>
-                                                    <ul class="product-size">
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Price : </h6>
-                                                                <h5>$20.68</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Rate : </h6>
-                                                                <div class="product-rating ms-2">
-                                                                    <ul class="rating">
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Sold By : </h6>
-                                                                <h5>Fresho</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Quantity : </h6>
-                                                                <h5>250 G</h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="order-box dashboard-bg-box">
-                                            <div class="order-container">
-                                                <div class="order-icon">
-                                                    <i data-feather="box"></i>
-                                                </div>
-
-                                                <div class="order-detail">
-                                                    <h4>Delivered <span class="success-bg">Success</span></h4>
-                                                    <h6 class="text-content">Caerphilly port-salut parmesan pecorino
-                                                        croque monsieur dolcelatte melted cheese cheese and wine.</h6>
-                                                </div>
-                                            </div>
-
-                                            <div class="product-order-detail">
-                                                <a href="product-left-thumbnail.html" class="order-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/4.png'%}" class="blur-up lazyload" alt="">
-                                                </a>
-
-                                                <div class="order-wrap">
-                                                    <a href="product-left-thumbnail.html">
-                                                        <h3>SnackAmor Combo Pack of Jowar Stick and Jowar Chips</h3>
-                                                    </a>
-                                                    <p class="text-content">The big cheese cream cheese pepper jack
-                                                        cheese slices danish fontina everyone loves cheese on toast
-                                                        bavarian bergkase.</p>
-                                                    <ul class="product-size">
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Price : </h6>
-                                                                <h5>$20.68</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Rate : </h6>
-                                                                <div class="product-rating ms-2">
-                                                                    <ul class="rating">
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star" class="fill"></i>
-                                                                        </li>
-                                                                        <li>
-                                                                            <i data-feather="star"></i>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Sold By : </h6>
-                                                                <h5>Fresho</h5>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <div class="size-box">
-                                                                <h6 class="text-content">Quantity : </h6>
-                                                                <h5>250 G</h5>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
+                                            <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
+                                                <div class="totle-contain">
+                                                    <img src="{% static 'desktop/images/svg/wishlist.svg'%}" class="img-1 blur-up lazyload" alt="">
+                                                    <img src="{% static 'desktop/images/svg/wishlist.svg'%}" class="blur-up lazyload" alt="">
+                                                    <div class="totle-detail">
+                                                        <h5>Favori Məhsullarınız</h5>
+                                                        <h3>{{wishlist_count}}</h3>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+                                        </div>
+
+
+
+
+
+
+
+                                        <div class="order-tab dashboard-bg-box">
+                                        <div class="table-responsive">
+                                            <table class="table order-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Sifariş kodu</th>
+                                                        <th scope="col">Tarix</th>
+                                                        <th scope="col">Çatdırılma ünvanı</th>
+                                                        <th scope="col">Ödəniş növü</th>
+                                                        <th scope="col">Status</th>
+                                                        <th scope="col">Məbləğ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for o in orders %}
+                                                    <tr>
+                                                        <td class="product-image">#0000{{o.id}}</td>
+                                                        <td>
+                                                            {{o.ordered_date_time}}
+                                                        </td>
+                                                        <td>
+                                                            <h6>{{o.address.street}} {{o.address.building}}</h6>
+                                                        </td>
+                                                        <td>
+                                                             <label class="success" style=" color: #0e845b; ">Bank köçürmə</label>
+                                                        </td>
+                                                         <td>
+                                                             <label class="success" style="color: #000000;background: #fee332;">{{o.get_status_display}}</label>
+                                                        </td>
+
+                                                         <td>
+                                                            <h6>₼ {{o.get_cart_total}}</h6>
+                                                        </td>
+                                                    </tr>
+                                                {% endfor%}
+
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
                             </div>
 
@@ -1288,7 +1187,7 @@
                                 <div class="dashboard-address">
                                     <div class="title title-flex">
                                         <div>
-                                            <h2>My Address Book</h2>
+                                            <h2>Ünvanlarım</h2>
                                             <span class="title-leaf">
                                                 <svg class="icon-width bg-gray">
                                                     <use xlink:href="{% static 'desktop/svg/leaf.svg#leaf"></use>
@@ -1296,11 +1195,20 @@
                                             </span>
                                         </div>
 
-                                        <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3" data-bs-toggle="modal" data-bs-target="#add-address"><i data-feather="plus" class="me-2"></i> Add New Address</button>
+                                        <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3" data-bs-toggle="modal" data-bs-target="#add-address"><i data-feather="plus" class="me-2"></i> Ünvan əlavə et</button>
                                     </div>
 
                                     <div class="row g-sm-4 g-3">
+                                        {% if user.addresses.count == 0 %}
                                         <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
+                                            <div class="address-box">
+
+Heç bir ünvanı əlavə edilməyib.
+                                            </div>
+                                        </div>
+                                        {% endif %}
+                                        {% for a in user.addresses.all %}
+                                        <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6">
                                             <div class="address-box">
                                                 <div>
                                                     <div class="form-check">
@@ -1308,33 +1216,34 @@
                                                     </div>
 
                                                     <div class="label">
-                                                        <label>Home</label>
+                                                        <label>{{a.name}}</label>
                                                     </div>
 
                                                     <div class="table-responsive address-table">
                                                         <table class="table">
                                                             <tbody>
                                                                 <tr>
-                                                                    <td colspan="2">Jack Jennas</td>
+                                                                    <td colspan="2">{{a.city}}</td>
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td>Address :</td>
+                                                                    <td>Ünvan:</td>
                                                                     <td>
-                                                                        <p>8424 James Lane South San Francisco, CA 94080
+                                                                        <p>{{a.street}} {{a.building}}
                                                                         </p>
                                                                     </td>
                                                                 </tr>
 
                                                                 <tr>
-                                                                    <td>Pin Code :</td>
-                                                                    <td>+380</td>
+                                                                    <td>Poçt İndeksi :</td>
+                                                                    <td>{{a.zip}}</td>
+                                                                </tr>
+                                                            <tr>
+                                                                    <td>Əlavə qeyd :</td>
+                                                                    <td>{{a.note}}</td>
                                                                 </tr>
 
-                                                                <tr>
-                                                                    <td>Phone :</td>
-                                                                    <td>+ 812-710-3798</td>
-                                                                </tr>
+
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -1342,206 +1251,13 @@
 
                                                 <div class="button-group">
                                                     <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Edit</button>
+                                                        Redaktə et</button>
                                                     <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Remove</button>
+                                                        Ünvanı sil</button>
                                                 </div>
                                             </div>
                                         </div>
-
-                                        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault3">
-                                                    </div>
-
-                                                    <div class="label">
-                                                        <label>Office</label>
-                                                    </div>
-
-                                                    <div class="table-responsive address-table">
-                                                        <table class="table">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="2">Terry S. Sutton</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Address :</td>
-                                                                    <td>
-                                                                        <p>2280 Rose Avenue Kenner, LA 70062</p>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Pin Code :</td>
-                                                                    <td>+25</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Phone :</td>
-                                                                    <td>+ 504-228-0969</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="button-group">
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Edit</button>
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault4">
-                                                    </div>
-
-                                                    <div class="label">
-                                                        <label>Neighbour</label>
-                                                    </div>
-
-                                                    <div class="table-responsive address-table">
-                                                        <table class="table">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="2">Juan M. McKeon</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Address :</td>
-                                                                    <td>
-                                                                        <p>1703 Carson Street Lexington, KY 40593</p>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Pin Code :</td>
-                                                                    <td>+78</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Phone :</td>
-                                                                    <td>+ 859-257-0509</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="button-group">
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Edit</button>
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault5">
-                                                    </div>
-
-                                                    <div class="label">
-                                                        <label>Home 2</label>
-                                                    </div>
-
-                                                    <div class="table-responsive address-table">
-                                                        <table class="table">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="2">Gary M. Bailey</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Address :</td>
-                                                                    <td>
-                                                                        <p>2135 Burning Memory Lane Philadelphia, PA
-                                                                            19135</p>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Pin Code :</td>
-                                                                    <td>+26</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Phone :</td>
-                                                                    <td>+ 215-335-9916</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="button-group">
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Edit</button>
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault1">
-                                                    </div>
-
-                                                    <div class="label">
-                                                        <label>Home 2</label>
-                                                    </div>
-
-                                                    <div class="table-responsive address-table">
-                                                        <table class="table">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="2">Gary M. Bailey</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Address :</td>
-                                                                    <td>
-                                                                        <p>2135 Burning Memory Lane Philadelphia, PA
-                                                                            19135</p>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Pin Code :</td>
-                                                                    <td>+26</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Phone :</td>
-                                                                    <td>+ 215-335-9916</td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="button-group">
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Edit</button>
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Remove</button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% endfor %}
                                     </div>
                                 </div>
                             </div>
@@ -1711,7 +1427,7 @@
                                         </div>
                                         <div class="profile-name-detail">
                                             <div class="d-sm-flex align-items-center d-block">
-                                                <h3>Vicki E. Pope</h3>
+                                                <h3>{{user.name}}</h3>
                                                 <div class="product-rating profile-rating">
                                                     <ul class="rating">
                                                         <li>
@@ -1748,7 +1464,7 @@
                                                 <li>
                                                     <div class="location-box">
                                                         <i data-feather="mail"></i>
-                                                        <h6>vicki.pope@gmail.com</h6>
+                                                        <h6>{{user.email}}</h6>
                                                     </div>
                                                 </li>
 
@@ -1811,7 +1527,7 @@
                                                             <tr>
                                                                 <td>Email :</td>
                                                                 <td>
-                                                                    <a href="javascript:void(0)">vicki.pope@gmail.com
+                                                                    <a href="javascript:void(0)">{{user.email}}
                                                                         <span data-bs-toggle="modal" data-bs-target="#editProfile">Edit</span></a>
                                                                 </td>
                                                             </tr>
@@ -2160,6 +1876,9 @@
     </div>
     <!-- Deal Box Modal End -->
 
+
+
+
     <!-- Tap to top start -->
     <div class="theme-option">
         <div class="setting-box">
@@ -2221,158 +1940,134 @@
     <!-- Add address modal box start -->
     <div class="modal fade theme-modal" id="add-address" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
-            <div class="modal-content">
+            <form class="modal-content" method="post">
+                <input type="hidden" name="type" value="addaddress">
+                <input type="hidden" name="customer" value="{{user.id}}">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add a new address</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Ünvan əlavə et</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form>
+                    <div >
+                        {% csrf_token%}
                         <div class="form-floating mb-4 theme-form-floating">
-                            <input type="text" class="form-control" id="fname" placeholder="Enter First Name">
-                            <label for="fname">First Name</label>
+                            <input type="text" class="form-control" required name="name" id="fname" placeholder="Ünvan adı">
+                            <label for="fname">Ünvanı adı (məs. Depo)</label>
                         </div>
-                    </form>
+                    </div>
 
-                    <form>
+                    <div>
                         <div class="form-floating mb-4 theme-form-floating">
-                            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name">
-                            <label for="lname">Last Name</label>
+                            <input type="text" class="form-control" required name="city" id="lname" placeholder="Şəhər/Rayon">
+                            <label for="lname">Şəhər/Rayon</label>
                         </div>
-                    </form>
+                    </div>
 
-                    <form>
+                    <div>
                         <div class="form-floating mb-4 theme-form-floating">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
-                            <label for="email">Email Address</label>
+                            <input type="text" class="form-control"  required name="street" id="text" placeholder="Küçə adı">
+                            <label for="email">Küçə adı</label>
                         </div>
-                    </form>
+                    </div>
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" class="form-control" required name="building"  id="text" placeholder="Bina/Mənzil">
+                            <label for="email">Bina/Mənzil</label>
+                        </div>
+                    </div>
 
-                    <form>
+                    <div>
                         <div class="form-floating mb-4 theme-form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="address" style="height: 100px"></textarea>
-                            <label for="address">Enter Address</label>
+                            <textarea class="form-control" name="note" placeholder="Ətraflı izah edin" id="address" style="height: 100px"></textarea>
+                            <label for="address">Ətraflı izah edin</label>
                         </div>
-                    </form>
+                    </div>
 
-                    <form>
+                    <div>
                         <div class="form-floating mb-4 theme-form-floating">
-                            <input type="email" class="form-control" id="pin" placeholder="Enter Pin Code">
-                            <label for="pin">Pin Code</label>
+                            <input type="text" required name="zip" class="form-control" id="pin" placeholder="Poçt indeksi">
+                            <label for="pin">Poçt indeksi</label>
                         </div>
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn theme-bg-color btn-md text-white" data-bs-dismiss="modal">Save
-                        changes</button>
+                    <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Bağla</button>
+                    <button type="submit" class="btn theme-bg-color btn-md text-white" data-bs-dismiss="modal">Yadda Saxla</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <!-- Add address modal box end -->
 
     <!-- Location Modal Start -->
-    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel1">Choose your Delivery Location</h5>
-                    <p class="mt-1 text-content">Enter your address and we will specify the offer for your area.</p>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding-top: 0px;">
                     <div class="location-list">
-                        <div class="search-input">
-                            <input type="search" class="form-control" placeholder="Search Your Area">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                             <div class="">
+            <div class="row g-sm-4 g-3" style=" justify-content: center; ">
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px;background-color:#ecf0f4; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'kampaniyalar'%}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{% static 'desktop/kampaniya.svg'%}" class="  lazyload" alt="" style="width: 84px;padding: 11px 11px 8px 11px;">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style="font-size: 10px; color: #272727; font-family: system-ui; font-weight: 600;">Kampaniyalar</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important; ">{{kampaniya_quantity}} məhsul</p>
+                                </div>
+                            </a>
                         </div>
+                </div>
 
-                        <div class="disabled-box">
-                            <h6>Select a Location</h6>
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px;background-color:#ecf0f4; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'yenimehsullar'%}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{% static 'desktop/yeni.svg'%}" class="  lazyload" alt=""style="width: 84px;padding: 11px 11px 8px 11px;">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style="font-size: 10px; color: #272727; font-family: system-ui; font-weight: 600; ">Yeni Məhsullar</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important;">
+                                        {{new_quantity}} məhsul</p>
+                                </div>
+                            </a>
                         </div>
+                </div>
 
-                        <ul class="location-select custom-height">
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Alabama</h6>
-                                    <span>Min: $130</span>
-                                </a>
-                            </li>
+                {% for c in cats %}
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'category' c.id %}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{{c.image.url}}" class="  lazyload" alt="" style=" width: 84px; ">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style=" font-size: 10px;color: #272727; font-family: system-ui; font-weight: 600; ">{{c.name}}</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important;">{{c.product_count}} məhsul</p>
+                                </div>
+                            </a>
+                        </div>
+                </div>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Arizona</h6>
-                                    <span>Min: $150</span>
-                                </a>
-                            </li>
+                {% endfor%}
+                 </div>
+             </div>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>California</h6>
-                                    <span>Min: $110</span>
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Colorado</h6>
-                                    <span>Min: $140</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Florida</h6>
-                                    <span>Min: $160</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Georgia</h6>
-                                    <span>Min: $120</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Kansas</h6>
-                                    <span>Min: $170</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Minnesota</h6>
-                                    <span>Min: $120</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>New York</h6>
-                                    <span>Min: $110</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Washington</h6>
-                                    <span>Min: $130</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Location Modal End -->
+
 
     <!-- Edit Profile Start -->
     <div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
@@ -2398,7 +2093,7 @@
                         <div class="col-xxl-6">
                             <form>
                                 <div class="form-floating theme-form-floating">
-                                    <input type="email" class="form-control" id="email1" value="vicki.pope@gmail.com">
+                                    <input type="email" class="form-control" id="email1" value="{{user.email}}">
                                     <label for="email1">Email address</label>
                                 </div>
                             </form>

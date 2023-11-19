@@ -36,6 +36,125 @@
 
     <!-- Template css -->
     <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
+     <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/new.css'%}">
+     <style>
+
+
+    @media (max-width: 1660px){
+header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .delivery-login-box .delivery-detail {
+    display: block !important;
+}}
+    header .top-nav .navbar-top .rightside-box .right-side-menu .right-side::before {
+    background-color: rgb(0 0 0 / 50%) !important;
+}
+header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-wishlist span {
+
+    background-color: #000000 !important;
+    }
+        @media (min-width: 1400px){
+.catt {
+    width: 12.26667% !important;
+
+    margin: 22px 0 0px 0;
+    padding: 0 7px 0 7px;
+}
+}
+
+
+.newsletter-section .newsletter-box-2:after {
+    background-image: url(static/subscribe.jpeg);
+    }
+
+
+    </style>
+
+    <style>
+
+/* Required Menu CSS */
+.js-menu__context {
+  background: rgba(0,0,0, 0.5);
+  left: 0;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+  z-index: 40000;
+}
+
+.js-menu {
+  color: #000;
+  position: absolute;
+  height: 100%;
+  width: 480px;
+  max-width: 85vw;
+  padding: 12px;
+  margin: 0;
+  background: #fff;
+  z-index: 99;
+  overflow-y: auto;
+
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  transition: background 0.5s, transform 0.5s;
+}
+
+.js-menu--left {
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.js-menu--right {
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    position: absolute;
+    right: 0;
+}
+.js-menu__open {
+  cursor: pointer;
+}
+
+.js-menu__close {
+  cursor: pointer;
+}
+
+.js-menu__expanded {
+  -webkit-transform: translateX(0);
+  transform: translateX(0);
+  visibility: visible;
+  opacity: 1;
+}
+
+</style>
+    <style>
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #bdbdbd;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+</style>
+
+    <style>
+        .user-dashboard-section .dashboard-left-sidebar .user-nav-pills .nav-item .nav-link.active, .user-dashboard-section .dashboard-left-sidebar .user-nav-pills .nav-item .nav-link .show>.nav-link {
+
+    color: #000000 !important;
+}
+    </style>
 </head>
 
 <body>
@@ -360,7 +479,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadscrumb-contain">
-                        <h2>Cart</h2>
+                        <h2>Sifariş Siyahısı</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -368,7 +487,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Cart</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sifariş Siyahısı</li>
                             </ol>
                         </nav>
                     </div>
@@ -387,262 +506,98 @@
                         <div class="table-responsive-xl">
                             <table class="table">
                                 <tbody>
+                                {% for i in order_in_cart.items.all %}
                                     <tr class="product-box-contain">
                                         <td class="product-detail">
                                             <div class="product border-0">
                                                 <a href="product-left-thumbnail.html" class="product-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/1.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                                    <img src="{{i.product.main_image.url}}" class="img-fluid blur-up lazyload" alt="">
                                                 </a>
                                                 <div class="product-detail">
                                                     <ul>
                                                         <li class="name">
-                                                            <a href="product-left-thumbnail.html">Bell pepper</a>
+                                                            <a href="product-left-thumbnail.html">{{i.product.name}}</a>
                                                         </li>
 
-                                                        <li class="text-content"><span class="text-title">Sold
-                                                                By:</span> Fresho</li>
+                                                        <li class="text-content"><span class="text-title">Kateqoriya:</span>
+                                                            {{i.product.category.first.name}}</li>
 
-                                                        <li class="text-content"><span class="text-title">Quantity</span> - 500 g</li>
 
-                                                        <li>
-                                                            <h5 class="text-content d-inline-block">Price :</h5>
-                                                            <span>$35.10</span>
-                                                            <span class="text-content">$45.68</span>
-                                                        </li>
 
-                                                        <li>
-                                                            <h5 class="saving theme-color">Saving : $20.68</h5>
-                                                        </li>
 
-                                                        <li class="quantity-price-box">
-                                                            <div class="cart_qty">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus ms-0" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus ms-0" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </li>
 
-                                                        <li>
-                                                            <h5>Total: $35.10</h5>
-                                                        </li>
+
+
+
                                                     </ul>
                                                 </div>
                                             </div>
                                         </td>
 
                                         <td class="price">
-                                            <h4 class="table-title text-content">Price</h4>
-                                            <h5>$35.10 <del class="text-content">$45.68</del></h5>
-                                            <h6 class="theme-color">You Save : $20.68</h6>
+                                            <h4 class="table-title text-content">Qiymət</h4>
+                                            <h5>₼ {{i.unit_price}}</h5>
+
                                         </td>
 
                                         <td class="quantity">
-                                            <h4 class="table-title text-content">Qty</h4>
+                                            <h4 class="table-title text-content">Miqdar</h4>
                                             <div class="quantity-price">
                                                 <div class="cart_qty">
                                                     <div class="input-group">
-                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
+                                                        <button id="minus{{i.id}}" onclick="miqdarminus{{i.id}}()" type="button" class="btn qty-left-minus" data-type="minus" data-field="">
                                                             <i class="fa fa-minus ms-0" aria-hidden="true"></i>
                                                         </button>
-                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
+                                                        <input id="currentqty{{i.id}}" class="form-control input-number qty-input" type="text" name="quantity" value="{{i.quantity}}">
+                                                        <button id="plus{{i.id}}" onclick="miqdarplus{{i.id}}()" type="button" class="btn qty-right-plus" data-type="plus" data-field="">
                                                             <i class="fa fa-plus ms-0" aria-hidden="true"></i>
                                                         </button>
+
+                                                        <script>
+                                                            function miqdarplus{{i.id}}() {
+                                                          var currentqty{{i.id}} = document.getElementById('currentqty{{i.id}}').value
+                                                          document.getElementById('itemqty{{i.id}}').value = parseInt(currentqty{{i.id}}) + parseInt(1)
+                                                          document.getElementById('currentqty{{i.id}}').value = parseInt(currentqty{{i.id}})
+
+                                                        }
+
+                                                        function miqdarminus{{i.id}}() {
+                                                          var currentqty{{i.id}} = document.getElementById('currentqty{{i.id}}').value
+                                                          document.getElementById('itemqty{{i.id}}').value = parseInt(currentqty{{i.id}}) - parseInt(1)
+                                                          document.getElementById('currentqty{{i.id}}').value = parseInt(currentqty{{i.id}})
+
+
+                                                        }
+                                                                                                                </script>
                                                     </div>
                                                 </div>
                                             </div>
                                         </td>
 
                                         <td class="subtotal">
-                                            <h4 class="table-title text-content">Total</h4>
-                                            <h5>$35.10</h5>
+                                            <h4 class="table-title text-content">Cəmi</h4>
+                                            <h5>₼ {{i.total_price}}</h5>
                                         </td>
 
                                         <td class="save-remove">
-                                            <h4 class="table-title text-content">Action</h4>
-                                            <a class="save notifi-wishlist" href="javascript:void(0)">Save for later</a>
-                                            <a class="remove close_button" href="javascript:void(0)">Remove</a>
+                                            <form method="post">
+                                                {% csrf_token%}
+                                                <input type="hidden" name="update" value="1">
+                                                <input type="hidden" name="product" id="item{{i.id}}" value="{{i.id}}">
+                                                <input type="hidden" name="qty" id="itemqty{{i.id}}" value="5">
+                                                 <button class="btn btn-light shopping-button text-dark" style=" background-color: white; border-color: #8c8c8c !important; border-width: 1px; border-style: solid;padding: 7px 15px; font-size: 12px; margin-top: 4px; " type="submit">Miqdarı yenilə</button>
+                                            </form>
+                                            <form method="post">
+                                                {% csrf_token%}
+                                                <input type="hidden" name="remove" value="1">
+                                                <input type="hidden" name="product" value="{{i.id}}">
+                                                 <button class="btn btn-animation proceed-btn fw-bold" style=" padding: 7px 15px; font-size: 12px; margin-top: 4px; " type="submit">Məhsulu sil</button>
+                                            </form>
+
                                         </td>
                                     </tr>
 
-                                    <tr class="product-box-contain">
-                                        <td class="product-detail">
-                                            <div class="product border-0">
-                                                <a href="product-left-thumbnail.html" class="product-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/2.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                </a>
-                                                <div class="product-detail">
-                                                    <ul>
-                                                        <li class="name">
-                                                            <a href="product-left-thumbnail.html">Eggplant</a>
-                                                        </li>
-
-                                                        <li class="text-content"><span class="text-title">Sold
-                                                                By:</span> Nesto
-                                                        </li>
-
-                                                        <li class="text-content"><span class="text-title">Quantity</span> - 250 g</li>
-
-                                                        <li>
-                                                            <h5 class="text-content d-inline-block">Price :</h5>
-                                                            <span>$35.10</span>
-                                                            <span class="text-content">$45.68</span>
-                                                        </li>
-
-                                                        <li>
-                                                            <h5 class="saving theme-color">Saving : $20.68</h5>
-                                                        </li>
-
-                                                        <li class="quantity">
-                                                            <div class="quantity-price">
-                                                                <div class="cart_qty">
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
-                                                                            <i class="fa fa-minus ms-0" aria-hidden="true"></i>
-                                                                        </button>
-                                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
-                                                                            <i class="fa fa-plus ms-0" aria-hidden="true"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <h5>Total: $52.95</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="price">
-                                            <h4 class="table-title text-content">Price</h4>
-                                            <h5>$52.95 <del class="text-content">$68.49</del></h5>
-                                            <h6 class="theme-color">You Save : $15.14</h6>
-                                        </td>
-
-                                        <td class="quantity">
-                                            <h4 class="table-title text-content">Qty</h4>
-                                            <div class="quantity-price">
-                                                <div class="cart_qty">
-                                                    <div class="input-group">
-                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
-                                                            <i class="fa fa-minus ms-0" aria-hidden="true"></i>
-                                                        </button>
-                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
-                                                            <i class="fa fa-plus ms-0" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="subtotal">
-                                            <h4 class="table-title text-content">Total</h4>
-                                            <h5>$52.95</h5>
-                                        </td>
-
-                                        <td class="save-remove">
-                                            <h4 class="table-title text-content">Action</h4>
-                                            <a class="save notifi-wishlist" href="javascript:void(0)">Save for later</a>
-                                            <a class="remove close_button" href="javascript:void(0)">Remove</a>
-                                        </td>
-                                    </tr>
-
-                                    <tr class="product-box-contain">
-                                        <td class="product-detail">
-                                            <div class="product border-0">
-                                                <a href="product-left-thumbnail.html" class="product-image">
-                                                    <img src="{% static 'desktop/images/vegetable/product/3.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                </a>
-                                                <div class="product-detail">
-                                                    <ul>
-                                                        <li class="name">
-                                                            <a href="product-left-thumbnail.html">Onion</a>
-                                                        </li>
-
-                                                        <li class="text-content"><span class="text-title">Sold
-                                                                By:</span> Basket</li>
-
-                                                        <li class="text-content"><span class="text-title">Quantity</span> - 750 g</li>
-
-                                                        <li>
-                                                            <h5 class="text-content d-inline-block">Price :</h5>
-                                                            <span>$35.10</span>
-                                                            <span class="text-content">$45.68</span>
-                                                        </li>
-
-                                                        <li>
-                                                            <h5 class="saving theme-color">Saving : $20.68</h5>
-                                                        </li>
-
-                                                        <li class="quantity">
-                                                            <div class="quantity-price">
-                                                                <div class="cart_qty">
-                                                                    <div class="input-group">
-                                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
-                                                                            <i class="fa fa-minus ms-0" aria-hidden="true"></i>
-                                                                        </button>
-                                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
-                                                                            <i class="fa fa-plus ms-0" aria-hidden="true"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </li>
-
-                                                        <li>
-                                                            <h5>Total: $67.36</h5>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="price">
-                                            <h4 class="table-title text-content">Price</h4>
-                                            <h5>$67.36 <del class="text-content">$96.58</del></h5>
-                                            <h6 class="theme-color">You Save : $29.22</h6>
-                                        </td>
-
-                                        <td class="quantity">
-                                            <h4 class="table-title text-content">Qty</h4>
-                                            <div class="quantity-price">
-                                                <div class="cart_qty">
-                                                    <div class="input-group">
-                                                        <button type="button" class="btn qty-left-minus" data-type="minus" data-field="">
-                                                            <i class="fa fa-minus ms-0" aria-hidden="true"></i>
-                                                        </button>
-                                                        <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                        <button type="button" class="btn qty-right-plus" data-type="plus" data-field="">
-                                                            <i class="fa fa-plus ms-0" aria-hidden="true"></i>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="subtotal">
-                                            <h4 class="table-title text-content">Total</h4>
-                                            <h5>$67.36</h5>
-                                        </td>
-
-                                        <td class="save-remove">
-                                            <h4 class="table-title text-content">Action</h4>
-                                            <a class="save notifi-wishlist" href="javascript:void(0)">Save for later</a>
-                                            <a class="remove close_button" href="javascript:void(0)">Remove</a>
-                                        </td>
-                                    </tr>
+                                    {% endfor %}
                                 </tbody>
                             </table>
                         </div>
@@ -652,51 +607,45 @@
                 <div class="col-xxl-3">
                     <div class="summery-box p-sticky">
                         <div class="summery-header">
-                            <h3>Cart Total</h3>
+                            <h3>Sifariş Məbləği</h3>
                         </div>
 
                         <div class="summery-contain">
-                            <div class="coupon-cart">
-                                <h6 class="text-content mb-2">Coupon Apply</h6>
-                                <div class="mb-3 coupon-box input-group">
-                                    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Enter Coupon Code Here...">
-                                    <button class="btn-apply">Apply</button>
-                                </div>
-                            </div>
+
                             <ul>
                                 <li>
-                                    <h4>Subtotal</h4>
-                                    <h4 class="price">$125.65</h4>
+                                    <h4>Cəmi Məbləğ</h4>
+                                    <h4 class="price">₼ {{order_in_cart.get_cart_total}}</h4>
                                 </li>
 
                                 <li>
-                                    <h4>Coupon Discount</h4>
+                                    <h4>Endirim</h4>
                                     <h4 class="price">(-) 0.00</h4>
                                 </li>
 
                                 <li class="align-items-start">
-                                    <h4>Shipping</h4>
-                                    <h4 class="price text-end">$6.90</h4>
+                                    <h4>Çatdırılma Məbləği</h4>
+                                    <h4 class="price text-end">₼ 0.00</h4>
                                 </li>
                             </ul>
                         </div>
 
                         <ul class="summery-total">
                             <li class="list-total border-top-0">
-                                <h4>Total (USD)</h4>
-                                <h4 class="price theme-color">$132.58</h4>
+                                <h4>Yekun Məbləğ</h4>
+                                <h4 class="price theme-color">₼ {{order_in_cart.get_cart_total}}</h4>
                             </li>
                         </ul>
 
                         <div class="button-group cart-button">
                             <ul>
                                 <li>
-                                    <button onclick="location.href = 'checkout.html';" class="btn btn-animation proceed-btn fw-bold">Process To Checkout</button>
+                                    <button onclick="location.href = '{% url 'checkout'%}';" class="btn btn-animation proceed-btn fw-bold">Sifarişi Tamamla</button>
                                 </li>
 
                                 <li>
                                     <button onclick="location.href = '{% url 'index'%}';" class="btn btn-light shopping-button text-dark">
-                                        <i class="fa-solid fa-arrow-left-long"></i>Return To Shopping</button>
+                                        <i class="fa-solid fa-arrow-left-long"></i>Alış-verişə davam</button>
                                 </li>
                             </ul>
                         </div>
@@ -710,6 +659,7 @@
     <!-- Footer Section Start -->
     <footer class="section-t-space footer-section-2 footer-color-3">
         <div class="container-fluid-lg">
+
             <div class="main-footer">
                 <div class="row g-md-4 gy-sm-5">
                     <div class="col-xxl-3 col-xl-4 col-sm-6">
@@ -875,99 +825,66 @@
         </div>
     </footer>
     <!-- Footer Section End -->
-    <!-- Location Modal Start -->
-    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+      <!-- Location Modal Start -->
+    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Choose your Delivery Location</h5>
-                    <p class="mt-1 text-content">Enter your address and we will specify the offer for your area.</p>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" style="padding-top: 0px;">
                     <div class="location-list">
-                        <div class="search-input">
-                            <input type="search" class="form-control" placeholder="Search Your Area">
-                            <i class="fa-solid fa-magnifying-glass"></i>
+
+                             <div class="">
+            <div class="row g-sm-4 g-3" style=" justify-content: center; ">
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px;background-color:#ecf0f4; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'kampaniyalar'%}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{% static 'desktop/kampaniya.svg'%}" class="  lazyload" alt="" style="width: 84px;padding: 11px 11px 8px 11px;">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style="font-size: 10px; color: #272727; font-family: system-ui; font-weight: 600;">Kampaniyalar</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important; ">{{kampaniya_quantity}} məhsul</p>
+                                </div>
+                            </a>
                         </div>
+                </div>
 
-                        <div class="disabled-box">
-                            <h6>Select a Location</h6>
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px;background-color:#ecf0f4; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'yenimehsullar'%}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{% static 'desktop/yeni.svg'%}" class="  lazyload" alt=""style="width: 84px;padding: 11px 11px 8px 11px;">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style="font-size: 10px; color: #272727; font-family: system-ui; font-weight: 600; ">Yeni Məhsullar</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important;">
+                                        {{new_quantity}} məhsul</p>
+                                </div>
+                            </a>
                         </div>
+                </div>
 
-                        <ul class="location-select custom-height">
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Alabama</h6>
-                                    <span>Min: $130</span>
-                                </a>
-                            </li>
+                {% for c in cats %}
+                <div class="catt col-xxl-2 col-xl-4 d-none d-xl-block">
+                      <div style="padding: 6px 0 0px 0;border-radius: 6px; border: 1px solid #e4e4e4;">
+                            <a href="{% url 'category' c.id %}" class=" ">
+                                <div style=" text-align: center; ">
+                                    <img src="{{c.image.url}}" class="  lazyload" alt="" style=" width: 84px; ">
+                                    <hr style=" width: 80%; margin-left: auto; margin-right: auto; color: #999999; ">
+                                    <h5 style=" font-size: 10px;color: #272727; font-family: system-ui; font-weight: 600; ">{{c.name}}</h5>
+                                    <p style="    margin-top: 7px;font-size: 9px; line-height: 6px; color: #5d7a90 !important;">{{c.product_count}} məhsul</p>
+                                </div>
+                            </a>
+                        </div>
+                </div>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Arizona</h6>
-                                    <span>Min: $150</span>
-                                </a>
-                            </li>
+                {% endfor%}
+                 </div>
+             </div>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>California</h6>
-                                    <span>Min: $110</span>
-                                </a>
-                            </li>
 
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Colorado</h6>
-                                    <span>Min: $140</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Florida</h6>
-                                    <span>Min: $160</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Georgia</h6>
-                                    <span>Min: $120</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Kansas</h6>
-                                    <span>Min: $170</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Minnesota</h6>
-                                    <span>Min: $120</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>New York</h6>
-                                    <span>Min: $110</span>
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <h6>Washington</h6>
-                                    <span>Min: $130</span>
-                                </a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

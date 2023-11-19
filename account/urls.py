@@ -3,17 +3,22 @@ from account import views
 
 
 urlpatterns = [
+   ############################################
    path('signup/', views.signup, name="signup"),
    path('signin/', views.signin, name="signin"),
-   path('forget/', views.signin, name="forget"),
    path('logout/', views.logout_request, name="logout"),
+   path('profile/', views.profile, name="profile"),
+   path('profile/order/<int:id>/', views.order, name="order"),
+   ############################################
+   path('forget/', views.signin, name="forget"),
+
    path('password/', views.password, name="password"),
 
    path('orders/', views.orders, name="orders"),
    path('order/<int:id>/', views.order, name="order"),
 
    path('wishlist/', views.wishlist, name="wishlist"),
-   path('profile/', views.profile, name="profile"),
+
    path('infos/', views.infos, name="infos"),
 
    path('addresses/', views.addresses, name="addresses"),

@@ -14,11 +14,11 @@ class Payment(models.Model):
 
 class Order(models.Model):
     STATUS = (
-        ("PE", "Pending"),
-        ("PR", "Processing"),
-        ("SP", "Shipped"),
-        ("DL", "Delivered"),
-        ("CL", "Cancelled"),
+        ("PE", "Gözləmədə"),
+        ("PR", "İşlənilir"),
+        ("SP", "Yoldadır"),
+        ("DL", "Çatdırıldı"),
+        ("CL", "Ləğv edildi"),
     )
     is_ordered = models.BooleanField(default=False)
     ordered_date_time = models.DateTimeField(null=True, blank=True)

@@ -4,23 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iofrm</title>
+    <title>Vumart.az</title>
     <link rel="stylesheet" type="text/css" href="{% static 'login/css/bootstrap.min.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'login/css/fontawesome-all.min.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'login/css/iofrm-style.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static 'login/css/iofrm-theme5.css'%}">
+    <link rel="icon" href="{% static 'favicon.png'%}" type="image/x-icon">
+    <style>
+        .form-content {
+    background-color: #000000;
+}
+.form-body {
+    background-color: #000000;
+}
+    </style>
 </head>
 <body>
     <div class="form-body">
         <div class="website-logo">
             <a href="index.html">
-                <div class="logo">
-                    <img class="logo-size" src="{% static 'logo.png'%}" alt="">
+                <div class="">
+                  <img class="logo-size" src="{% static 'logo.png'%}" alt="" style=" width: 180px; ">
                 </div>
             </a>
         </div>
         <div class="row">
-            <div class="img-holder">
+            <div class="img-holder" style=" background-color: #fee332; ">
                 <div class="bg"></div>
                 <div class="info-holder">
                     <img src="{% static 'login/images/graphic2.svg'%}" alt="">
@@ -29,22 +38,25 @@
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items">
-                        <h3>Get more things done with Loggin platform.</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <h3 style=" font-weight: 700; ">Platformadan istifadə edə bilmək üçün qeydiyyatdan keçin.</h3>
+                        <p>Qeydiyyatdan keçmək üçün aşağıda tələb olunan məlumatları daxil edin.</p>
                         <div class="page-links">
-                            <a href="login5.html">Login</a><a href="register5.html" class="active">Register</a>
+                            <a href="{% url 'signin'%}">Daxil olmaq</a><a class="active" >Qeydiyyat</a>
                         </div>
-                        <form>
-                            <input class="form-control" type="text" name="name" placeholder="Full Name" required>
-                            <input class="form-control" type="email" name="email" placeholder="E-mail Address" required>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        <form method="post">
+                            {% csrf_token%}
+                            <input class="form-control" type="text" name="username" placeholder="VÖEN" required>
+                            <input class="form-control" type="text" name="name" placeholder="Şirkətin adı" required>
+                            <input class="form-control" type="email" name="email" placeholder="Email ünvanı" required>
+                            <input class="form-control" type="text" name="first_name" placeholder="Nümayəndə Ad Soyad" required>
+                            <input class="form-control" type="text" name="telephone" placeholder="Telefon nömrəsi" required>
+                            <input class="form-control" type="password" name="password1" placeholder="Şifrə" required>
+                            <input class="form-control" type="password" name="password2" placeholder="Şifrə Təkrar" required>
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Register</button>
+                                <button id="submit" type="submit" class="ibtn">Qeydiyyat</button> <a href="{% url 'signin'%}">Daxil Olun</a>
                             </div>
                         </form>
-                        <div class="other-links">
-                            <span>Or register with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a>
-                        </div>
+
                     </div>
                 </div>
             </div>

@@ -10,7 +10,7 @@
     <meta name="keywords" content="Fastkart">
     <meta name="author" content="Fastkart">
     <link rel="icon" href="{% static 'favicon.png'%}" type="image/x-icon">
-    <title>Order Success</title>
+    <title>İstifadəçi Paneli</title>
 
     <!-- Google font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -23,6 +23,7 @@
 
     <!-- font-awesome css -->
     <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/font-awesome.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'orderstyle.css'%}">
 
     <!-- feather icon css -->
     <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/feather-icon.css'%}">
@@ -35,9 +36,10 @@
     <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/bulk-style.css'%}">
 
     <!-- Template css -->
-    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
-     <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/new.css'%}">
-     <style>
+   <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/new.css'%}">
+
+      <style>
 
 
     @media (max-width: 1660px){
@@ -170,9 +172,8 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
     </div>
     <!-- Loader End -->
 
-
-         <!-- Header Start -->
-    <header class="pb-md-4 pb-0">
+      <!-- Header Start -->
+    <header class=" pb-0">
         <div class="header-top">
             <div class="container-fluid-lg">
                 <div class="row">
@@ -475,55 +476,22 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
     <!-- mobile fix menu end -->
 
     <!-- Breadcrumb Section Start -->
-    <section class="breadscrumb-section pt-0">
+    <section class="breadscrumb-section pt-0" >
         <div class="container-fluid-lg">
             <div class="row">
                 <div class="col-12">
-                    <div class="breadscrumb-contain breadscrumb-order">
-                        <div class="order-box">
-                            <div class="order-image">
-                                <div class="checkmark">
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="star" height="19" viewbox="0 0 19 19" width="19" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M8.296.747c.532-.972 1.393-.973 1.925 0l2.665 4.872 4.876 2.66c.974.532.975 1.393 0 1.926l-4.875 2.666-2.664 4.876c-.53.972-1.39.973-1.924 0l-2.664-4.876L.76 10.206c-.972-.532-.973-1.393 0-1.925l4.872-2.66L8.296.746z">
-                                        </path>
-                                    </svg>
-                                    <svg class="checkmark__check" height="36" viewbox="0 0 48 36" width="48" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M47.248 3.9L43.906.667a2.428 2.428 0 0 0-3.344 0l-23.63 23.09-9.554-9.338a2.432 2.432 0 0 0-3.345 0L.692 17.654a2.236 2.236 0 0 0 .002 3.233l14.567 14.175c.926.894 2.42.894 3.342.01L47.248 7.128c.922-.89.922-2.34 0-3.23">
-                                        </path>
-                                    </svg>
-                                    <svg class="checkmark__background" height="115" viewbox="0 0 120 115" width="120" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M107.332 72.938c-1.798 5.557 4.564 15.334 1.21 19.96-3.387 4.674-14.646 1.605-19.298 5.003-4.61 3.368-5.163 15.074-10.695 16.878-5.344 1.743-12.628-7.35-18.545-7.35-5.922 0-13.206 9.088-18.543 7.345-5.538-1.804-6.09-13.515-10.696-16.877-4.657-3.398-15.91-.334-19.297-5.002-3.356-4.627 3.006-14.404 1.208-19.962C10.93 67.576 0 63.442 0 57.5c0-5.943 10.93-10.076 12.668-15.438 1.798-5.557-4.564-15.334-1.21-19.96 3.387-4.674 14.646-1.605 19.298-5.003C35.366 13.73 35.92 2.025 41.45.22c5.344-1.743 12.628 7.35 18.545 7.35 5.922 0 13.206-9.088 18.543-7.345 5.538 1.804 6.09 13.515 10.696 16.877 4.657 3.398 15.91.334 19.297 5.002 3.356 4.627-3.006 14.404-1.208 19.962C109.07 47.424 120 51.562 120 57.5c0 5.943-10.93 10.076-12.668 15.438z">
-                                        </path>
-                                    </svg>
-                                </div>
-                            </div>
-
-                            <div class="order-contain">
-                                <h3 class="theme-color">Sifariş Qəbul Olundu.</h3>
-                                <h5 class="text-content">Sifarişi dəqiqləşdirmək üçün sizinlə əlaqə saxlanılacaq.</h5>
-                                <h6>Sifariş Nömrəsi: #0000{{order_in_cart.id}}</h6>
-                            </div>
-                        </div>
+                    <div class="breadscrumb-contain" style=" padding-top: 20px; padding-bottom: 20px; ">
+                        <h2>İstifadəçi Panel</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="{% url 'index'%}">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">İstifadəçi Panel</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -531,117 +499,180 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
     </section>
     <!-- Breadcrumb Section End -->
 
-    <!-- Cart Section Start -->
-    <section class="cart-section section-b-space">
+    <!-- User Dashboard Section Start -->
+    <section class="user-dashboard-section section-b-space" style=" padding-top: 30px; ">
         <div class="container-fluid-lg">
-            <div class="row g-sm-4 g-3">
-                <div class="col-xxl-9 col-lg-8">
-                    <div class="cart-table order-table order-table-2">
-                        <div class="table-responsive">
-                            <table class="table mb-0">
-                                <tbody>
-                                {% for i in order_in_cart.items.all %}
-                                    <tr>
-                                        <td class="product-detail">
-                                            <div class="product border-0">
-                                                <a href="product.left-sidebar.html" class="product-image">
-                                                    <img src="{{i.product.main_image.url}}" class="img-fluid blur-up lazyload" alt="">
-                                                </a>
-                                                <div class="product-detail">
-                                                    <ul>
-                                                        <li class="name">
-                                                            <a href="product-left-thumbnail.html">{{i.product.name}}</a>
-                                                        </li>
-
-                                                        <li class="text-content">Kateqoriya: {{i.product.category.first.name}}</li>
-
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </td>
-
-                                        <td class="price">
-                                            <h4 class="table-title text-content">Qiymət</h4>
-                                            <h6 class="theme-color">₼ {{i.unit_price}}</h6>
-                                        </td>
-
-                                        <td class="quantity">
-                                            <h4 class="table-title text-content">Miqdar</h4>
-                                            <h4 class="text-title">{{i.quantity}}</h4>
-                                        </td>
-
-                                        <td class="subtotal">
-                                            <h4 class="table-title text-content">Cəmi</h4>
-                                            <h5>₼ {{i.total_price}}</h5>
-                                        </td>
-                                    </tr>
-
-                                     {% endfor%}
-                                </tbody>
-                            </table>
+            <div class="row">
+                <div class="col-xxl-3 col-lg-4">
+                    <div class="dashboard-left-sidebar">
+                        <div class="close-button d-flex d-lg-none">
+                            <button class="close-sidebar">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
                         </div>
+                        <div class="profile-box">
+                            <div class="cover-image">
+                                <img src="{% static 'desktop/images/inner-page/cover-img.jpg'%}" class="img-fluid blur-up lazyload" alt="">
+                            </div>
+
+                            <div class="profile-contain">
+                                <div class="profile-image">
+                                    <div class="position-relative">
+                                        <img src="{% static 'company.png'%}" class="blur-up lazyload update_img" alt="">
+                                        <div class="cover-icon">
+                                            <i class="fa-solid fa-pen">
+                                                <input type="file" onchange="readURL(this,0)">
+                                            </i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="profile-name">
+                                    <h3>{{user.name}}</h3>
+                                    <h6 class="text-content">{{user.email}}</h6>
+                                </div>
+                            </div>
+                        </div>
+
+                        <ul class="nav nav-pills user-nav-pills" id="pills-tab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'profile'%}" class="nav-link " ><i data-feather="home"></i>
+                                    Əsas Panel</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                              <a href="{% url 'profile'%}" class="nav-link active" ><i data-feather="shopping-bag"></i>Sifariş Tarixçəsi</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                              <a href="{% url 'profile'%}" class="nav-link " ><i data-feather="heart"></i>
+                                    Favori List</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                 <a href="{% url 'profile'%}" class="nav-link " ><i data-feather="credit-card"></i> Müqavilə</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                             <a href="{% url 'profile'%}" class="nav-link " ><i data-feather="map-pin"></i>
+                                    Ünvanlar</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <a href="{% url 'profile'%}" class="nav-link " ><i data-feather="user"></i>
+                                    Şəxsi Məlumatlar</a>
+                            </li>
+
+
+                             <li class="nav-item" role="presentation">
+                                <a class="nav-link"  href="{% url 'logout'%}"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+                                    Çıxış</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="col-xxl-3 col-lg-4">
-                    <div class="row g-4">
-                        <div class="col-lg-12 col-sm-6">
-                            <div class="summery-box">
-                                <div class="summery-header">
-                                    <h3>Ödəniş Məbləği</h3>
+                <div class="col-xxl-9 col-lg-8">
+
+                    <section class="theme-invoice-2" style=" padding-top: 0; ">
+        <div class="container">
+            <div class="row">
+                <style>
+                    .theme-invoice-2 .invoice-wrapper .invoice-header {
+    background-image: url({% static 'shape.png'%});
+    }
+    .theme-invoice-2 .invoice-wrapper .invoice-body .top-sec .details-box{
+            gap: 150px;
+    }
+                </style>
+                <div class="col-xxl-10 col-xl-8 mx-auto">
+                    <div class="invoice-wrapper" style="padding-top: 48px;">
+
+
+                        <div class="invoice-body">
+                            <div class="top-sec">
+                                <div class="address-detail">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <div class="details-box">
+                                                <div class="address-box">
+                                                    <ul>
+                                                        <li style=" color: #939393; ">{{order_detail.address.name}}</li>
+                                                        <li style=" color: #939393; "><span style=" color: #fee332; ">Şəhər:</span> {{order_detail.address.city}}</li>
+                                                        <li style=" color: #939393; "><span style=" color: #fee332; ">Ünvan:</span> {{order_detail.address.street}} {{order_detail.address.building}}</li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="address-box">
+                                                    <ul>
+                                                        <li class="theme-color">Sifariş tarixi : <span class="text-content">{{order_detail.ordered_date_time}}</span></li>
+                                                        <li class="theme-color">Sifariş nömrəsi : <span class="text-content">#00000{{order_detail.id}}</span></li>
+                                                        <li class="theme-color">Email ünvanı : <span class="text-content">{{user.email}}</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
+                            </div>
 
-                                <ul class="summery-contain">
+                            <div class="body-date">
+                                <ul>
+                                    <li class="text-content"><span class="theme-color">Tarix : </span>{{order_detail.ordered_date_time}}</li>
+                                    <li class="text-content"><span class="theme-color">Sifariş nömrəsi : </span> #00000{{order_detail.id}}</li>
+                                    <li class="text-content"><span class="theme-color">Telefon : </span> {{user.telephone}}
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="table-responsive table-borderless">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th class="text-start">Məhsul adı</th>
+                                            <th>Miqdar</th>
+                                            <th>Qiymət</th>
+                                            <th>Cəmi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for i in order.items.all %}
+                                        <tr>
+                                            <td class="text-content">#{{forloop.counter}}</td>
+                                            <td>
+                                                <ul class="table-details" style=" display: block; float: left; text-align: left;">
+                                                    <li class="text-title">{{i.product.name}}</li><br>
+                                                    <li class="text-content">{{i.product.category.first.name}}</li>
+                                                </ul>
+                                            </td>
+                                            <td>{{i.quantity}}</td>
+                                            <td>{{i.unit_price}} ₼</td>
+                                            <td>{{i.total_price}} ₼</td>
+                                        </tr>
+                                         {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="5">
+                                                <ul class="table-price">
+                                                    <li style="font-weight: 500;">CƏMİ MƏBLƏĞ</li>
+                                                    <li class="theme-color" style=" font-family: system-ui; color: black !important; font-size: 20px; ">{{order_detail.get_cart_total}} ₼</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
 
-
+                        <div class="invoice-footer pt-0">
+                            <div class="button-group">
+                                <ul>
                                     <li>
-                                        <h4>Endirim Məbləği</h4>
-                                        <h4 class="price text-danger">₼ 0.00</h4>
+                                        <button class="btn theme-bg-color text-white rounded" onclick="window.print();" style="color:#000 !important;">PDF kimi saxla</button>
                                     </li>
-                                </ul>
-
-                                <ul class="summery-total">
-                                    <li class="list-total">
-                                        <h4>Cəmi Məbləğ</h4>
-                                        <h4 class="price">₼ {{order_in_cart.get_cart_total}}</h4>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-12 col-sm-6">
-                            <div class="summery-box">
-                                <div class="summery-header d-block">
-                                    <h3>Çatdırılma Ünvanı</h3>
-                                </div>
-
-                                <ul class="summery-contain pb-0 border-bottom-0">
-                                    <li class="d-block">
-                                        <h4>{{order_in_cart.address.name}}</h4>
-                                        <h4 class="mt-2">Şəhər: {{order_in_cart.address.city}}</h4>
-                                        <h4 class="mt-2">Ünvan: {{order_in_cart.address.street}} {{order_in_cart.address.building}}</h4>
-                                    </li>
-
-
-                                </ul>
-
-                                <ul class="summery-total">
-                                    <li class="list-total border-top-0 pt-2">
-                                        <h4 class="fw-bold">{{order_in_cart.ordered_date_time}}</h4>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-12">
-                            <div class="summery-box">
-                                <div class="summery-header d-block">
-                                    <h3>Ödəniş Növü</h3>
-                                </div>
-
-                                <ul class="summery-contain pb-0 border-bottom-0">
-                                    <li class="d-block pt-0">
-                                        <p class="text-content">Ödəniş bank köçürmə yolu ilə edilmişdir.</p>
+                                    <li>
+                                        <button class="btn text-white print-button rounded ms-2" onclick="window.print();">ÇAP ET</button>
                                     </li>
                                 </ul>
                             </div>
@@ -651,9 +682,13 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
             </div>
         </div>
     </section>
-    <!-- Cart Section End -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- User Dashboard Section End -->
 
-    <!-- Footer Section Start -->
+  <!-- Footer Section Start -->
     <footer class="section-t-space footer-section-2 footer-color-3">
         <div class="container-fluid-lg">
             <div class="main-footer">
@@ -821,7 +856,208 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
         </div>
     </footer>
     <!-- Footer Section End -->
-      <!-- Location Modal Start -->
+
+    <!-- Deal Box Modal Start -->
+    <div class="modal fade theme-modal deal-modal" id="deal-box" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
+                        <p class="mt-1 text-content">Recommended deals for you.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="deal-offer-box">
+                        <ul class="deal-offer-list">
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/10.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-2">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/11.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-3">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/12.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/13.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Deal Box Modal End -->
+
+
+
+
+    <!-- Tap to top start -->
+    <div class="theme-option">
+        <div class="setting-box">
+            <button class="btn setting-button">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+
+            <div class="theme-setting-2">
+                <div class="theme-box">
+                    <ul>
+                        <li>
+                            <div class="setting-name">
+                                <h4>Color</h4>
+                            </div>
+                            <div class="theme-setting-button color-picker">
+                                <form class="form-control">
+                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
+                                    <input type="color" class="form-control form-control-color" id="colorPick" value="#0da487" title="Choose your color">
+                                </form>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="setting-name">
+                                <h4>Dark</h4>
+                            </div>
+                            <div class="theme-setting-button">
+                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
+                                <button class="btn btn-2 unline" id="lightButton">Light</button>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="setting-name">
+                                <h4>RTL</h4>
+                            </div>
+                            <div class="theme-setting-button rtl">
+                                <button class="btn btn-2 rtl-unline">LTR</button>
+                                <button class="btn btn-2 rtl-outline">RTL</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-to-top">
+            <a id="back-to-top" href="#">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Tap to top end -->
+
+    <!-- Bg overlay Start -->
+    <div class="bg-overlay"></div>
+    <!-- Bg overlay End -->
+
+    <!-- Add address modal box start -->
+    <div class="modal fade theme-modal" id="add-address" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <form class="modal-content" method="post">
+                <input type="hidden" name="type" value="addaddress">
+                <input type="hidden" name="customer" value="{{user.id}}">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ünvan əlavə et</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div >
+                        {% csrf_token%}
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" class="form-control" required name="name" id="fname" placeholder="Ünvan adı">
+                            <label for="fname">Ünvanı adı (məs. Depo)</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" class="form-control" required name="city" id="lname" placeholder="Şəhər/Rayon">
+                            <label for="lname">Şəhər/Rayon</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" class="form-control"  required name="street" id="text" placeholder="Küçə adı">
+                            <label for="email">Küçə adı</label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" class="form-control" required name="building"  id="text" placeholder="Bina/Mənzil">
+                            <label for="email">Bina/Mənzil</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <textarea class="form-control" name="note" placeholder="Ətraflı izah edin" id="address" style="height: 100px"></textarea>
+                            <label for="address">Ətraflı izah edin</label>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="form-floating mb-4 theme-form-floating">
+                            <input type="text" required name="zip" class="form-control" id="pin" placeholder="Poçt indeksi">
+                            <label for="pin">Poçt indeksi</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Bağla</button>
+                    <button type="submit" class="btn theme-bg-color btn-md text-white" data-bs-dismiss="modal">Yadda Saxla</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Add address modal box end -->
+
+    <!-- Location Modal Start -->
     <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >
         <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down" style="max-width: 800px;">
             <div class="modal-content">
@@ -889,139 +1125,228 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
     <!-- Location Modal End -->
 
 
-    <!-- Deal Box Modal Start -->
-    <div class="modal fade theme-modal deal-modal" id="deal-box" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+    <!-- Edit Profile Start -->
+    <div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
             <div class="modal-content">
                 <div class="modal-header">
-                    <div>
-                        <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
-                        <p class="mt-1 text-content">Recommended deals for you.</p>
-                    </div>
+                    <h5 class="modal-title" id="exampleModalLabel2">Edit Profile</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="deal-offer-box">
-                        <ul class="deal-offer-list">
-                            <li class="list-1">
-                                <div class="deal-offer-contain">
-                                    <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="{% static 'desktop/images/vegetable/product/10.png'%}" class="blur-up lazyload" alt="">
-                                    </a>
-
-                                    <a href="shop-left-sidebar.html" class="deal-contain">
-                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>₼52.57 <del>57.62</del> <span>500 G</span></h6>
-                                    </a>
+                    <div class="row g-4">
+                        <div class="col-xxl-12">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="pname" value="Jack Jennas">
+                                    <label for="pname">Full Name</label>
                                 </div>
-                            </li>
+                            </form>
+                        </div>
 
-                            <li class="list-2">
-                                <div class="deal-offer-contain">
-                                    <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="{% static 'desktop/images/vegetable/product/11.png'%}" class="blur-up lazyload" alt="">
-                                    </a>
-
-                                    <a href="shop-left-sidebar.html" class="deal-contain">
-                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>₼52.57 <del>57.62</del> <span>500 G</span></h6>
-                                    </a>
+                        <div class="col-xxl-6">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="email" class="form-control" id="email1" value="{{user.email}}">
+                                    <label for="email1">Email address</label>
                                 </div>
-                            </li>
+                            </form>
+                        </div>
 
-                            <li class="list-3">
-                                <div class="deal-offer-contain">
-                                    <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="{% static 'desktop/images/vegetable/product/12.png'%}" class="blur-up lazyload" alt="">
-                                    </a>
-
-                                    <a href="shop-left-sidebar.html" class="deal-contain">
-                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>₼52.57 <del>57.62</del> <span>500 G</span></h6>
-                                    </a>
+                        <div class="col-xxl-6">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input class="form-control" type="tel" value="4567891234" name="mobile" id="mobile" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
+                                            this.value.slice(0, this.maxLength);">
+                                    <label for="mobile">Email address</label>
                                 </div>
-                            </li>
+                            </form>
+                        </div>
 
-                            <li class="list-1">
-                                <div class="deal-offer-contain">
-                                    <a href="shop-left-sidebar.html" class="deal-image">
-                                        <img src="{% static 'desktop/images/vegetable/product/13.png'%}" class="blur-up lazyload" alt="">
-                                    </a>
-
-                                    <a href="shop-left-sidebar.html" class="deal-contain">
-                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
-                                        <h6>₼52.57 <del>57.62</del> <span>500 G</span></h6>
-                                    </a>
+                        <div class="col-12">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="address1" value="8424 James Lane South San Francisco">
+                                    <label for="address1">Add Address</label>
                                 </div>
-                            </li>
-                        </ul>
+                            </form>
+                        </div>
+
+                        <div class="col-12">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="address2" value="CA 94080">
+                                    <label for="address2">Add Address 2</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-xxl-4">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <select class="form-select" id="floatingSelect1" aria-label="Floating label select example">
+                                        <option selected="">Choose Your Country</option>
+                                        <option value="kindom">United Kingdom</option>
+                                        <option value="states">United States</option>
+                                        <option value="fra">France</option>
+                                        <option value="china">China</option>
+                                        <option value="spain">Spain</option>
+                                        <option value="italy">Italy</option>
+                                        <option value="turkey">Turkey</option>
+                                        <option value="germany">Germany</option>
+                                        <option value="russian">Russian Federation</option>
+                                        <option value="malay">Malaysia</option>
+                                        <option value="mexico">Mexico</option>
+                                        <option value="austria">Austria</option>
+                                        <option value="hong">Hong Kong SAR, China</option>
+                                        <option value="ukraine">Ukraine</option>
+                                        <option value="thailand">Thailand</option>
+                                        <option value="saudi">Saudi Arabia</option>
+                                        <option value="canada">Canada</option>
+                                        <option value="singa">Singapore</option>
+                                    </select>
+                                    <label for="floatingSelect">Country</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-xxl-4">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <select class="form-select" id="floatingSelect">
+                                        <option selected="">Choose Your City</option>
+                                        <option value="kindom">India</option>
+                                        <option value="states">Canada</option>
+                                        <option value="fra">Dubai</option>
+                                        <option value="china">Los Angeles</option>
+                                        <option value="spain">Thailand</option>
+                                    </select>
+                                    <label for="floatingSelect">City</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-xxl-4">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="address3" value="94080">
+                                    <label for="address3">Pin Code</label>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <!-- Deal Box Modal End -->
-
-    <!-- Tap to top start -->
-    <div class="theme-option">
-        <div class="setting-box">
-            <button class="btn setting-button">
-                <i class="fa-solid fa-gear"></i>
-            </button>
-
-            <div class="theme-setting-2">
-                <div class="theme-box">
-                    <ul>
-                        <li>
-                            <div class="setting-name">
-                                <h4>Color</h4>
-                            </div>
-                            <div class="theme-setting-button color-picker">
-                                <form class="form-control">
-                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
-                                    <input type="color" class="form-control form-control-color" id="colorPick" value="#0da487" title="Choose your color">
-                                </form>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="setting-name">
-                                <h4>Dark</h4>
-                            </div>
-                            <div class="theme-setting-button">
-                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
-                                <button class="btn btn-2 unline" id="lightButton">Light</button>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="setting-name">
-                                <h4>RTL</h4>
-                            </div>
-                            <div class="theme-setting-button rtl">
-                                <button class="btn btn-2 rtl-unline">LTR</button>
-                                <button class="btn btn-2 rtl-outline">RTL</button>
-                            </div>
-                        </li>
-                    </ul>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Close</button>
+                    <button type="button" data-bs-dismiss="modal" class="btn theme-bg-color btn-md fw-bold text-light">Save changes</button>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Edit Profile End -->
 
-        <div class="back-to-top">
-            <a id="back-to-top" href="#">
-                <i class="fas fa-chevron-up"></i>
-            </a>
+    <!-- Edit Card Start -->
+    <div class="modal fade theme-modal" id="editCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel8">Edit Card</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row g-4">
+                        <div class="col-xxl-6">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="finame" value="Mark">
+                                    <label for="finame">First Name</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-xxl-6">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <input type="text" class="form-control" id="laname" value="Jecno">
+                                    <label for="laname">Last Name</label>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="col-xxl-4">
+                            <form>
+                                <div class="form-floating theme-form-floating">
+                                    <select class="form-select" id="floatingSelect12" aria-label="Floating label select example">
+                                        <option selected="">Card Type</option>
+                                        <option value="kindom">Visa Card</option>
+                                        <option value="states">MasterCard Card</option>
+                                        <option value="fra">RuPay Card</option>
+                                        <option value="china">Contactless Card</option>
+                                        <option value="spain">Maestro Card</option>
+                                    </select>
+                                    <label for="floatingSelect12">Card Type</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn theme-bg-color btn-md fw-bold text-light">Update Card</button>
+                </div>
+            </div>
         </div>
     </div>
-    <!-- Tap to top end -->
+    <!-- Edit Card End -->
 
-
-    <!-- Bg overlay Start -->
-    <div class="bg-overlay"></div>
-    <!-- Bg overlay End -->
+    <!-- Remove Profile Modal Start -->
+    <div class="modal fade theme-modal remove-profile" id="removeProfile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header d-block text-center">
+                    <h5 class="modal-title w-100" id="exampleModalLabel22">Are You Sure ?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="remove-box">
+                        <p>The permission for the use/group, preview is inherited from the object, object will create a
+                            new permission for this object</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">No</button>
+                    <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" data-bs-target="#removeAddress" data-bs-toggle="modal">Yes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade theme-modal remove-profile" id="removeAddress" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel12">Done!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="remove-box text-center">
+                        <h4 class="text-content">It's Removed.</h4>
+                    </div>
+                </div>
+                <div class="modal-footer pt-0">
+                    <button type="button" class="btn theme-bg-color btn-md fw-bold text-light" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Remove Profile Modal End -->
 
     <!-- latest jquery-->
     <script src="{% static 'desktop/js/jquery-3.6.0.min.js'%}"></script>
@@ -1041,9 +1366,18 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
     <!-- Lazyload Js -->
     <script src="{% static 'desktop/js/lazysizes.min.js'%}"></script>
 
+    <!-- Wizard js -->
+    <script src="{% static 'desktop/js/wizard.js'%}"></script>
+
     <!-- Slick js-->
     <script src="{% static 'desktop/js/slick/slick.js'%}"></script>
     <script src="{% static 'desktop/js/slick/custom_slick.js'%}"></script>
+
+    <!-- Quantity js -->
+    <script src="{% static 'desktop/js/quantity-2.js'%}"></script>
+
+    <!-- Nav & tab upside js -->
+    <script src="{% static 'desktop/js/nav-tab.js'%}"></script>
 
     <!-- script js -->
     <script src="{% static 'desktop/js/script.js'%}"></script>

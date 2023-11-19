@@ -1,10 +1,10 @@
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from core.models import General
+from core.models import General, Social
 from order.models import Order, OrderItem
 from catalog.models import Product, Category
-from .forms import NewUserForm, SetPasswordForm
+from .forms import NewUserForm, SetPasswordForm, AddressForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm  # add this
@@ -17,21 +17,6 @@ def signin(request):
     main_categories = Category.objects.filter(parent=None)
     if request.user.is_authenticated:
         return redirect("profile")
-
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
-
-        general = General.objects.last()
-        context = {
-            "general": general,
-            'main_categories': main_categories,
-            'cart_sum': 0,
-
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
     if request.method == "POST":
         form = AuthenticationForm(request, data=request.POST)
@@ -58,7 +43,7 @@ def signin(request):
                 "failed": True,
                 'main_categories': main_categories,
             }
-            return render(request, 'account/login.html', context)
+            return render(request, 'desktop/account/signin.html', context)
     form = AuthenticationForm()
     context = {
         "login_form": form,
@@ -71,33 +56,10 @@ def signup(request):
     main_categories = Category.objects.filter(parent=None)
     if request.user.is_authenticated:
         return redirect("profile")
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
-
-        context = {
-            'main_categories': main_categories,
-            'cart_sum': 0,
-
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
     if request.method == "POST":
-        username = request.POST.get('username')
-
-        email = request.POST.get('email')
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        password1 = request.POST.get('password1')
-        password2 = request.POST.get('password2')
-        print(username)
-
-
         form = NewUserForm(request.POST)
         if form.is_valid():
-            print(username)
             user = form.save()
             login(request, user)
             messages.success(request, "Registration successful.")
@@ -119,10 +81,16 @@ def logout_request(request):
 
 @login_required(login_url='/account/signin/')
 def profile(request):
+    general = General.objects.last()
+    socials = Social.objects.all()
+    cats = Category.objects.filter(is_active=True)
+    total_orders = Order.objects.filter(customer=request.user, is_ordered=True).count()
+    pending_orders = Order.objects.filter(status='PE', customer=request.user, is_ordered=True).count()
+    wishlist_count = Wishlist.objects.filter(customer=request.user).count()
     addresses = None
     main_categories = Category.objects.filter(parent=None)
     main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
-    orders = Order.objects.filter(customer=request.user, is_ordered=True)[:3]
+    orders = Order.objects.filter(customer=request.user, is_ordered=True)
 
     cart = None
     if request.user.is_authenticated:
@@ -137,32 +105,65 @@ def profile(request):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
+    if request.method == "POST" and request.POST.get('type') == "addaddress":
+        print('yeah1')
+        city = ""
+        name =""
+        street = ""
+        building = ""
+        zip = ""
+        note = ""
+        try:
+            city = request.POST.get('city')
+        except:
+            city = ""
+        try:
+            name = request.POST.get('name')
+        except:
+            name = ""
+        try:
+            street = request.POST.get('street')
+        except:
+            street = ""
+        try:
+            building = request.POST.get('building')
+        except:
+            building = ""
+        try:
+            zip = request.POST.get('zip')
+        except:
+            zip = ""
+        try:
+            note = request.POST.get('note')
+        except:
+            note = ""
+        Address.objects.create(
+            city=city,
+        name = name,
+        street = street,
+        building = building,
+        zip = zip,
+        note = note,
+            customer=request.user
+        )
 
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-            'main_address': main_address,
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
     context = {
+        "socials": socials,
+        "general": general,
+        "cats": cats,
         "main_categories": main_categories,
         'cart': cart,
         'cart_sum': cart_sum,
         'addresses': addresses,
         'main_address': main_address,
         'orders': orders,
+        'total_orders':total_orders,
+        'pending_orders' : pending_orders,
+        'wishlist_count' : wishlist_count
 
     }
-    return render(request, 'account/profile.html', context)
+    return render(request, 'desktop/account/dashboard.html', context)
 
 
 @login_required(login_url='/account/signin/')
@@ -182,22 +183,7 @@ def orders(request):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
 
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-            'orders': orders,
-
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
 
 
@@ -215,6 +201,13 @@ def orders(request):
 
 @login_required(login_url='/account/signin/')
 def order(request, id):
+    general = General.objects.last()
+    socials = Social.objects.all()
+
+    order_detail = Order.objects.get(pk=id)
+    if request.user.id != order_detail.customer.id:
+        order_detail = None
+    cats = Category.objects.filter(is_active=True)
     ord = Order.objects.filter(pk=id,customer=request.user).last()
     orders = Order.objects.filter(customer=request.user, is_ordered=True)[:3]
     addresses = None
@@ -231,23 +224,7 @@ def order(request, id):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
 
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-            'order': ord,
-
-
-        }
-
-        return render(request, 'desktop/page/search.html', context)
 
 
     context = {
@@ -256,9 +233,13 @@ def order(request, id):
         'cart_sum': cart_sum,
         'addresses': addresses,
         'order': ord,
+        'general': general,
+        'socials': socials,
+        "cats": cats,
+        "order_detail": order_detail,
 
     }
-    return render(request, 'account/order.html', context)
+    return render(request, 'desktop/account/order.html', context)
 
 
 @login_required(login_url='/account/signin/')
