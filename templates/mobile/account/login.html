@@ -1,0 +1,97 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="fuzzy">
+    <meta name="keywords" content="fuzzy">
+    <meta name="author" content="fuzzy">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <title>fuzzy app</title>
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
+    <meta name="theme-color" content="#122636">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="fuzzy">
+    <meta name="msapplication-TileImage" content="assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-7?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- iconsax css -->
+
+    <link rel="stylesheet" href="{% static 'login/css/bootstrap.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'login/css/ioform-style.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+  </head>
+
+  <body class="auth-body">
+    <!-- login section start -->
+    <div class="auth-img">
+      <img class="img-fluid auth-bg" src="{% static 'login/images/auth_bg.jpg'%}" alt="auth_bg">
+      <div class="auth-content">
+        <div>
+          <h2>Platformadan istifadə edə bilmək üçün giriş edin.</h2>
+          <h4 class="p-0">Giriş etmək üçün VÖEN və şifrənizi daxil edin.</h4>
+        </div>
+      </div>
+    </div>
+
+    <form method="post" class="auth-form">
+      {% csrf_token %}
+      <div class="custom-container">
+        <div class="form-group">
+          <label for="inputusername" class="form-label">VÖEN</label>
+          <div class="form-input mb-4">
+              <input class="form-control" type="text" name="username" placeholder="VÖEN"
+                  oninvalid="this.setCustomValidity('Vöen'i daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Şifrə</label>
+          <div class="form-input mb-4">
+              <input class="form-control" type="password" name="password" id="password" placeholder="Şifrə"
+                  oninvalid="this.setCustomValidity('Şifrəni daxil edin zəhmət olmasa.  Şifrə, ən azı 8 simvol, bir böyük hərf, bir kiçik hərf, bir rəqəm və bir xüsusi simvoldan ibarət olmalıdır.')"
+                  oninput="setCustomValidity('')" required>
+          </div>
+        </div>
+        <div class="option mt-3">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">Məni xatırla!</label>
+          </div>
+          <a class="forgot" href="forgot-password.html">Forgot password?</a>
+        </div>
+
+        <div class="submit-btn">
+          <button id="submit" type="submit" class="btn auth-btn w-100">Daxil Olun</button>
+        </div>
+        <div class="division">
+          <span>Və ya</span>
+        </div>
+
+        <h4 class="signup">Hesabınız yoxdur?<a href="{% url 'createaccount'%}"> Qeydiyyatdan keçin </a></h4>
+      </div>
+    </form>
+    <!-- login section end-->
+
+    <!-- iconsax js -->
+    <script src="assets/js/iconsax.js"></script>
+
+    <!-- bootstrap js -->
+    <script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="87a02fe750127aad2ae922c0-text/javascript"></script>
+
+    <!-- script js -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>

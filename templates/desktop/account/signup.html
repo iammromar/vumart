@@ -1,0 +1,192 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vumart.az</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/fontawesome-all.min.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/iofrm-style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'login/css/iofrm-theme5.css'%}">
+    <link rel="icon" href="{% static 'favicon.png'%}" type="image/x-icon">
+    <style>
+        .form-content {
+    background-color: #000000;
+}
+.form-body {
+    background-color: #000000;
+}
+
+details {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    margin-top: 2rem;
+    color: #6b7280;
+    display: flex;
+    flex-direction: column;
+}
+details div {
+    background-color: #1e1e27;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    padding: 1.25rem;
+    border-radius: 8px;
+    position: absolute;
+    max-height: calc(100vh - 100px);
+    width: 400px;
+    max-width: calc(100vw - 2rem);
+    bottom: calc(100% + 1rem);
+    right: 0;
+    overflow: auto;
+    transform-origin: 100% 100%;
+    color: #95a3b9;
+}
+details div::-webkit-scrollbar {
+    width: 15px;
+    background-color: #1e1e27;
+}
+details div::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 99em;
+    background-color: #95a3b9;
+    border: 5px solid #1e1e27;
+}
+details div > * + * {
+    margin-top: 0.75em;
+}
+details div p > code {
+    font-size: 1rem;
+    font-family: monospace;
+}
+details div pre {
+    white-space: pre-line;
+    border: 1px solid #95a3b9;
+    border-radius: 6px;
+    font-family: monospace;
+    padding: 0.75em;
+    font-size: 0.875rem;
+    color: #fff;
+}
+details[open] div {
+    animation: scale 0.25s ease;
+}
+summary {
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    padding: 0.75em 3em 0.75em 1.25em;
+    border-radius: 99em;
+    color: #fff;
+    background-color: #185adb;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.15s ease;
+    position: relative;
+}
+summary::-webkit-details-marker {
+    display: none;
+}
+summary:hover, summary:focus {
+    background-color: #1348af;
+}
+summary svg {
+    position: absolute;
+    right: 1.25em;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5em;
+    height: 1.5em;
+}
+@keyframes scale {
+    0% {
+        transform: scale(0);
+   }
+    100% {
+        transform: scale(1);
+   }
+}
+
+    </style>
+</head>
+<body>
+    <div class="form-body">
+        <div class="website-logo">
+            <a href="{% url 'index'%}">
+                <div class="">
+                  <img class="logo-size" src="{% static 'logo.png'%}" alt="" style=" width: 180px; ">
+                </div>
+            </a>
+        </div>
+        <div class="row">
+            <div class="img-holder" style=" background-color: #fee332; ">
+                <div class="bg"></div>
+                <div class="info-holder">
+                    <img src="{% static 'login/images/graphic2.svg'%}" alt="">
+                </div>
+            </div>
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        
+                        <h3 style=" font-weight: 700; ">Platformadan istifadə edə bilmək üçün qeydiyyatdan keçin.</h3>
+                        <p>Qeydiyyatdan keçmək üçün aşağıda tələb olunan məlumatları daxil edin.</p>
+                        <div class="page-links">
+                            <a href="{% url 'signin'%}">Daxil olmaq</a><a class="active" >Qeydiyyat</a>
+                        </div>
+                        <form method="POST" action="">
+                            {% csrf_token%}
+                            <input class="form-control" type="text" name="username" placeholder="VÖEN" oninvalid="this.setCustomValidity('Vöen\'i daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="text" name="name" placeholder="Şirkətin adı" oninvalid="this.setCustomValidity('Şirkətin adını daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="email" name="email" placeholder="Email ünvanı" oninvalid="this.setCustomValidity('Email ünvanınızı daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="text" name="first_name" placeholder="Ad Soyad" oninvalid="this.setCustomValidity('Ad və Soyadınızı tam daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="tel" name="telephone" id="telephone" placeholder="Telefon nömrəsi"  oninvalid="setCustomValidity('Telefon nömrənizi düzgün daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="password" name="password1" id="password1" placeholder="Şifrə" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Şifrə, ən azı 8 simvol, bir böyük hərf, bir kiçik hərf, bir rəqəm və bir xüsusi simvoldan ibarət olmalıdır." oninvalid="this.setCustomValidity('Şifrəni daxil edin zəhmət olmasa.  Şifrə, ən azı 8 simvol, bir böyük hərf, bir kiçik hərf, bir rəqəm və bir xüsusi simvoldan ibarət olmalıdır.')" oninput="setCustomValidity('')" required>
+                            <input class="form-control" type="password" name="password2" id="password2" placeholder="Şifrə Təkrar" oninput="validatePassword()" oninvalid="this.setCustomValidity('Şifrəni daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                            <span id="password-error" style="
+                               color: red !important;
+                               font-size: 18px;
+                            "></span>
+
+                            <script>
+                            function validatePassword() {
+                                var password1 = document.getElementById("password1");
+                                var password2 = document.getElementById("password2");
+                                var error = document.getElementById("password-error");
+
+                                if (password1.value !== password2.value) {
+                                    error.innerHTML = "Şifrələr uyğun gəlmir.";
+                                    password2.setCustomValidity("Şifrələr uyğun gəlmir.");
+                                } else {
+                                    error.innerHTML = "";
+                                    password2.setCustomValidity("");
+                                }
+                            }
+                            </script>
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn">Qeydiyyat</button>
+                            </div>
+                        </form>
+
+                        <details>
+                            <summary>Önəmli !<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" fill="currentColor" viewBox="0 0 256 256"><rect width="256" height="256" fill="none"></rect><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></circle><circle cx="128" cy="180" r="12"></circle><path d="M127.9995,144.0045v-8a28,28,0,1,0-28-28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"></path></svg></summary>
+                            <div>
+                                <p>Qeydiyyatdan sonra sizinlə əlaqə saxlanılacaq. </p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{% static 'login/js/jquery.min.js'%}"></script>
+<script src="{% static 'login/js/popper.min.js'%}"></script>
+<script src="{% static 'login/js/bootstrap.min.js'%}"></script>
+<script src="{% static 'login/js/main.js'%}"></script>
+</body>
+</html>

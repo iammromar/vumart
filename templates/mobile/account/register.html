@@ -1,0 +1,135 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="vumart">
+    <meta name="keywords" content="vumart">
+    <meta name="author" content="vumart">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <title>vumart app</title>
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
+    <meta name="theme-color" content="#122636">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vumart">
+    <meta name="msapplication-TileImage" content="assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-7?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+    <!-- External stylesheets -->
+    <link rel="stylesheet" href="{% static 'login/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="{% static 'login/css/ioform-style.css'%}">
+    <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+  </head>
+
+  <body class="auth-body">
+    <!-- create account section start -->
+    <div class="auth-img">
+      <img class="img-fluid auth-bg" src="{% static 'login/images/auth_bg.jpg'%}" alt="auth_bg">
+      <div class="auth-content">
+        <div>
+          <h2>Platformadan istifadə edə bilmək üçün qeydiyyatdan keçin.</h2>
+          <h4 class="p-0">Qeydiyyatdan keçmək üçün aşağıda tələb olunan məlumatları daxil edin.</h4>
+        </div>
+      </div>
+    </div>
+
+    <form method="POST" action="" class="auth-form" >
+      {% csrf_token %}
+      <div class="custom-container">
+          <div class="form-group">
+              <label for="inputusername" class="form-label">VÖEN</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="text" name="username" placeholder="VÖEN"
+                      oninvalid="this.setCustomValidity('Vöen\'i daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="inputname" class="form-label">Şirkətin adı</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="text" name="name" placeholder="Şirkətin adı"
+                      oninvalid="this.setCustomValidity('Şirkətin adını daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+                    </div>
+          </div>
+          <div class="form-group">
+              <label for="inputemail" class="form-label">Email ünvanı</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="email" name="email" placeholder="Email ünvanı"
+                      oninvalid="this.setCustomValidity('Email ünvanınızı daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="inputname" class="form-label">Ad Soyad</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="text" name="first_name" placeholder="Ad Soyad"
+                      oninvalid="this.setCustomValidity('Ad və Soyadınızı tam daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="telephone" class="form-label">Telefon nömrəsi</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="tel" name="telephone" id="telephone" placeholder="Telefon nömrəsi"
+                      oninvalid="setCustomValidity('Telefon nömrənizi düzgün daxil edin zəhmət olmasa.')" oninput="setCustomValidity('')" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="password1" class="form-label">Şifrə</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="password" name="password1" id="password1" placeholder="Şifrə"
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                      title="Şifrə, ən azı 8 simvol, bir böyük hərf, bir kiçik hərf, bir rəqəm və bir xüsusi simvoldan ibarət olmalıdır."
+                      oninvalid="this.setCustomValidity('Şifrəni daxil edin zəhmət olmasa.  Şifrə, ən azı 8 simvol, bir böyük hərf, bir kiçik hərf, bir rəqəm və bir xüsusi simvoldan ibarət olmalıdır.')"
+                      oninput="setCustomValidity('')" required>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="password2" class="form-label">Şifrə Təkrar</label>
+              <div class="form-input mb-4">
+                  <input class="form-control" type="password" name="password2" id="password2" placeholder="Şifrə Təkrar"
+                      oninput="validatePassword()" oninvalid="this.setCustomValidity('Şifrəni daxil edin zəhmət olmasa.')"
+                      oninput="setCustomValidity('')" required>
+                  <span id="password-error" style="
+                      color: red !important;
+                      font-size: 18px;
+                  "></span>
+              </div>
+          </div>
+          <div class="submit-btn">
+            <button id="submit" type="submit" class="btn auth-btn w-100">Qeydiyyat</button>          
+          </div>
+          <div class="division">
+            <span>Və ya</span>
+          </div>
+  
+          <h4 class="signup pt-0">Hesabınız var?<a href="{% url 'login'%}"> Daxil ol</a></h4>
+      </div>
+  </form>
+    <!-- create account section end-->
+
+    <script>
+      function validatePassword() {
+          var password1 = document.getElementById("password1");
+          var password2 = document.getElementById("password2");
+          var error = document.getElementById("password-error");
+
+          if (password1.value !== password2.value) {
+              error.innerHTML = "Şifrələr uyğun gəlmir.";
+              password2.setCustomValidity("Şifrələr uyğun gəlmir.");
+          } else {
+              error.innerHTML = "";
+              password2.setCustomValidity("");
+          }
+      }
+    </script>
+
+  </body>
+</html>

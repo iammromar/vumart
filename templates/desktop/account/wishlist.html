@@ -1,0 +1,1382 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fastkart">
+    <meta name="keywords" content="Fastkart">
+    <meta name="author" content="Fastkart">
+    <link rel="icon" href="{% static 'favicon.png'%}" type="image/x-icon">
+    <title>Wishlist</title>
+
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="../../css2?family=Russo+One&display=swap" rel="stylesheet">
+    <link href="../../css2-3?family=Exo+2:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="../../css2-4?family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- bootstrap css -->
+    <link id="rtl-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/bootstrap.css'%}">
+
+    <!-- font-awesome css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/font-awesome.css'%}">
+
+    <!-- feather icon css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/feather-icon.css'%}">
+
+    <!-- slick css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/slick/slick.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/vendors/slick/slick-theme.css'%}">
+
+    <!-- Iconly css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'desktop/css/bulk-style.css'%}">
+
+    <!-- Template css -->
+    <link id="color-link" rel="stylesheet" type="text/css" href="{% static 'desktop/css/style.css'%}">
+</head>
+
+<body>
+
+    <!-- Loader Start -->
+    <div class="fullpage-loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <!-- Loader End -->
+
+    <!-- Header Start -->
+    <header class="pb-md-4 pb-0">
+        <div class="header-top">
+            <div class="container-fluid-lg">
+                <div class="row">
+                    <div class="col-xxl-4 d-xxl-block d-none">
+                        <div class="top-left-header">
+                            <i style="color: black !important;" class="iconly-Location icli text-white"></i>
+                            <a target="_blank" href="{{general.address_url}}"><span class="text-white" style="color: black !important; font-size: 11px; ">{{general.address}}</span></a>
+
+
+                            <svg style=" color: black; margin: 0 9px 0 10px; width: 15px; " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+
+
+                            <a href="tel:{{general.phone}}"><span class="text-white" style=" color: black !important;font-size: 11px; ">{{general.phone}}</span></a>
+                        </div>
+
+                    </div>
+
+                    <div class="col-xxl-4 col-lg-8 d-lg-block d-none">
+                        <div class="header-offer">
+                            <div class="notification-slider">
+
+
+                                <div>
+                                    <div class="timer-notification">
+                                        {{general.topbar_text | safe}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-xxl-4 d-xxl-block d-none">
+                        <div class="top-left-header" style="justify-content: end;">
+                            <svg style=" color: black; margin: 0 9px 0 10px; width: 15px; " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call"><path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+
+
+
+                            <a href="{% url 'contact'%}"><span class="text-white" style="color: black !important; font-size: 11px;margin-right: 20px; ">Bizimlə Əlaqə</span></a>
+
+
+                             <svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 330" width="512" height="330" style=" width: 25px; height: auto; margin-right: 5px; ">
+                                <title>truck</title>
+                                <defs>
+                                    <image  width="512" height="278" id="img1" href="data:image/png;base64,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"/>
+                                </defs>
+                                <style>
+                                </style>
+                                <use id="Background" href="#img1" x="0" y="26"/>
+                            </svg>
+
+                            <a href="{% url 'track'%}"><span class="text-white" style=" color: black !important;font-size: 11px; ">Sifarişi İzlə</span></a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="top-nav top-header sticky-header" style=" background-color: #fee332;    border-top: 1px solid #ffffff52; ">
+            <div class="container-fluid-lg">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="navbar-top">
+                            <button class="navbar-toggler d-xl-none d-inline navbar-menu-button" type="button" data-bs-toggle="offcanvas" data-bs-target="#primaryMenu">
+                                <span class="navbar-toggler-icon">
+                                    <i class="fa-solid fa-bars"></i>
+                                </span>
+                            </button>
+                            <a href="{% url 'index'%}" class="web-logo nav-logo">
+                                <img style=" width: 186px; padding-bottom: 2px;" src="{{general.logo.url}}" class="img-fluid blur-up lazyload" alt="">
+                            </a>
+
+                            <div class="middle-box">
+                                <div class="location-box" style="    border: 1px solid #424242;">
+                                    <button class="btn location-button" data-bs-toggle="modal" data-bs-target="#locationModal">
+                                        <span class="location-arrow" style=" width: 30px; height: 30px; ">
+                                            <img src="{% static 'desktop/cat.png'%}" style="width:22px;">
+                                        </span>
+                                         <div class="locat-name"  style=" color: #000;font-size: 13px; ">Kateqoriyalar</div><br>
+
+                                    </button>
+                                </div>
+
+                                <div class="search-box">
+                                       <form method="post" action="{% url 'search'%}">
+                                           {% csrf_token%}
+                                    <div class="input-group">
+
+                                        <input required type="search" name="query" style=" height: 42px;  " class="form-control" placeholder="Məhsul axtarışı..." aria-label="Recipient's username" aria-describedby="button-addon2">
+                                        <button class="btn" type="submit" id="button-addon2" style="border-color: #000; background-color: #000; height: 42px;  padding: 0 12px 0 12px; ">
+                                            <i data-feather="search" style=" width: 26px; height: 26px; "></i>
+                                        </button>
+
+                                    </div>
+                                           </form>
+                                </div>
+                            </div>
+
+                            <div class="rightside-box">
+                                <div class="search-full">
+                                    <div class="input-group">
+                                        <span class="input-group-text">
+                                            <i data-feather="search" class="font-light"></i>
+                                        </span>
+                                        <input type="text" class="form-control search-type" placeholder="Search here..">
+                                        <span class="input-group-text close-search">
+                                            <i data-feather="x" class="font-light"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                                <ul class="right-side-menu">
+                                    <li class="right-side">
+                                        <div class="delivery-login-box">
+                                            <div class="delivery-icon">
+                                                <div class="search-box">
+                                                    <i data-feather="search" style=" color: #fff; "></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+
+                                     <li class="right-side">
+                                        <a href="{% url 'wishlist'%}" class="delivery-login-box" style="   cursor: pointer;">
+                                            <div class="delivery-icon" style=" ">
+                                                <i data-feather="heart" style=" color: #000; "></i>
+                                            </div>
+
+                                        </a>
+                                    </li>
+
+                                    <li class="right-side">
+                                        <div class="onhover-dropdown header-badge">
+                                            <button type="button" class="btn p-0 position-relative header-wishlist js-menu__open"  data-menu="#main-nav">
+                                                <i data-feather="shopping-cart" style=" color: #000; "></i>
+                                                <span class="position-absolute top-0 start-100 translate-middle badge">{% if user.is_authenticated and cart.items %}
+                              {{cart.items.count}}
+                              {% else %}
+                              0
+                              {% endif %}
+                                                    <span class="visually-hidden">unread messages</span>
+                                                </span>
+                                            </button>
+
+
+                                        </div>
+                                    </li>
+                                    <li class="right-side onhover-dropdown">
+                                        <div class="delivery-login-box">
+                                            <div class="delivery-icon" style=" margin-right: 5px; ">
+                                                <i data-feather="user"  style=" color: #000; "></i>
+                                            </div>
+                                            <div class="delivery-detail">
+                                                <h6>Salam,</h6>
+                                                <h5>Şəxsi Kabinet</h5>
+                                            </div>
+                                        </div>
+
+
+
+                                        {% if user.is_authenticated %}
+                                        <div class="onhover-div onhover-div-login">
+                                            <ul class="user-box-name">
+                                                <li class="product-box-contain">
+                                                    <i></i>
+                                                    <a href="{% url 'user-dashboard'%}">Şəxsi Kabinet</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="{% url 'user-history'%}">Sifariş Tarixçəsi</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="{% url 'logout'%}">Çıxış</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% else %}
+                                        <div class="onhover-div onhover-div-login">
+                                            <ul class="user-box-name">
+                                                <li class="product-box-contain">
+                                                    <i></i>
+                                                    <a href="{% url 'signin'%}">Daxil Ol</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="{% url 'signup'%}">Qeydiyyat</a>
+                                                </li>
+
+                                                <li class="product-box-contain">
+                                                    <a href="{% url 'forget'%}">Şifrəni Unutmusuz?</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        {% endif %}
+
+
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid-lg" style=" background-color: #000; ">
+            <div class="row">
+                <div class="col-12">
+                    <div class="header-nav">
+
+
+                        <div class=" ">
+                            <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky">
+                                <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
+                                    <div class="offcanvas-header navbar-shadow">
+                                        <h5>Menu</h5>
+                                        <button class="btn-close lead" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                    </div>
+                                    <div class="offcanvas-body">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'kampaniyalar'%}" data-bs-toggle="dropdown">Kampaniyalar</a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'endirimler'%}" data-bs-toggle="dropdown">Endirimli Məhsullar</a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'brands'%}" data-bs-toggle="dropdown">Markalar</a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'about'%}" data-bs-toggle="dropdown">Haqqımızda</a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'blogs'%})" data-bs-toggle="dropdown">Bloq yazıları</a>
+                                            </li>
+                                             <li class="nav-item dropdown">
+                                                    <a style=" color: #ffffff; " class="nav-link " href="{% url 'contact'%})" data-bs-toggle="dropdown">Bizimlə Əlaqə</a>
+                                            </li>
+
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="header-nav-right">
+                            <a href="{% url 'offers'%}" class="btn deal-button" style=" height: 35px; ">
+                                <i data-feather="tag"></i>
+                                <span>Təkliflər</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <!-- mobile fix menu start -->
+    <div class="mobile-menu d-md-none d-block mobile-cart">
+        <ul>
+            <li class="active">
+                <a href="{% url 'index'%}">
+                    <i class="iconly-Home icli"></i>
+                    <span>Home</span>
+                </a>
+            </li>
+
+            <li class="mobile-category">
+                <a href="javascript:void(0)">
+                    <i class="iconly-Category icli js-link"></i>
+                    <span>Category</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="search.html" class="search-box">
+                    <i class="iconly-Search icli"></i>
+                    <span>Search</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="wishlist.html" class="notifi-wishlist">
+                    <i class="iconly-Heart icli"></i>
+                    <span>My Wish</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="cart.html">
+                    <i class="iconly-Bag-2 icli fly-cate"></i>
+                    <span>Cart</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- mobile fix menu end -->
+
+    <!-- Breadcrumb Section Start -->
+    <section class="breadscrumb-section pt-0">
+        <div class="container-fluid-lg">
+            <div class="row">
+                <div class="col-12">
+                    <div class="breadscrumb-contain">
+                        <h2>Wishlist</h2>
+                        <nav>
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item">
+                                    <a href="{% url 'index'%}">
+                                        <i class="fa-solid fa-house"></i>
+                                    </a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Wishlist</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Wishlist Section Start -->
+    <section class="wishlist-section section-b-space">
+        <div class="container-fluid-lg">
+            <div class="row g-sm-3 g-2">
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/2.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Fresh Bread and Pastry Flour 200 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">250 ml</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$08.02</span>
+                                    <del>$15.15</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/3.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Peanut Butter Bite Premium Butter Cookies 600 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">350 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$04.33</span>
+                                    <del>$10.36</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/4.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Snacks</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">SnackAmor Combo Pack of Jowar Stick and Jowar Chips</h5>
+                                </a>
+                                <h6 class="unit mt-1">570 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$12.52</span>
+                                    <del>$13.62</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/5.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Snacks</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Yumitos Chilli Sprinkled Potato Chips 100 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">100 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$10.25</span>
+                                    <del>$12.36</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/6.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Fantasy Crunchy Choco Chip Cookies</h5>
+                                </a>
+                                <h6 class="unit mt-1">550 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$14.25</span>
+                                    <del>$16.57</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/7.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Fresh Bread and Pastry Flour 200 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">1 Kg</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$12.68</span>
+                                    <del>$14.69</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/2.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Fresh Bread and Pastry Flour 200 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">250 ml</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$08.02</span>
+                                    <del>$15.15</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/3.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Peanut Butter Bite Premium Butter Cookies 600 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">350 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$04.33</span>
+                                    <del>$10.36</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/4.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Snacks</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">SnackAmor Combo Pack of Jowar Stick and Jowar Chips</h5>
+                                </a>
+                                <h6 class="unit mt-1">570 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$12.52</span>
+                                    <del>$13.62</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/5.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Snacks</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Yumitos Chilli Sprinkled Potato Chips 100 g</h5>
+                                </a>
+                                <h6 class="unit mt-1">100 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$10.25</span>
+                                    <del>$12.36</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xxl-2 col-lg-3 col-md-4 col-6 product-box-contain">
+                    <div class="product-box-3 h-100">
+                        <div class="product-header">
+                            <div class="product-image">
+                                <a href="product-left-thumbnail.html">
+                                    <img src="{% static 'desktop/images/cake/product/6.png'%}" class="img-fluid blur-up lazyload" alt="">
+                                </a>
+
+                                <div class="product-header-top">
+                                    <button class="btn wishlist-button close_button">
+                                        <i data-feather="x"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="product-footer">
+                            <div class="product-detail">
+                                <span class="span-name">Vegetable</span>
+                                <a href="product-left-thumbnail.html">
+                                    <h5 class="name">Fantasy Crunchy Choco Chip Cookies</h5>
+                                </a>
+                                <h6 class="unit mt-1">550 G</h6>
+                                <h5 class="price">
+                                    <span class="theme-color">$14.25</span>
+                                    <del>$16.57</del>
+                                </h5>
+
+                                <div class="add-to-cart-box bg-white mt-2">
+                                    <button class="btn btn-add-cart addcart-button">Add
+                                        <span class="add-icon bg-light-gray">
+                                            <i class="fa-solid fa-plus"></i>
+                                        </span>
+                                    </button>
+                                    <div class="cart_qty qty-box">
+                                        <div class="input-group bg-white">
+                                            <button type="button" class="qty-left-minus bg-gray" data-type="minus" data-field="">
+                                                <i class="fa fa-minus" aria-hidden="true"></i>
+                                            </button>
+                                            <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
+                                            <button type="button" class="qty-right-plus bg-gray" data-type="plus" data-field="">
+                                                <i class="fa fa-plus" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Wishlist Section End -->
+
+   <!-- Footer Section Start -->
+    <footer class="section-t-space footer-section-2 footer-color-3">
+        <div class="container-fluid-lg">
+            <div class="main-footer">
+                <div class="row g-md-4 gy-sm-5">
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <a href="{% url 'index'%}" class="foot-logo theme-logo">
+                            <img src="{{general.logo.url}}" class="img-fluid blur-up lazyload" alt="">
+                        </a>
+                        <p class="information-text information-text-2">Supermarket, meyvə və tərəvəz, uşaqlarınız üçün hərşey, kosmetika, özünə qulluq və s. kimi ehtiyaclarınızı Vumart.az'dan onlayn ala bilərsiniz!</p>
+                        <ul class="social-icon">
+                            <li class="light-bg">
+                                <a href="https://www.facebook.com/meduzaaz" target="_blank" class="footer-link-color">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            </li>
+                            <li class="light-bg">
+                                <a href="https://www.instagram.com/meduzaaz" target="_blank" class="footer-link-color">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="light-bg">
+                                <a href="https://www.linkedin.com/meduzaaz" target="_blank" class="footer-link-color">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                            </li>
+                            <li class="light-bg">
+                                <a href="mailto:info@vumart.az" class="footer-link-color">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-xxl-2 col-xl-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4 class="text-white">Şirkət</h4>
+                        </div>
+                        <ul class="footer-list footer-contact footer-list-light">
+                            <li>
+                                <a href="about-us.html" class="light-text">Haqqımızda</a>
+                            </li>
+                            <li>
+                                <a href="contact-us.html" class="light-text">Bizimlə Əlaqə</a>
+                            </li>
+                            <li>
+                                <a href="term_condition.html" class="light-text">Şərtlər və İstifadə Qaydaları</a>
+                            </li>
+                            <li>
+                                <a href="careers.html" class="light-text">Karyera</a>
+                            </li>
+                            <li>
+                                <a href="blog-list.html" class="light-text">Bloq Yazıları</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xxl-2 col-xl-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4 class="text-white">Şəxsi Kabinet</h4>
+                        </div>
+                        <ul class="footer-list footer-list-light footer-contact">
+                            <li>
+                                <a href="order-success.html" class="light-text">Son Sifarişlər</a>
+                            </li>
+                            <li>
+                                <a href="user-dashboard.html" class="light-text">Profil</a>
+                            </li>
+                            <li>
+                                <a href="order-tracking.html" class="light-text">Ünvanlar</a>
+                            </li>
+                            <li>
+                                <a href="wishlist.html" class="light-text">Sevimlilər Listi</a>
+                            </li>
+                            <li>
+                                <a href="faq.html" class="light-text">Şəxsi Məlumatlar</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xxl-2 col-xl-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4 class="text-white">Kateqoriyalar</h4>
+                        </div>
+                        <ul class="footer-list footer-list-light footer-contact">
+                            <li>
+                                <a href="vegetables-demo.html" class="light-text">Yeni Məhsullar</a>
+                            </li>
+                            <li>
+                                <a href="spice-demo.html" class="light-text">Endirimli Məhsullar</a>
+                            </li>
+                            <li>
+                                <a href="bags-demo.html" class="light-text">Markalar</a>
+                            </li>
+                            <li>
+                                <a href="bakery-demo.html" class="light-text">Kampaniyalar</a>
+                            </li>
+                            <li>
+                                <a href="grocery-demo.html" class="light-text">Topdan Məhsullar</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-xxl-3 col-xl-4 col-sm-6">
+                        <div class="footer-title">
+                            <h4 class="text-white">Əlaqə Məlumatları</h4>
+                        </div>
+                        <ul class="footer-address footer-contact">
+                            <li>
+                                <a href="javascript:void(0)" class="light-text">
+                                    <div class="inform-box flex-start-box">
+                                        <i data-feather="map-pin"></i>
+                                        <p>{{general.address}}</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="light-text">
+                                    <div class="inform-box">
+                                        <i data-feather="phone"></i>
+                                        <p>Zəng üçün: +994 55 555 55 55</p>
+                                    </div>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)" class="light-text">
+                                    <div class="inform-box">
+                                        <i data-feather="mail"></i>
+                                        <p>Email: info@vumart.az</p>
+                                    </div>
+                                </a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-footer sub-footer-lite section-b-space section-t-space">
+                <div class="left-footer">
+                    <p class="light-text">2023 © Vumart.az - Bütün hüquqlar qorunur!</p>
+                </div>
+
+                <ul class="payment-box">
+                    <li>
+                        <img src="{% static 'desktop/images/icon/paymant/visa.png'%}" class="blur-up lazyload" alt="">
+                    </li>
+                    <li>
+                        <img src="{% static 'desktop/images/icon/paymant/discover.png'%}" alt="" class="blur-up lazyload">
+                    </li>
+                    <li>
+                        <img src="{% static 'desktop/images/icon/paymant/american.png'%}" alt="" class="blur-up lazyload">
+                    </li>
+                    <li>
+                        <img src="{% static 'desktop/images/icon/paymant/master-card.png'%}" alt="" class="blur-up lazyload">
+                    </li>
+                    <li>
+                        <img src="{% static 'desktop/images/icon/paymant/giro-pay.png'%}" alt="" class="blur-up lazyload">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Location Modal Start -->
+    <div class="modal location-modal fade theme-modal" id="locationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Choose your Delivery Location</h5>
+                    <p class="mt-1 text-content">Enter your address and we will specify the offer for your area.</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="location-list">
+                        <div class="search-input">
+                            <input type="search" class="form-control" placeholder="Search Your Area">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+
+                        <div class="disabled-box">
+                            <h6>Select a Location</h6>
+                        </div>
+
+                        <ul class="location-select custom-height">
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Alabama</h6>
+                                    <span>Min: $130</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Arizona</h6>
+                                    <span>Min: $150</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>California</h6>
+                                    <span>Min: $110</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Colorado</h6>
+                                    <span>Min: $140</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Florida</h6>
+                                    <span>Min: $160</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Georgia</h6>
+                                    <span>Min: $120</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Kansas</h6>
+                                    <span>Min: $170</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Minnesota</h6>
+                                    <span>Min: $120</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>New York</h6>
+                                    <span>Min: $110</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="javascript:void(0)">
+                                    <h6>Washington</h6>
+                                    <span>Min: $130</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Location Modal End -->
+
+    <!-- Deal Box Modal Start -->
+    <div class="modal fade theme-modal deal-modal" id="deal-box" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
+                        <p class="mt-1 text-content">Recommended deals for you.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="deal-offer-box">
+                        <ul class="deal-offer-list">
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/10.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-2">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/11.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-3">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/12.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+
+                            <li class="list-1">
+                                <div class="deal-offer-contain">
+                                    <a href="shop-left-sidebar.html" class="deal-image">
+                                        <img src="{% static 'desktop/images/vegetable/product/13.png'%}" class="blur-up lazyload" alt="">
+                                    </a>
+
+                                    <a href="shop-left-sidebar.html" class="deal-contain">
+                                        <h5>Blended Instant Coffee 50 g Buy 1 Get 1 Free</h5>
+                                        <h6>$52.57 <del>57.62</del> <span>500 G</span></h6>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Deal Box Modal End -->
+
+    <!-- Tap to top start -->
+    <div class="theme-option">
+        <div class="setting-box">
+            <button class="btn setting-button">
+                <i class="fa-solid fa-gear"></i>
+            </button>
+
+            <div class="theme-setting-2">
+                <div class="theme-box">
+                    <ul>
+                        <li>
+                            <div class="setting-name">
+                                <h4>Color</h4>
+                            </div>
+                            <div class="theme-setting-button color-picker">
+                                <form class="form-control">
+                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
+                                    <input type="color" class="form-control form-control-color" id="colorPick" value="#0da487" title="Choose your color">
+                                </form>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="setting-name">
+                                <h4>Dark</h4>
+                            </div>
+                            <div class="theme-setting-button">
+                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
+                                <button class="btn btn-2 unline" id="lightButton">Light</button>
+                            </div>
+                        </li>
+
+                        <li>
+                            <div class="setting-name">
+                                <h4>RTL</h4>
+                            </div>
+                            <div class="theme-setting-button rtl">
+                                <button class="btn btn-2 rtl-unline">LTR</button>
+                                <button class="btn btn-2 rtl-outline">RTL</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="back-to-top">
+            <a id="back-to-top" href="#">
+                <i class="fas fa-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <!-- Tap to top end -->
+
+    <!-- Bg overlay Start -->
+    <div class="bg-overlay"></div>
+    <!-- Bg overlay End -->
+
+    <!-- latest jquery-->
+    <script src="{% static 'desktop/js/jquery-3.6.0.min.js'%}"></script>
+
+    <!-- jquery ui-->
+    <script src="{% static 'desktop/js/jquery-ui.min.js'%}"></script>
+
+    <!-- Bootstrap js-->
+    <script src="{% static 'desktop/js/bootstrap/bootstrap.bundle.min.js'%}"></script>
+    <script src="{% static 'desktop/js/bootstrap/popper.min.js'%}"></script>
+    <script src="{% static 'desktop/js/bootstrap/bootstrap-notify.min.js'%}"></script>
+
+    <!-- feather icon js-->
+    <script src="{% static 'desktop/js/feather/feather.min.js'%}"></script>
+    <script src="{% static 'desktop/js/feather/feather-icon.js'%}"></script>
+
+    <!-- Lazyload Js -->
+    <script src="{% static 'desktop/js/lazysizes.min.js'%}"></script>
+
+    <!-- Slick js-->
+    <script src="{% static 'desktop/js/slick/slick.js'%}"></script>
+    <script src="{% static 'desktop/js/slick/custom_slick.js'%}"></script>
+
+    <!-- Quantity js -->
+    <script src="{% static 'desktop/js/quantity-2.js'%}"></script>
+
+    <!-- script js -->
+    <script src="{% static 'desktop/js/script.js'%}"></script>
+
+    <!-- thme setting js -->
+    <script src="{% static 'desktop/js/theme-setting.js'%}"></script>
+</body>
+
+</html>

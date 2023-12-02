@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/logo.png'%}" type="image/png">
+<title>Foodmart - Food & Grocery Delivery Mobile Template</title>
+
+<link rel="stylesheet" href="{% static 'mobile/vender/bootstrap/css/bootstrap.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/icofont/icofont.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+</head>
+<body>
+<div class="d-flex flex-column vh-100">
+<div class="order-received vh-100 d-flex align-items-center justify-content-center">
+<a href="track-order.html" class="link-dark">
+<div class="text-center p-4">
+<img src="{% static 'mobile/img/order-received.png'%}" alt="" class="img-fluid w-50 mb-4">
+<div>
+<h3 class="fw-bold">Yay! Order Recieved</h3>
+<p class="text-muted">You've saved 46 on this order.</p>
+</div>
+</div>
+</a>
+</div>
+<div class="mt-auto p-4">
+<a href="track-order.html" class="btn btn-primary w-100 text-uppercase btn-lg fw-bold">Track Order</a>
+</div>
+</div>
+
+<script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="44bda4d186e9ed695ae96253-text/javascript"></script>
+<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="44bda4d186e9ed695ae96253-|49" defer=""></script><script defer="" src="../../beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf7ed258ba18ec8","version":"2023.4.0","r":1,"b":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>
