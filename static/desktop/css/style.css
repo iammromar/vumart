@@ -16818,8 +16818,16 @@ header .offcanvas-backdrop {
 .product-box .product-image .product-option li a {
     color: #222
 }
+.product-box .product-image .product-option li button {
+    color: #222
+}
 
 .product-box .product-image .product-option li a .feather {
+    width: 17px;
+    height: auto;
+    color: #4a5568
+}
+.product-box .product-image .product-option li button .feather {
     width: 17px;
     height: auto;
     color: #4a5568
@@ -25743,7 +25751,8 @@ header .offcanvas-backdrop {
     display: flex;
     -webkit-box-align: center;
     -ms-flex-align: center;
-    align-items: center
+    align-items: center;
+    color: #000;
 }
 
 .user-dashboard-section .dashboard-right-sidebar .dashboard-profile .profile-about .table tbody tr td a:hover {
@@ -25773,8 +25782,7 @@ header .offcanvas-backdrop {
     height: 100%;
     top: 0;
     left: 0;
-    background: var(--theme-color2);
-    opacity: 0.08;
+    background: #fee332;
     z-index: -1
 }
 
@@ -29946,4 +29954,64 @@ header .navbar.navbar-expand-xl .navbar-nav .nav-link {
 
 
 
-
+.cartEmpty--poisk {
+    margin-top: 0 !important;
+    padding-top: 70px !important;
+    padding-bottom: 40px !important;
+}
+.cartEmpty {
+    background: #fff;
+    border-radius: 10px;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+    width: 80%;
+}
+.cartEmpty__h2 {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: -0.03em;
+    margin-bottom: 15px;
+}
+.cartEmpty__podtext {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #777;
+    margin-bottom: 40px;
+}
+a.cartEmpty__but {
+    color: black !important;
+    text-decoration: none !important;
+}
+.cartEmpty__but {
+    border: 1px solid #323232;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: -0.02em;
+    background: #fff;
+    max-width: 264px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    height: 48px;
+}
+.message {
+    display: flex;
+    gap: 0.25rem;
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    border-width: 0;
+    box-shadow: 0 4px 7px 0 rgb(0 0 0/9%);
+}

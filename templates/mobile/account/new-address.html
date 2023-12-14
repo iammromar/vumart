@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/logo.png'%}" type="image/png">
+<title>Foodmart - Food & Grocery Delivery Mobile Template</title>
+
+<link rel="stylesheet" href="{% static 'mobile/vender/bootstrap/css/bootstrap.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/icofont/icofont.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/sidebar/demo.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+
+</head>
+
+  <body>
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a href="checkout.html">
+            <i class="iconsax back-btn" data-icon="arrow-left"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.57141 18.8211C9.38141 18.8211 9.19141 18.7511 9.04141 18.6011L2.97141 12.5311C2.68141 12.2411 2.68141 11.7611 2.97141 11.4711L9.04141 5.40109C9.33141 5.11109 9.81141 5.11109 10.1014 5.40109C10.3914 5.69109 10.3914 6.17109 10.1014 6.46109L4.56141 12.0011L10.1014 17.5411C10.3914 17.8311 10.3914 18.3111 10.1014 18.6011C9.96141 18.7511 9.76141 18.8211 9.57141 18.8211Z" fill="#292D32"></path>
+                <path d="M20.5019 12.75H3.67188C3.26188 12.75 2.92188 12.41 2.92188 12C2.92188 11.59 3.26188 11.25 3.67188 11.25H20.5019C20.9119 11.25 21.2519 11.59 21.2519 12C21.2519 12.41 20.9119 12.75 20.5019 12.75Z" fill="#292D32"></path>
+                </svg>
+                </i>
+          </a>
+          <h3 style="font-size: 15px;">Yeni Ünvan əlavə edin</h3>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+<!-- address form section start -->
+<section class="section-b-space">
+    <div class="custom-container">
+      <form class="address-form" method="post">
+        {% csrf_token%}
+        <input type="hidden" name="type" value="addaddress">
+        <input type="hidden" name="customer" value="{{user.id}}">
+        <div class="form-group">
+          <label class="form-label">Ünvan adı</label>
+          <div class="form-input mb-3">
+            <input type="text" class="form-control" required name="name" placeholder="Ünvan adı">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Şəhər/Rayon</label>
+          <div class="form-input mb-3">
+            <input type="text" class="form-control" required name="city" placeholder="Şəhər/Rayon">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Küçə adı</label>
+          <div class="form-input mb-3">
+            <input type="text" class="form-control" required name="street" placeholder="Küçə adı">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Bina/Mənzil</label>
+          <div class="form-input mb-3">
+            <input type="text" class="form-control" required name="building" placeholder="Bina/Mənzil">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ətraflı izah</label>
+          <div class="form-input mb-3">
+            <textarea class="form-control" name="note" placeholder="Ətraflı izah edin" style="height: 100px"></textarea>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Poçt indeksi</label>
+          <div class="form-input mb-3">
+            <input type="text" required name="zip" class="form-control" placeholder="Poçt indeksi">
+          </div>
+        </div>
+        <span style=""></span>
+        <div class="footer-modal d-flex gap-3">
+          <button type="button" class="btn gray-btn btn-inline mt-0 w-50" data-bs-dismiss="modal">Bağla</button>
+          <button type="submit" class="theme-btn btn btn-inline mt-0 w-50">Yadda Saxla</button>
+        </div>
+      </form>
+    </div>
+  </section>
+  <!-- address form section end -->
+  
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js'%}"></script><script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+
+    <script src="{% static 'mobile/vender/jquery/jquery.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+    
+    <script src="{% static 'mobile/vender/sidebar/hc-offcanvas-nav.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+    
+    <script src="{% static 'mobile/js/custom.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+    <script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="ce94a9a36d1b23ed31aafdea-|49" defer=""></script><script defer="" src="../../beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf7ed0d4e0a8ec8","version":"2023.4.0","r":1,"b":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+    </body>
+    </html>

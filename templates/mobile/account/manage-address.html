@@ -1,0 +1,120 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="img/logo.png'%}" type="image/png">
+<title>Foodmart - Food & Grocery Delivery Mobile Template</title>
+
+
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-7?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/bootstrap/css/bootstrap.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/icofont/icofont.min.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/vender/sidebar/demo.css'%}">
+
+<link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+
+</head>
+
+  <body>
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a href="{% url 'profile'%}">
+            <i class="iconsax back-btn" data-icon="arrow-left"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9.57141 18.8211C9.38141 18.8211 9.19141 18.7511 9.04141 18.6011L2.97141 12.5311C2.68141 12.2411 2.68141 11.7611 2.97141 11.4711L9.04141 5.40109C9.33141 5.11109 9.81141 5.11109 10.1014 5.40109C10.3914 5.69109 10.3914 6.17109 10.1014 6.46109L4.56141 12.0011L10.1014 17.5411C10.3914 17.8311 10.3914 18.3111 10.1014 18.6011C9.96141 18.7511 9.76141 18.8211 9.57141 18.8211Z" fill="#292D32"></path>
+              <path d="M20.5019 12.75H3.67188C3.26188 12.75 2.92188 12.41 2.92188 12C2.92188 11.59 3.26188 11.25 3.67188 11.25H20.5019C20.9119 11.25 21.2519 11.59 21.2519 12C21.2519 12.41 20.9119 12.75 20.5019 12.75Z" fill="#292D32"></path>
+              </svg>
+              </i>
+          </a>
+          <h3 style="font-size: 15px;">Ünvanlarım</h3>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+<!-- shipping details section start -->
+<section class="shipping-details-sec">
+  <div class="custom-container">
+    <ul class="address-list">
+      
+      {% if user.addresses.count == 0 %}
+        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
+          <div class="address-box">
+              Heç bir ünvanı əlavə edilməyib.
+          </div>
+        </div>
+      {% endif %}
+   
+   {% for a in user.addresses.all %}
+      <li>
+          <div class="shipping-address">
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="flexRadio1" id="radio1" checked="">
+                  <label class="form-check-label" for="radio1">{{a.name}}</label>
+                </div>
+                <div class="options">
+                  <a href="">
+                    <i class="iconsax icons" data-icon="edit-2"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.53999 19.5196C4.92999 19.5196 4.35999 19.3096 3.94999 18.9196C3.42999 18.4296 3.17999 17.6896 3.26999 16.8896L3.63999 13.6496C3.70999 13.0396 4.07999 12.2296 4.50999 11.7896L12.72 3.09956C14.77 0.929561 16.91 0.869561 19.08 2.91956C21.25 4.96956 21.31 7.10956 19.26 9.27956L11.05 17.9696C10.63 18.4196 9.84999 18.8396 9.23999 18.9396L6.01999 19.4896C5.84999 19.4996 5.69999 19.5196 5.53999 19.5196ZM15.93 2.90956C15.16 2.90956 14.49 3.38956 13.81 4.10956L5.59999 12.8096C5.39999 13.0196 5.16999 13.5196 5.12999 13.8096L4.75999 17.0496C4.71999 17.3796 4.79999 17.6496 4.97999 17.8196C5.15999 17.9896 5.42999 18.0496 5.75999 17.9996L8.97999 17.4496C9.26999 17.3996 9.74999 17.1396 9.94999 16.9296L18.16 8.23956C19.4 6.91956 19.85 5.69956 18.04 3.99956C17.24 3.22956 16.55 2.90956 15.93 2.90956Z" fill="#292D32"></path>
+                      <path d="M17.3404 10.9489C17.3204 10.9489 17.2904 10.9489 17.2704 10.9489C14.1504 10.6389 11.6404 8.26887 11.1604 5.16887C11.1004 4.75887 11.3804 4.37887 11.7904 4.30887C12.2004 4.24887 12.5804 4.52887 12.6504 4.93887C13.0304 7.35887 14.9904 9.21887 17.4304 9.45887C17.8404 9.49887 18.1404 9.86887 18.1004 10.2789C18.0504 10.6589 17.7204 10.9489 17.3404 10.9489Z" fill="#292D32"></path>
+                      <path d="M21 22.75H3C2.59 22.75 2.25 22.41 2.25 22C2.25 21.59 2.59 21.25 3 21.25H21C21.41 21.25 21.75 21.59 21.75 22C21.75 22.41 21.41 22.75 21 22.75Z" fill="#292D32"></path>
+                      </svg>
+                      </i>
+                  </a>
+                  <a href="#">
+                    <i class="iconsax icons" data-icon="trash"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M21 5.97998C17.67 5.64998 14.32 5.47998 10.98 5.47998C9 5.47998 7.02 5.57998 5.04 5.77998L3 5.97998" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M8.5 4.97L8.72 3.66C8.88 2.71 9 2 10.69 2H13.31C15 2 15.13 2.75 15.28 3.67L15.5 4.97" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M18.85 9.14001L18.2 19.21C18.09 20.78 18 22 15.21 22H8.79002C6.00002 22 5.91002 20.78 5.80002 19.21L5.15002 9.14001" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M10.33 16.5H13.66" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M9.5 12.5H14.5" stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      </i>
+                  </a>
+                </div>
+              </div>
+              <div class="address-details">
+                <h5 class="content-number">Ünvan : <span> {{a.city}}</span></h5>
+              </div>
+              <div class="address-details">
+                <h5 class="content-number">Poçt İndeksi : <span> {{a.zip}}</span></h5>
+              </div>
+              <div class="address-details">
+                <h5 class="content-number">Əlavə qeyd  : <span> {{a.note}}</span></h5>
+              </div>
+            </div>
+          </li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'new_address'%}" class="yeni btn gray-btn w-100">+ Yeni Ünvan əlavə edin</a>
+
+    {% comment %} <div class="footer-modal d-flex gap-3">
+      <a href="{% url 'profile'%}" class="btn gray-btn btn-inline mt-0 w-50">Ləğv et</a>
+      <button type="submit" class="theme-btn btn btn-inline mt-0 w-50">Yadda saxla</button>
+    </div> {% endcomment %}
+  </div>
+</section>
+<!-- shipping details section end -->
+
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js'%}"></script><script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+
+<script src="{% static 'mobile/vender/jquery/jquery.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+
+<script src="{% static 'mobile/vender/sidebar/hc-offcanvas-nav.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+
+<script src="{% static 'mobile/js/custom.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="ce94a9a36d1b23ed31aafdea-|49" defer=""></script><script defer="" src="../../beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf7ed0d4e0a8ec8","version":"2023.4.0","r":1,"b":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+</body>
+</html>

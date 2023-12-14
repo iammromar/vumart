@@ -29,6 +29,58 @@
     <link rel="stylesheet" href="{% static 'login/css/bootstrap.min.css'%}">
     <link rel="stylesheet" href="{% static 'login/css/ioform-style.css'%}">
     <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<style>
+    .custom-alert {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      width: 300px;
+      background-color: #ffffff;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+      z-index: 1000;
+    }
+  
+    .alert-content {
+      display: flex;
+      align-items: center;
+      padding: 15px;
+    }
+  
+    .alert-icon {
+      margin-right: 10px;
+      color: #eacb06; /* Verdiğiniz SVG ikonun rengi */
+      font-size: 24px;
+    }
+  
+    .progress-bar {
+      height: 5px;
+      background-color: #f0f0f0;
+      position: relative;
+    }
+  
+    .progress-fill {
+      height: 100%;
+      width: 100%;
+      background-color: #eacb06;
+      animation: progress-animation 5s linear forwards;
+    }
+  
+    @keyframes progress-animation {
+      0% {
+        width: 100%;
+      }
+      100% {
+        width: 0;
+      }
+    }
+  </style>
   </head>
 
   <body class="auth-body">
@@ -110,10 +162,49 @@
             <span>Və ya</span>
           </div>
   
-          <h4 class="signup pt-0">Hesabınız var?<a href="{% url 'login'%}"> Daxil ol</a></h4>
+          <h4 class="signup pt-0">Hesabınız var?<a href="{% url 'signin'%}"> Daxil ol</a></h4>
       </div>
   </form>
+
+  
+  <div class="alert-container" id="alert-container">
     <!-- create account section end-->
+
+    <script>
+      function showAlert(message, alertType) {
+          var alertContainer = $('#alert-container');
+          var alertClass = alertType === 'success' ? 'alert-success' : 'alert-danger';
+      
+          var alert = $('<div class="custom-alert ' + alertClass + '">' +
+                       '<div class="alert-content">' +
+                       '<div class="alert-icon"><svg xmlns="http://www.w3.org/2000/svg" height="32" width="32" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path fill="#eacb06" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zm0-384c13.3 0 24 10.7 24 24V264c0 13.3-10.7 24-24 24s-24-10.7-24-24V152c0-13.3 10.7-24 24-24zM224 352a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/></svg></div>' +
+                       '<div>' + message + '</div>' +
+                       '</div>' +
+                       '<div class="progress-bar"><div class="progress-fill"></div></div>' +
+                       '</div>');
+      
+          alert.appendTo(alertContainer).animate({ opacity: 1 }, 500);
+      
+          setTimeout(function() {
+            alert.animate({ opacity: 0 }, 500, function() {
+              $(this).remove();
+            });
+          }, 5000);
+        }
+        
+    
+      $(document).ready(function() {
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'success' %}
+              showAlert("{{ message }}", "success");
+            {% elif message.tags == 'error' %}
+              showAlert("{{ message }}", "danger");
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+      });
+    </script>
 
     <script>
       function validatePassword() {

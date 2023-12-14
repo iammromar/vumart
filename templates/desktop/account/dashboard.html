@@ -552,11 +552,11 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-card-tab" data-bs-toggle="pill" data-bs-target="#pills-card" type="button" role="tab" aria-controls="pills-card" aria-selected="false"><i data-feather="credit-card"></i> Müqavilə</button>
                             </li>
-{% comment %} 
+
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-address-tab" data-bs-toggle="pill" data-bs-target="#pills-address" type="button" role="tab" aria-controls="pills-address" aria-selected="false"><i data-feather="map-pin"></i>
                                     Ünvanlar</button>
-                            </li> {% endcomment %}
+                            </li> 
 
                             <li class="nav-item" role="presentation">
                                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false"><i data-feather="user"></i>
@@ -572,7 +572,7 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                     </div>
                 </div>
 
-                <div class="col-xxl-9 col-lg-8">
+                    <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">Show
                         Menu</button>
                     <div class="dashboard-right-sidebar">
@@ -607,7 +607,6 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-xxl-4 col-lg-6 col-md-4 col-sm-6">
                                                 <div class="totle-contain">
                                                     <img src="{% static 'desktop/images/svg/pending.svg'%}" class="img-1 blur-up lazyload" alt="">
@@ -629,54 +628,12 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="dashboard-title">
-                                        <h3>Şəxsi Məlumatlar</h3>
-                                    </div>
-
-                                    <div class="row g-4">
-                                        <div class="col-xxl-6">
-                                            <div class="dashboard-contant-title">
-                                                <h4>Məlumatlar
-                                                    {% comment %} <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Redaktə Et</a> {% endcomment %}
-                                                </h4>
-                                            </div>
-                                            <div class="dashboard-detail">
-                                                <h6 class="text-content">{{user.first_name}}</h6>
-                                                <h6 class="text-content">{{user.email}}</h6>
-                                                {% comment %} <a href="javascript:void(0)">Şifrəni dəyiş</a> {% endcomment %}
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-6">
-
-                                        </div>
-
-                                        <div class="col-12">
-                                            <div class="dashboard-contant-title">
-                                                <h4>Çatdırılma Ünvanları 
-                                                    {% comment %} <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Redaktə Et</a> {% endcomment %}
-                                                </h4>
-                                            </div>
-
-                                            <div class="row g-4">
-                                                <div class="col-xxl-6">
-                                                    <div class="dashboard-detail">
-                                                        <h6 class="text-content" >Əsas Çatdırılma Ünvanı :</h6>
-                                                        <h5 class="text-content">{{user.address}}</h5>
-                                                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#editProfile">Ünvanı dəyiş</a>
-                                                    </div>
-                                                </div>
-
-                                                
-                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div> 
+                            
                             <div class="tab-pane fade show" id="pills-wishlist" role="tabpanel" aria-labelledby="pills-wishlist-tab">
                                 <div class="dashboard-wishlist">
                                     <div class="title">
@@ -742,338 +699,12 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                             </div>
                                         </div>
 
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/3.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Vegetable</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">Peanut Butter Bite Premium Butter Cookies
-                                                                600 g</h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Feta taleggio
-                                                            croque monsieur swiss manchego cheesecake dolcelatte
-                                                            jarlsberg. Hard cheese danish fontina boursin melted cheese
-                                                            fondue.</p>
-                                                        <h6 class="unit mt-1">350 G</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$04.33</span>
-                                                            <del>$10.36</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/4.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Snacks</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">SnackAmor Combo Pack of Jowar Stick and
-                                                                Jowar Chips</h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Lancashire
-                                                            hard cheese parmesan. Danish fontina mozzarella cream cheese
-                                                            smelly cheese cheese and wine cheesecake dolcelatte stilton.
-                                                            Cream cheese parmesan who moved my cheese when the cheese
-                                                            comes out everybody's happy cream cheese red leicester
-                                                            ricotta edam.</p>
-                                                        <h6 class="unit mt-1">570 G</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$12.52</span>
-                                                            <del>$13.62</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/5.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Snacks</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">Yumitos Chilli Sprinkled Potato Chips 100 g
-                                                            </h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Cheddar
-                                                            cheddar pecorino hard cheese hard cheese cheese and biscuits
-                                                            bocconcini babybel. Cow goat paneer cream cheese fromage
-                                                            cottage cheese cauliflower cheese jarlsberg.</p>
-                                                        <h6 class="unit mt-1">100 G</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$10.25</span>
-                                                            <del>$12.36</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/6.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Vegetable</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">Fantasy Crunchy Choco Chip Cookies</h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Bavarian
-                                                            bergkase smelly cheese swiss cut the cheese lancashire who
-                                                            moved my cheese manchego melted cheese. Red leicester paneer
-                                                            cow when the cheese comes out everybody's happy croque
-                                                            monsieur goat melted cheese port-salut.</p>
-                                                        <h6 class="unit mt-1">550 G</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$14.25</span>
-                                                            <del>$16.57</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/7.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Vegetable</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">Fresh Bread and Pastry Flour 200 g</h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Melted cheese
-                                                            babybel chalk and cheese. Port-salut port-salut cream cheese
-                                                            when the cheese comes out everybody's happy cream cheese
-                                                            hard cheese cream cheese red leicester.</p>
-                                                        <h6 class="unit mt-1">1 Kg</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$12.68</span>
-                                                            <del>$14.69</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-xxl-3 col-lg-6 col-md-4 col-sm-6">
-                                            <div class="product-box-3 theme-bg-white h-100">
-                                                <div class="product-header">
-                                                    <div class="product-image">
-                                                        <a href="product-left-thumbnail.html">
-                                                            <img src="{% static 'desktop/images/cake/product/2.png'%}" class="img-fluid blur-up lazyload" alt="">
-                                                        </a>
-
-                                                        <div class="product-header-top">
-                                                            <button class="btn wishlist-button close_button">
-                                                                <i data-feather="x"></i>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                                <div class="product-footer">
-                                                    <div class="product-detail">
-                                                        <span class="span-name">Vegetable</span>
-                                                        <a href="product-left-thumbnail.html">
-                                                            <h5 class="name">Fresh Bread and Pastry Flour 200 g</h5>
-                                                        </a>
-                                                        <p class="text-content mt-1 mb-2 product-content">Squirty cheese
-                                                            cottage cheese cheese strings. Red leicester paneer danish
-                                                            fontina queso lancashire when the cheese comes out
-                                                            everybody's happy cottage cheese paneer.</p>
-                                                        <h6 class="unit mt-1">250 ml</h6>
-                                                        <h5 class="price">
-                                                            <span class="theme-color">$08.02</span>
-                                                            <del>$15.15</del>
-                                                        </h5>
-                                                        <div class="add-to-cart-box mt-2">
-                                                            <button class="btn btn-add-cart addcart-button" tabindex="0">Add
-                                                                <span class="add-icon">
-                                                                    <i class="fa-solid fa-plus"></i>
-                                                                </span>
-                                                            </button>
-                                                            <div class="cart_qty qty-box">
-                                                                <div class="input-group">
-                                                                    <button type="button" class="qty-left-minus" data-type="minus" data-field="">
-                                                                        <i class="fa fa-minus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                    <input class="form-control input-number qty-input" type="text" name="quantity" value="0">
-                                                                    <button type="button" class="qty-right-plus" data-type="plus" data-field="">
-                                                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                                                    </button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>
+
+                            
 
                             <div class="tab-pane fade show" id="pills-order" role="tabpanel" aria-labelledby="pills-order-tab">
                                 <div class="dashboard-order">
@@ -1139,48 +770,36 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                {% for o in orders %}
-                                                    <tr>
-                                                        <td class="product-image">#0000{{o.id}}</td>
-                                                        <td>
-                                                            {{o.ordered_date_time}}
-                                                        </td>
-                                                        <td>
-                                                            <h6>{{o.address.street}} </h6>
-                                                        </td>
-                                                        <td>
-                                                             <label class="success" style=" color: #0e845b; ">Bank köçürmə</label>
-                                                        </td>
-                                                         <td>
-                                                             <label class="success" style="color: #000000;background: #fee332;">{{o.get_status_display}}</label>
-                                                        </td>
-
-                                                         <td>
-                                                            <h6>₼ {{o.get_cart_total}}</h6>
-                                                        </td>
-                                                    </tr>
-                                                {% endfor%}
+                                                    {% for o in orders %}
+                                                        <tr>
+                                                            <td class="product-image">#0000{{o.id}}</td>
+                                                            <td>
+                                                                {{o.ordered_date_time}}
+                                                            </td>
+                                                            <td>
+                                                                <h6>{{o.address.street}} {{o.address.building}}</h6>
+                                                            </td>
+                                                            <td>
+                                                                 <label class="success" style=" color: #0e845b; ">Bank köçürmə</label>
+                                                            </td>
+                                                             <td>
+                                                                 <label class="success" style="color: #000000;background: #fee332;">{{o.get_status_display}}</label>
+                                                            </td>
+    
+                                                             <td>
+                                                                <h6>₼ {{o.get_cart_total}}</h6>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor%}
                                                 </tbody>
                                             </table>
                                         </div>
 
                                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
                                 </div>
                             </div>
 
-                            {% comment %} <div class="tab-pane fade show" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
+                            <div class="tab-pane fade show" id="pills-address" role="tabpanel" aria-labelledby="pills-address-tab">
                                 <div class="dashboard-address">
                                     <div class="title title-flex">
                                         <div>
@@ -1195,66 +814,135 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                         <button class="btn theme-bg-color text-white btn-sm fw-bold mt-lg-0 mt-3" data-bs-toggle="modal" data-bs-target="#add-address"><i data-feather="plus" class="me-2"></i> Ünvan əlavə et</button>
                                     </div>
 
+
                                     <div class="row g-sm-4 g-3">
                                         {% if user.addresses.count == 0 %}
-                                        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                              Heç bir ünvanı əlavə edilməyib.
+                                            <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
+                                                <div class="address-box">
+                                                    Heç bir ünvanı əlavə edilməyib.
+                                                </div>
                                             </div>
-                                        </div>
                                         {% endif %}
-                                        <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6">
-                                            <div class="address-box">
-                                                <div>
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault2" checked="">
+                                        {% for a in user.addresses.all %}
+                                            <div class="col-xxl-6 col-xl-6 col-lg-12 col-md-6">
+                                                <div class="address-box">
+                                                    <div>
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="radio" name="jack" id="flexRadioDefault2" checked="">
+                                                        </div>
+                                    
+                                                        <div class="label">
+                                                            <label style="color: #000;">{{a.name}}</label>
+                                                        </div>
+                                    
+                                                        <div class="table-responsive address-table">
+                                                            <table class="table">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td colspan="2">{{a.city}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Ünvan:</td>
+                                                                        <td>
+                                                                            <p>{{a.street}} {{a.building}}</p>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Poçt İndeksi :</td>
+                                                                        <td>{{a.zip}}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Əlavə qeyd :</td>
+                                                                        <td>{{a.note}}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
                                                     </div>
-
-                                                    <div class="label">
-                                                        <label>{{a.name}}</label>
+                                    
+                                                    <div class="button-group">
+                                                        <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile{{a.id}}">
+                                                            <i data-feather="edit"></i> Redaktə et
+                                                        </button>
+                                                        
+                                                        <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile">
+                                                            <i data-feather="trash-2"></i> Ünvanı sil
+                                                        </button>
+                                                        
+                                                            
                                                     </div>
-
-                                                    <div class="table-responsive address-table">
-                                                        <table class="table">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td colspan="2">{{a.city}}</td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Ünvan:</td>
-                                                                    <td>
-                                                                        <p>{{a.street}} {{a.building}}
-                                                                        </p>
-                                                                    </td>
-                                                                </tr>
-
-                                                                <tr>
-                                                                    <td>Poçt İndeksi :</td>
-                                                                    <td>{{a.zip}}</td>
-                                                                </tr>
-                                                            <tr>
-                                                                    <td>Əlavə qeyd :</td>
-                                                                    <td>{{a.note}}</td>
-                                                                </tr>
-
-
-                                                            </tbody>
-                                                        </table>
-                                                    </div>
-                                                </div>
-
-                                                <div class="button-group">
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#editProfile"><i data-feather="edit"></i>
-                                                        Redaktə et</button>
-                                                    <button class="btn btn-sm add-button w-100" data-bs-toggle="modal" data-bs-target="#removeProfile"><i data-feather="trash-2"></i>
-                                                        Ünvanı sil</button>
                                                 </div>
                                             </div>
-                                        </div>
+                                    
+                                            <!-- Edit Profile Start -->
+                                            <div class="modal fade theme-modal" id="editProfile{{a.id}}" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel2">Redaktə et</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                                                                <i class="fa-solid fa-xmark"></i>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="post" action="{% url 'profile' %}">
+                                                                {% csrf_token %}
+                                                                <input type="hidden" name="type" value="editaddress">
+                                                                <input type="hidden" name="address_id" value="{{a.id}}">
+                                                                <div class="row g-4">
+                                                                    <div class="col-xxl-12">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <input type="text" class="form-control" id="pname" name="name" value="{{a.name}}">
+                                                                            <label for="pname">Ünvanı adı (məs. Depo)</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xxl-6">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <input type="text" class="form-control" id="city" name="city" value="{{a.city}}">
+                                                                            <label for="city">Şəhər/Rayon</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xxl-6">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <input type="text" class="form-control" id="street" name="street" value="{{a.street}}">
+                                                                            <label for="street">Küçə adı</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xxl-6">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <input type="text" class="form-control" id="building" name="building" value="{{a.building}}">
+                                                                            <label for="building">Bina/Mənzil</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xxl-6">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <input type="text" class="form-control" id="zip" name="zip" value="{{a.zip}}">
+                                                                            <label for="zip">Poçt indeksi</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="col-xxl-12">
+                                                                        <div class="form-floating theme-form-floating">
+                                                                            <textarea class="form-control" id="note" name="note" placeholder="Ətraflı izah edin" style="height: 100px">{{a.note}}</textarea>
+                                                                            <label for="note">Ətraflı izah edin</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Ləğv et</button>
+                                                                    <button type="submit" name="type" value="editaddress" class="btn theme-bg-color btn-md fw-bold text-light">Yadda saxla</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Edit Profile End -->
+                                        {% endfor %}
                                     </div>
+                                    
                                 </div>
-                            </div> {% endcomment %}
+                            </div>
+
 
                             <div class="tab-pane fade show" id="pills-card" role="tabpanel" aria-labelledby="pills-card-tab">
                                 <div class="dashboard-card">
@@ -1479,6 +1167,10 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                 <div class="dashboard-title mb-3">
                                                     <h3>Hesab Haqqında</h3>
                                                 </div>
+                                                <div class="dashboard-title dashboard-flex">
+                                                    <button style="color: #000 !important;" class="btn btn-sm theme-bg-color text-white" data-bs-toggle="modal"
+                                                        data-bs-target="#edit-profile">Redaktə</button>
+                                                </div>
 
                                                 <div class="table-responsive">
                                                     <table class="table">
@@ -1494,10 +1186,6 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Ünvanınız :</td>
-                                                                <td>{{user.address}}</td>
-                                                            </tr>
-                                                            <tr>
                                                                 <td>E-poçt ünvanı :</td>
                                                                 <td>{{user.email}}</td>
                                                             </tr>
@@ -1508,33 +1196,90 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                         </tbody>
                                                     </table>
                                                 </div>
+                                                <div class="dashboard-title mb-3">
+                                                    <h3>Giriş məlumatları</h3>
+                                                </div>
 
-                                                {% comment %} <div class="dashboard-title mb-3">
-                                                    <h3>Login Details</h3>
-                                                </div> {% endcomment %}
-
-                                                {% comment %} <div class="table-responsive">
+                                                <div class="table-responsive">
                                                     <table class="table">
                                                         <tbody>
                                                             <tr>
                                                                 <td>E-poçt :</td>
                                                                 <td>
-                                                                    <a href="javascript:void(0)">{{user.email}}
-                                                                        <span data-bs-toggle="modal" data-bs-target="#editProfile">Edit</span></a>
+                                                                    <a style="color: #000 !important;" href="javascript:void(0)">{{user.username}}</a>
                                                                 </td>
                                                             </tr>
                                                             <tr>
-                                                                <td>Password :</td>
+                                                                <td>Şifrə :</td>
                                                                 <td>
-                                                                    <a href="javascript:void(0)">●●●●●●
-                                                                        <span data-bs-toggle="modal" data-bs-target="#editProfile">Edit</span></a>
+                                                                    <a style="color: #000 !important;" href="javascript:void(0)" id="editPasswordLink">●●●●●●
+                                                                        <span style="color: #000 !important;">Şifrəni Dəyiş</span>
+                                                                    </a>
                                                                 </td>
+                                                                
+                                                                                                                                
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                </div> {% endcomment %}
+                                                </div>
+                                            </div>
+                                     <!-- Modal -->
+                                            <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 style="font-weight: 600;
+                                                            font-size: 20px;
+                                                            width: 95%;
+                                                            margin-top: -4px;" class="modal-title" id="exampleModalLabel">Şifrəni Dəyişdir</h5>
+                                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" action="{% url 'change_password' %}" id="changePasswordForm">
+                                                                {% csrf_token %}
+                                                                <div class="form-group">
+                                                                    <label style="margin-bottom: 0.5rem" for="oldPassword">Köhnə Şifrə:</label>
+                                                                    <input type="password" class="form-control" id="oldPassword" name="old_password" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label style="margin-bottom: 0.5rem" for="newPassword">Yeni Şifrə:</label>
+                                                                    <input type="password" class="form-control" id="newPassword" name="new_password" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label style="margin-bottom: 0.5rem" for="confirmPassword">Şifrəni Təsdiqlə:</label>
+                                                                    <input type="password" class="form-control" id="confirmPassword" name="confirm_password" required>
+                                                                </div>
+                                                                <button style="margin-top: 1rem; color: #000 !important;" type="button" class="btn theme-bg-color btn-md fw-bold text-light" onclick="changePassword()">Şifrəni Dəyişdir</button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
+                                            <script>
+                                                document.getElementById('editPasswordLink').addEventListener('click', function() {
+                                                    var changePasswordModal = new bootstrap.Modal(document.getElementById('changePasswordModal'));
+                                                    changePasswordModal.show();
+                                                });
+                                            </script>
+
+                                            <!-- JavaScript -->
+                                            <script>
+                                                function changePassword() {
+                                                    var form = document.getElementById("changePasswordForm");
+                                                    var newPassword = document.getElementById("newPassword").value;
+                                                    var confirmPassword = document.getElementById("confirmPassword").value;
+
+                                                    if (newPassword !== confirmPassword) {
+                                                        alert("Yeni şifreler eşleşmiyor. Lütfen kontrol edin.");
+                                                        return;
+                                                    }
+
+                                                    $('#changePasswordModal').modal('hide');
+
+                                                    form.submit();
+                                                }
+                                            </script>
                                             <div class="col-xxl-5">
                                                 <div class="profile-image">
                                                     <img src="{% static 'desktop/images/inner-page/dashboard-profile.png'%}" class="img-fluid blur-up lazyload" alt="">
@@ -1877,44 +1622,6 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
             <button class="btn setting-button">
                 <i class="fa-solid fa-gear"></i>
             </button>
-
-            <div class="theme-setting-2">
-                <div class="theme-box">
-                    <ul>
-                        <li>
-                            <div class="setting-name">
-                                <h4>Color</h4>
-                            </div>
-                            <div class="theme-setting-button color-picker">
-                                <form class="form-control">
-                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
-                                    <input type="color" class="form-control form-control-color" id="colorPick" value="#0da487" title="Choose your color">
-                                </form>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="setting-name">
-                                <h4>Dark</h4>
-                            </div>
-                            <div class="theme-setting-button">
-                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
-                                <button class="btn btn-2 unline" id="lightButton">Light</button>
-                            </div>
-                        </li>
-
-                        <li>
-                            <div class="setting-name">
-                                <h4>RTL</h4>
-                            </div>
-                            <div class="theme-setting-button rtl">
-                                <button class="btn btn-2 rtl-unline">LTR</button>
-                                <button class="btn btn-2 rtl-outline">RTL</button>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
         </div>
 
         <div class="back-to-top">
@@ -2063,67 +1770,6 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
  
 
 
-    <!-- Edit Profile Start -->
-    <div class="modal fade theme-modal" id="editProfile" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered modal-fullscreen-sm-down">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel2">Redaktə et</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="row g-4">
-                        <div class="col-xxl-12">
-                            <form>
-                                <div class="form-floating theme-form-floating">
-                                    <input type="text" class="form-control" id="pname" value="{{user.first_name}}">
-                                    <label for="pname">Ad Soyad</label>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="col-xxl-6">
-                            <form>
-                                <div class="form-floating theme-form-floating">
-                                    <input type="email" class="form-control" id="email1" value="{{user.email}}">
-                                    <label for="email1">E-poçt ünvanı</label>
-                                </div>
-                            </form>
-                        </div>
-
-                        <div class="col-xxl-6">
-                            <form>
-                                <div class="form-floating theme-form-floating">
-                                    <input class="form-control" type="tel" value="{{user.telephone}}" name="mobile" id="mobile" maxlength="10" oninput="javascript: if (this.value.length > this.maxLength) this.value =
-                                            this.value.slice(0, this.maxLength);">
-                                    <label for="mobile">Telefon </label>
-                                </div>
-                            </form>
-                        </div>
-
-                        
-
-                        <div class="col-12">
-                            <form>
-                                <div class="form-floating theme-form-floating">
-                                    <input type="text" class="form-control" id="address2" value="{{user.address}}">
-                                    <label for="address2">Ünvan</label>
-                                </div>
-                            </form>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal">Close</button>
-                    <button type="button" data-bs-dismiss="modal" class="btn theme-bg-color btn-md fw-bold text-light" onclick="saveChanges()">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Edit Profile End -->
 
     <!-- Edit Card Start -->
     <div class="modal fade theme-modal" id="editCard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -2223,10 +1869,44 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
             </div>
         </div>
     </div>
-    <!-- Remove Profile Modal End -->
+        <!-- Remove Profile Modal End -->
+
+    <!-- Edit Profile Modal Start -->
+    <div class="modal fade theme-modal" id="edit-profile" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-fullscreen-sm-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel3">Hesabınız Redaktə edin</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" action="{% url 'edit_profile' %}">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="emailAddress" class="form-label">E-poçt ünvanı</label>
+                            <input type="email" class="form-control" id="emailAddress" name="email" value="{{user.email}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstname" class="form-label">Ad Soyad</label>
+                            <input type="text" class="form-control" id="firstname" name="first_name" value="{{user.first_name}}">
+                        </div>
+                        <div class="mb-3">
+                            <label for="telephone" class="form-label">Telefon nömrəsi</label>
+                            <input type="text" class="form-control" id="telephone" name="telephone" value="{{user.telephone}}">
+                        </div>
+                        <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">Yadda saxla</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Edit Profile Modal End -->
+
 
     <!-- latest jquery-->
-    <script src="{% static 'desktop/js/jquery-3.6.0.min.js'%}"></script>
+    <script src="{% static 'desktop/js/jquery-3.6.0.min.js'%}"></scrip>
 
     <!-- jquery ui-->
     <script src="{% static 'desktop/js/jquery-ui.min.js'%}"></script>
@@ -2245,6 +1925,10 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
 
     <!-- Wizard js -->
     <script src="{% static 'desktop/js/wizard.js'%}"></script>
+
+    <!-- Chart js -->
+    <script src="{% static 'desktop/js/custom-chart.js'%}"></script>
+    <script src="{% static 'desktop/js/apexchart.js'%}"></script>
 
     <!-- Slick js-->
     <script src="{% static 'desktop/js/slick/slick.js'%}"></script>

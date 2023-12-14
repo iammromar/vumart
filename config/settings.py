@@ -72,9 +72,29 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
+SESSION_SAVE_EVERY_REQUEST = True
+# SECURE_SSL_REDIRECT = True
+# CSRF_COOKIE_SECURE = True
+
+
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+
+# DATABASES = {
+# 	'default': {
+# 		'ENGINE': 'django.db.backends.mysql',
+# 		'NAME': 'vumart',
+# 		'USER': 'root',
+# 		'PASSWORD': '',
+# 		'HOST':'localhost',
+# 		'PORT':'3306',
+# 	}
+# }
+
+
+
+
 
 DATABASES = {
     'default': {
@@ -82,6 +102,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite4',
     }
 }
+
+
 '''
 DATABASES = {
     'default': {

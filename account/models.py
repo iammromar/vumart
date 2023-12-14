@@ -14,9 +14,6 @@ class CustomUser(AbstractUser):
         ('P','Pending'),
     )
     account_type = models.CharField(max_length=1, choices=ACCOUNT_TYPE, default='P')
-
-
-
     username = models.CharField(verbose_name='VÖEN', unique=True, max_length=128, null=True, blank=True)
     name = models.CharField(max_length=128, null=True, blank=True)
     telephone = models.CharField(max_length=128, null=True, blank=True)
@@ -27,11 +24,7 @@ class CustomUser(AbstractUser):
     image = models.ImageField(null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
-
-
     just_registered = models.BooleanField(default=True)
-
-
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = []
@@ -53,8 +46,6 @@ class CustomUser(AbstractUser):
 
     def __str__(self):
         return self.get_full_name()
-
-
 
     def get_full_name(self):
         return f'{self.last_name} {self.first_name}'
@@ -94,15 +85,6 @@ class Address(models.Model):
     def __str__(self):
         return self.name
 
-
-
-class Wishlist(models.Model):
-    customer = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name="wishlist")
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.product.name
-    
 
 
 class PendingUser(models.Model):

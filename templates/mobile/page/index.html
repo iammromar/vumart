@@ -52,15 +52,16 @@
           </div>
         </div>
         <div class="pt-3">
-          <a href="#" data-bs-toggle="offcanvas" data-bs-target="#searchoffcanvas" aria-controls="searchoffcanvas">
+          <form method="get" action="{% url 'search_results' %}">
             <div class="input-group bg-white rounded-3 shadow-sm py-1">
-              <input type="text" class="form-control bg-transparent border-0 rounded-0 px-3" placeholder="Search for atta, dal, coke and more" aria-label="Search for atta, dal, coke and more" aria-describedby="search">
-              <span class="input-group-text bg-transparent border-0 rounded-0 pe-3" id="search">
+              <input type="search" name="query" class="form-control bg-transparent border-0 rounded-0 px-3" placeholder="Search for atta, dal, coke and more" aria-label="Search for atta, dal, coke and more" aria-describedby="search">
+              <button type="submit" class="input-group-text bg-transparent border-0 rounded-0 pe-3" id="search">
                 <i class="icofont-search-1"></i>
-              </span>
+              </button>
             </div>
-          </a>
+          </form>
         </div>
+        
       </div>
       <div class="my-auto overflow-auto vh-100">
         <div class="bg-light pb-3">
@@ -345,7 +346,7 @@
             <i class="bi bi-heart h3 m-0"></i>
             <p class="small m-0 pt-1">Seçdiklərim</p>
           </a>
-          <a href="profile.html" class="text-muted text-center col py-2 p-1">
+          <a href="{% url 'profile' %}" class="text-muted text-center col py-2 p-1">
             <i class="bi bi-person h3 m-0"></i>
             <p class="small m-0 pt-1">Profil</p>
           </a>

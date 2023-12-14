@@ -20,53 +20,53 @@
     </style>
 </head>
 <body style="overflow: hidden;">
-    <div class="form-body">
-        <div class="website-logo">
-            <a href="index.html">
-                <div class="">
-                  <img class="logo-size" src="{% static 'logo.png'%}" alt="" style=" width: 180px; ">
-                </div>
-            </a>
-        </div>
-        <div class="row">
-            <div class="img-holder" style=" background-color: #fee332; ">
-                <div class="bg"></div>
-                <div class="info-holder">
-                    <img src="{% static 'login/images/graphic2.svg'%}" alt="">
-                </div>
+        <div class="form-body">
+            <div class="website-logo">
+                <a href="index.html">
+                    <div class="">
+                    <img class="logo-size" src="{% static 'logo.png'%}" alt="" style=" width: 180px; ">
+                    </div>
+                </a>
             </div>
-            <div class="form-holder">
-                <div class="form-content">
-                    <div class="form-items">
-                        <h3 style=" font-weight: 700; ">Platformadan istifadə edə bilmək üçün giriş edin.</h3>
-                        <p>Giriş etmək üçün VÖEN və şifrənizi daxil edin.</p>
-                        <div class="page-links">
-                            <a class="active">Daxil olmaq</a><a href="{% url 'signup'%}">Qeydiyyat</a>
-                        </div>
-                        <form method="post">
-                            {% csrf_token%}
-                            <input class="form-control" type="text" name="username" placeholder="VÖEN" required>
-                            <input class="form-control" type="password" name="password" placeholder="Şifrə" required>
-                            <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Daxil Olun</button>
-                                <a href="{% url 'index'%}" 
-                                style="
-                                text-decoration: none; 
-                                border: 1px solid #fff; 
-                                border-radius: 6px;
-                                padding: 6px 28px;"
-                                >Ana Səhifə</a>
-                                {% comment %} <a>Şifrəni Unutmusunuz?</a> {% endcomment %}
-
+            <div class="row">
+                <div class="img-holder" style=" background-color: #fee332; ">
+                    <div class="bg"></div>
+                    <div class="info-holder">
+                        <img src="{% static 'login/images/graphic2.svg'%}" alt="">
+                    </div>
+                </div>
+                <div class="form-holder">
+                    <div class="form-content">
+                        <div class="form-items">
+                            <h3 style=" font-weight: 700; ">Platformadan istifadə edə bilmək üçün giriş edin.</h3>
+                            <p>Giriş etmək üçün VÖEN və şifrənizi daxil edin.</p>
+                            <div class="page-links">
+                                <a class="active">Daxil olmaq</a><a href="{% url 'signup'%}">Qeydiyyat</a>
                             </div>
-                        </form>
+                            <form method="post">
+                                {% csrf_token%}
+                                <input class="form-control" type="text" name="username" placeholder="VÖEN" required>
+                                <input class="form-control" type="password" name="password" placeholder="Şifrə" required>
+                                <div class="form-button">
+                                    <button id="submit" type="submit" class="ibtn">Daxil Olun</button>
+                                    <a href="{% url 'index'%}" 
+                                    style="
+                                    text-decoration: none; 
+                                    border: 1px solid #fff; 
+                                    border-radius: 6px;
+                                    padding: 6px 28px;"
+                                    >Ana Səhifə</a>
+                                    {% comment %} <a>Şifrəni Unutmusunuz?</a> {% endcomment %}
 
+                                </div>
+                            </form>
+
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    
+        
 <script src="{% static 'login/js/jquery.min.js'%}"></script>
 <script src="{% static 'login/js/popper.min.js'%}"></script>
 <script src="{% static 'login/js/bootstrap.min.js'%}"></script>

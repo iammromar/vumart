@@ -1,0 +1,314 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="fuzzy">
+    <meta name="keywords" content="fuzzy">
+    <meta name="author" content="fuzzy">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <title>fuzzy app</title>
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
+    <meta name="theme-color" content="#122636">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="fuzzy">
+    <meta name="msapplication-TileImage" content="assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-7?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- iconsax css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/iconsax.css">
+
+    <!-- swiper css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/vendors/swiper-bundle.min.css">
+
+    <link rel="stylesheet" href="{% static 'mobile/vender/bootstrap/css/bootstrap.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mobile/vender/icofont/icofont.min.css'%}">
+    
+    <link rel="stylesheet" href="{% static 'mobile/vender/sidebar/demo.css'%}">
+    
+    <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">    
+
+    <link rel="stylesheet" href="{% static 'mobile/css/swiper-bundle.min.css'%}">
+    
+  </head>
+
+  <body>
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a href="categories.html">
+            <i class="iconsax back-btn" data-icon="arrow-left"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.57141 18.8211C9.38141 18.8211 9.19141 18.7511 9.04141 18.6011L2.97141 12.5311C2.68141 12.2411 2.68141 11.7611 2.97141 11.4711L9.04141 5.40109C9.33141 5.11109 9.81141 5.11109 10.1014 5.40109C10.3914 5.69109 10.3914 6.17109 10.1014 6.46109L4.56141 12.0011L10.1014 17.5411C10.3914 17.8311 10.3914 18.3111 10.1014 18.6011C9.96141 18.7511 9.76141 18.8211 9.57141 18.8211Z" fill="#292D32"></path>
+                <path d="M20.5019 12.75H3.67188C3.26188 12.75 2.92188 12.41 2.92188 12C2.92188 11.59 3.26188 11.25 3.67188 11.25H20.5019C20.9119 11.25 21.2519 11.59 21.2519 12C21.2519 12.41 20.9119 12.75 20.5019 12.75Z" fill="#292D32"></path>
+                </svg>
+                </i>
+          </a>
+          <h3 style="font-size:15px;">Search</h3>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- search section starts -->
+    <section>
+      <div class="custom-container">
+        <form class="theme-form search-head" target="_blank">
+          <div class="form-group">
+            <div class="form-input">
+              <input type="text" class="form-control search" id="inputusername" placeholder="Search here...">
+              <i class="iconsax search-icon" data-icon="search-normal-2"></i>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!-- search section end -->
+
+    <!-- categories section start -->
+    <section>
+      <div class="custom-container">
+        <div class="swiper categories">
+          <div class="swiper-wrapper ratio_square">
+            <div class="swiper-slide">
+              <a href="#" class="categories-item active">
+                <img class="categories-img" src="assets/images/svg/sofa.svg" alt="sofa">
+                <h4>Sofa</h4>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="shop.html" class="categories-item">
+                <h4>Chair</h4>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="shop.html" class="categories-item">
+                <h4>Table</h4>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="shop.html" class="categories-item">
+                <h4>Cabinets</h4>
+              </a>
+            </div>
+            <div class="swiper-slide">
+              <a href="shop.html" class="categories-item">
+                <h4>Cupboard</h4>
+              </a>
+            </div>
+
+            <div class="swiper-slide">
+              <a href="shop.html" class="categories-item">
+                <h4>Lamp</h4>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- categories section end -->
+
+
+    <!-- shop section start -->
+    <section class="section-b-space">
+      <div class="custom-container">
+        <div class="row g-3">
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html"> <img class="img" src="assets/images/product/1.png" alt="p1"></a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Buddy Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$14 <del class="pev-price">$20</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html"> <img class="img" src="assets/images/product/2.png" alt="p2"></a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Wingback Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$15 <del class="pev-price">$18</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html"> <img class="img" src="assets/images/product/14.png" alt="p14"></a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Winston Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$20 <del class="pev-price">$22</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html"> <img class="img" src="assets/images/product/15.png" alt="p15"></a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Beige Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$16 <del class="pev-price">$21</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html"> <img class="img" src="assets/images/product/16.png" alt="p16"></a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Dining Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$12 <del class="pev-price">$15</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-6">
+            <div class="product-box">
+              <div class="product-box-img">
+                <a href="product-details.html">
+                  <img class="img" src="assets/images/product/17.png" alt="p17">
+                </a>
+
+                <div class="cart-box">
+                  <a href="cart.html" class="cart-bag">
+                    <i class="iconsax bag" data-icon="basket-2"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="product-box-detail">
+                <h4>Harbour Chair</h4>
+                <h5>Modern saddle arms</h5>
+                <div class="bottom-panel">
+                  <div class="price">
+                    <h4>$17 <del class="pev-price">$23</del></h4>
+                  </div>
+                  <div class="rating">
+                    <img src="assets/images/svg/Star.svg" alt="star">
+                    <h6>4.5</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- shop section end -->
+
+    <!-- iconsax js -->
+    <script src="assets/js/iconsax.js"></script>
+
+    <!-- swiper js -->
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/custom-swiper.js"></script>
+
+
+    <!-- script js -->
+    <script src="{% static 'mobile/assets/js/script.js'%}"></script>
+    <script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
+    <script src="{% static 'mobile/vender/jquery/jquery.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
+    <script src="{% static 'mobile/vender/slick/slick/slick.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
+    <script src="{% static 'mobile/vender/sidebar/hc-offcanvas-nav.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
+    <script src="{% static 'mobile/js/custom.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
+    <script src="{% static 'mobile/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="5b9bc990528566b0bf2e3c8a-|49" defer=""></script>
+    <script defer="" src="{% static 'mobile/v52afc6f149f6479b8c77fa569edb01181681764108816'%}" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf7ed042e778ec8","version":"2023.4.0","r":1,"b":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+  
+  </body>
+</html>

@@ -9,35 +9,42 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm  # add this
 from django.contrib.auth.decorators import login_required
 import json
-from .models import Wishlist, Address, City,PendingUser
+from .models import  Address, City,PendingUser
 from django.contrib.auth import get_user_model
-from django.contrib.auth.decorators import login_required
+
+from django.contrib.auth import update_session_auth_hash
+from django.http import HttpResponse,HttpResponseBadRequest
+
+from django.db import IntegrityError
+
 
 
 CustomUser = get_user_model()
 
-
 def signin(request):
-    if request.user_agent.is_mobile == True:
+    main_categories = Category.objects.filter(parent=None)
 
-        main_categories = Category.objects.filter(parent=None)
-        if request.user.is_authenticated:
-            return redirect("profile")
-
+    if request.user_agent.is_mobile:
         if request.method == "POST":
             form = AuthenticationForm(request, data=request.POST)
             if form.is_valid():
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
-                print(username)
-                print('test')
-                if CustomUser.objects.filter(username=username, account_type='P').exists():
-                    return render(request, 'mobile/account/pending.html')
-                user = authenticate(username=username, password=password)
+                remember_me = request.POST.get('remember_me')
+
+                user = authenticate(request, username=username, password=password)
+
                 if user is not None:
-                    login(request, user)
-                    messages.info(request, f"You are now logged in as {username}.")
-                    return redirect("profile")
+                    if user.is_active:
+                        login(request, user)
+
+                        if not remember_me:
+                            request.session.set_expiry(0)
+
+                        messages.info(request, f"You are now logged in as {username}.")
+                        return redirect("profile")
+                    else:
+                        return render(request, 'mobile/account/pending.html')
                 else:
                     messages.error(request, "Invalid username or password.")
             else:
@@ -49,6 +56,7 @@ def signin(request):
                     'main_categories': main_categories,
                 }
                 return render(request, 'mobile/account/login.html', context)
+
         form = AuthenticationForm()
         context = {
             "login_form": form,
@@ -57,22 +65,20 @@ def signin(request):
         return render(request, 'mobile/account/login.html', context)
     
     else:
-
-        main_categories = Category.objects.filter(parent=None)
-        if request.user.is_authenticated:
-            return redirect("profile")
-
         if request.method == "POST":
             form = AuthenticationForm(request, data=request.POST)
             if form.is_valid():
                 username = form.cleaned_data.get('username')
                 password = form.cleaned_data.get('password')
-                print(username)
-                user = authenticate(username=username, password=password)
+                user = authenticate(request, username=username, password=password)
+
                 if user is not None:
-                    login(request, user)
-                    messages.info(request, f"You are now logged in as {username}.")
-                    return redirect("profile")
+                    if user.is_active:
+                        login(request, user)
+                        messages.info(request, f"You are now logged in as {username}.")
+                        return redirect("profile")
+                    else:
+                        return render(request, 'desktop/account/pending.html')
                 else:
                     messages.error(request, "Invalid username or password.")
             else:
@@ -84,23 +90,21 @@ def signin(request):
                     'main_categories': main_categories,
                 }
                 return render(request, 'desktop/account/signin.html', context)
+
         form = AuthenticationForm()
         context = {
             "login_form": form,
             'main_categories': main_categories,
         }
         return render(request, 'desktop/account/signin.html', context)
-
-
     
 
-
 def signup(request):
-    if request.user_agent.is_mobile == True:
+    if request.user_agent.is_mobile:
         main_categories = Category.objects.filter(parent=None)
 
         if request.user.is_authenticated:
-            return redirect("profile")
+            return render(request, 'mobile/account/profile.html')  
 
         if request.method == "POST":
             form = RegistrationForm(request.POST)
@@ -109,30 +113,34 @@ def signup(request):
                 email = form.cleaned_data['email']
                 password = form.cleaned_data['password1']
 
+
+                # Check if username (VOEN) or email already exists
                 if CustomUser.objects.filter(username=username).exists() or PendingUser.objects.filter(user__username=username).exists():
                     messages.error(request, "Username is already in use.")
-                    return redirect("signup")
-
-                if CustomUser.objects.filter(email=email).exists():
+                elif CustomUser.objects.filter(email=email).exists():
                     messages.error(request, "Email address is already in use.")
-                    return redirect("signup")
+                else:
+                    user = CustomUser.objects.create_user(
+                        username=username,
+                        password=password,
+                        email=email,
+                        account_type='P',
+                        just_registered=True,
+                        first_name=form.cleaned_data['first_name'],
+                        telephone=form.cleaned_data['telephone'],
+                        name=form.cleaned_data['name'], 
+                    )
 
-                user = CustomUser.objects.create_user(
-                    username=username,
-                    password=password,
-                    email=email,
-                    is_pending=True,
-                    just_registered=True,
-                )
+                    user.save()
 
-                PendingUser.objects.create(user=user)
-                
-                messages.success(request, "Registration successful. Admin approval required.")
-                request.session['just_registered'] = True
+                    PendingUser.objects.create(user=user)
 
-                return render(request, 'mobile/account/pending.html', context)
+                    messages.success(request, "Registration successful. Admin approval required.")
+                    request.session['just_registered'] = True
 
-            messages.error(request, "Unsuccessful registration. Invalid information.")
+                    return render(request, 'mobile/account/pending.html')
+
+            messages.error(request, "Yazdığınız VÖEN artıq istifadə olunub.")
         else:
             form = RegistrationForm()
 
@@ -146,7 +154,7 @@ def signup(request):
         main_categories = Category.objects.filter(parent=None)
 
         if request.user.is_authenticated:
-            return redirect("profile")
+            return render(request, 'desktop/account/profile.html')  # Change to your profile page
 
         if request.method == "POST":
             form = RegistrationForm(request.POST)
@@ -156,29 +164,31 @@ def signup(request):
                 password = form.cleaned_data['password1']
 
                 if CustomUser.objects.filter(username=username, account_type='P').exists():
-                    messages.error(request, "Username is already in use.")
-                    return redirect("signup")
+                    messages.error(request, "VÖEN artıq istifadə olunur.")
+                elif CustomUser.objects.filter(email=email).exists():
+                    messages.error(request, "E-poçt artıq istifadə olunur.")
+                else:
+                    user = CustomUser.objects.create_user(
+                        username=username,
+                        password=password,
+                        email=email,
+                        account_type='P',
+                        just_registered=True,
+                        first_name=form.cleaned_data['first_name'],
+                        telephone=form.cleaned_data['telephone'],
+                        name=form.cleaned_data['name'], 
+                    )
 
-                if CustomUser.objects.filter(email=email).exists():
-                    messages.error(request, "Email address is already in use.")
-                    return redirect("signup")
+                    user.save()
 
-                user = CustomUser.objects.create_user(
-                    username=username,
-                    password=password,
-                    email=email,
-                    is_pending=True,
-                    just_registered=True,
-                )
+                    PendingUser.objects.create(user=user)
 
-                PendingUser.objects.create(user=user)
-                
-                messages.success(request, "Registration successful. Admin approval required.")
-                request.session['just_registered'] = True
+                    messages.success(request, "Qeydiyyat uğurlu oldu. Admin təsdiqi tələb olunur.")
+                    request.session['just_registered'] = True
 
-                return render(request, 'desktop/account/waiting.html', context)
+                    return render(request, 'desktop/account/waiting.html')
 
-            messages.error(request, "Unsuccessful registration. Invalid information.")
+            messages.error(request, "Yazdığınız VÖEN artıq istifadə olunub.")
         else:
             form = RegistrationForm()
 
@@ -188,6 +198,7 @@ def signup(request):
             'just_registered': request.session.pop('just_registered', False),
         }
         return render(request, 'desktop/account/signup.html', context)
+
 
 
 def createaccount(request):
@@ -215,18 +226,21 @@ def createaccount(request):
                 username=username,
                 password=password,
                 email=email,
-                is_pending=True,
+                account_type='P',
                 just_registered=True,
+                first_name=form.cleaned_data['first_name'],
+                telephone=form.cleaned_data['telephone'],
+                name=form.cleaned_data['name'], 
             )
 
             PendingUser.objects.create(user=user)
             
-            messages.success(request, "Registration successful. Admin approval required.")
+            messages.success(request, "Qeydiyyat uğurlu oldu. Admin təsdiqi tələb olunur.")
             request.session['just_registered'] = True
 
-            return redirect("pending")
+            return render(request, 'mobile/account/pending.html')
 
-        messages.error(request, "Unsuccessful registration. Invalid information.")
+        messages.error(request, "Yazdığınız VÖEN artıq istifadə olunub.")
     else:
         form = RegistrationForm()
 
@@ -260,15 +274,14 @@ def profile(request):
     socials = Social.objects.all()
     cats = Category.objects.filter(is_active=True)
     total_orders = Order.objects.filter(customer=request.user, is_ordered=True).count()
+    
     pending_orders = Order.objects.filter(status='PE', customer=request.user, is_ordered=True).count()
-    wishlist_count = Wishlist.objects.filter(customer=request.user).count()
-    addresses = None
+    addresses = Address.objects.filter(customer=request.user)
     main_categories = Category.objects.filter(parent=None)
     main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
-    orders = Order.objects.filter(customer=request.user, is_ordered=True)
-    
+    orders = Order.objects.filter(customer=request.user, is_ordered=True).order_by('-id')
 
-
+        
 
     cart = None
     if request.user.is_authenticated:
@@ -283,48 +296,70 @@ def profile(request):
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
 
-    if request.method == "POST" and request.POST.get('type') == "addaddress":
-        print('yeah1')
-        city = ""
-        name =""
-        street = ""
-        building = ""
-        zip = ""
-        note = ""
-        try:
-            city = request.POST.get('city')
-        except:
-            city = ""
-        try:
-            name = request.POST.get('name')
-        except:
-            name = ""
-        try:
-            street = request.POST.get('street')
-        except:
-            street = ""
-        try:
-            building = request.POST.get('building')
-        except:
-            building = ""
-        try:
-            zip = request.POST.get('zip')
-        except:
-            zip = ""
-        try:
-            note = request.POST.get('note')
-        except:
-            note = ""
-        Address.objects.create(
-            city=city,
-        name = name,
-        street = street,
-        building = building,
-        zip = zip,
-        note = note,
-            customer=request.user
-        )
 
+    if request.method == "POST":
+        type_of_request = request.POST.get('type', '')
+
+        if type_of_request == "addaddress":
+            # Check the number of existing addresses
+            existing_addresses_count = Address.objects.filter(customer=request.user).count()
+
+            # Limit the user to a maximum of 4 addresses
+            if existing_addresses_count >= 4:
+                messages.warning(request, 'You can only add up to 4 addresses.')
+                return redirect('profile')
+
+            form = AddressForm(request.POST)
+            if form.is_valid():
+                # Check if the same address already exists for the user
+                existing_address = Address.objects.filter(
+                    customer=request.user,
+                    city=form.cleaned_data['city'],
+                    street=form.cleaned_data['street'],
+                    building=form.cleaned_data['building'],
+                    zip=form.cleaned_data['zip'],
+                    note=form.cleaned_data['note'],
+                ).first()
+
+                if existing_address:
+                    messages.warning(request, 'Address already exists.')
+                else:
+                    new_address = form.save(commit=False)
+                    new_address.customer = request.user
+                    new_address.save()
+                    messages.success(request, 'Address added successfully.')
+                
+                return redirect('profile')
+            else:
+                messages.error(request, 'Error adding the address. Please check the form.')
+
+        if type_of_request == "editaddress":
+            address_id = request.POST.get('address_id', '')
+            address_instance = get_object_or_404(Address, id=address_id, customer=request.user)
+
+            form = AddressForm(request.POST, instance=address_instance)
+            if form.is_valid():
+                form.save()
+                messages.success(request, 'Address updated successfully.')
+                return redirect('profile')
+            else:
+                messages.error(request, 'Error updating the address. Please check the form.')
+
+       
+    if request.method == "POST":
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            new_address = form.save(commit=False)
+            new_address.customer = request.user
+            new_address.save()
+            return redirect('profile')  # Redirect to the profile page after adding the address
+    else:
+        form = AddressForm()
+
+         # Determine the template based on the user's agent
+    template_name = 'desktop/account/dashboard.html'
+    if request.user_agent.is_mobile:
+        template_name = 'mobile/account/dashboard.html'
 
     context = {
         "socials": socials,
@@ -338,10 +373,136 @@ def profile(request):
         'orders': orders,
         'total_orders':total_orders,
         'pending_orders' : pending_orders,
-        'wishlist_count' : wishlist_count
+        'form': form,
 
     }
-    return render(request, 'desktop/account/dashboard.html', context)
+    
+    return render(request, template_name, context)
+
+
+
+def change_password(request):
+    if request.method == 'POST':
+        old_password = request.POST.get('old_password')
+        new_password = request.POST.get('new_password')
+        confirm_password = request.POST.get('confirm_password')
+
+        user = request.user
+
+        if not user.check_password(old_password):
+            return HttpResponseBadRequest("Eski şifre yanlış.")
+
+        if new_password != confirm_password:
+            return HttpResponseBadRequest("Yeni şifreler eşleşmiyor.")
+
+        user.set_password(new_password)
+        user.save()
+
+        update_session_auth_hash(request, user)
+
+        return redirect('profile')
+
+    return HttpResponseBadRequest("Geçersiz istek.")
+
+@login_required(login_url='/account/signin/')
+def manage_address(request):
+    addresses = Address.objects.filter(customer=request.user)
+
+    if request.method == 'POST':
+        type_of_request = request.POST.get('type', '')
+
+        if type_of_request == 'addaddress':
+            existing_addresses_count = Address.objects.filter(customer=request.user).count()
+
+            if existing_addresses_count >= 4:
+                messages.warning(request, 'You can only add up to 4 addresses.')
+                return redirect('manage_address')
+
+            form = AddressForm(request.POST)
+            if form.is_valid():
+                existing_address = Address.objects.filter(
+                    customer=request.user,
+                    city=form.cleaned_data['city'],
+                    street=form.cleaned_data['street'],
+                    building=form.cleaned_data['building'],
+                    zip=form.cleaned_data['zip'],
+                    note=form.cleaned_data['note'],
+                ).first()
+
+                if existing_address:
+                    messages.warning(request, 'Address already exists.')
+                else:
+                    new_address = form.save(commit=False)
+                    new_address.customer = request.user
+                    new_address.save()
+                    messages.success(request, 'Address added successfully.')
+
+                return redirect('manage_address')
+            else:
+                messages.error(request, 'Error adding the address. Please check the form.')
+
+    else:
+        form = AddressForm()
+
+    return render(request, 'mobile/account/manage-address.html', {'addresses': addresses, 'form': form})
+
+
+@login_required(login_url='/account/signin/')
+def new_address(request):
+    # Mevcut kodları buraya ekle...
+
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            existing_addresses_count = Address.objects.filter(customer=request.user).count()
+
+            if existing_addresses_count >= 4:
+                messages.warning(request, 'You can only add up to 4 addresses.')
+                return redirect('manage_address')  
+
+            new_address = form.save(commit=False)
+            new_address.customer = request.user
+            new_address.save()
+            return redirect('manage_address') 
+    else:
+        form = AddressForm()
+
+    return render(request, 'mobile/account/new-address.html', {'form': form})
+
+
+@login_required(login_url='/account/signin/')
+def edit_profile(request):
+    if request.method == 'POST':
+        user = request.user
+        new_email = request.POST.get('email', '')
+        if new_email != user.email:
+            
+            if CustomUser.objects.filter(email=new_email).exclude(id=user.id).exists():
+                messages.error(request, 'Email already exists. Please choose a different one.')
+                return redirect('profile')
+
+        user.email = new_email
+        user.first_name = request.POST.get('first_name', '')
+        user.telephone = request.POST.get('telephone', '')
+        try:
+            user.save()
+            messages.success(request, 'Profile updated successfully.')
+        except IntegrityError as e:
+            messages.error(request, 'Error updating the profile. Please try again.')
+            
+            print(f"IntegrityError in edit_profile: {e}")
+
+        return redirect('profile')
+
+    if request.user_agent.is_mobile:
+        
+        return redirect('profile')
+
+
+
+@login_required(login_url='/account/signin/')
+def profile_setting(request):
+    return render(request, 'mobile/account/profile-edit.html')
 
 
 
@@ -361,10 +522,6 @@ def orders(request):
         if order:
             for o in order.items.all():
                 cart_sum = cart_sum + o.quantity * o.product.prices.last().price
-
-
-
-
 
 
     context = {
@@ -419,68 +576,6 @@ def order(request, id):
 
     }
     return render(request, 'desktop/account/order.html', context)
-
-
-@login_required(login_url='/account/signin/')
-def wishlist(request):
-    wishlist = None
-
-    addresses = None
-    main_categories = Category.objects.filter(parent=None)
-
-    cart = None
-    if request.user.is_authenticated:
-        wishlist = Wishlist.objects.filter(customer=request.user)
-        cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
-    cart_sum = 0
-    if request.user.is_authenticated:
-        addresses = Address.objects.filter(customer=request.user)
-
-        order = Order.objects.filter(is_ordered=False, customer=request.user).last()
-        if order:
-            for o in order.items.all():
-                cart_sum = cart_sum + o.quantity * o.product.prices.last().price
-
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
-
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-
-
-        }
-
-        return render(request, 'desktop/page/search.html', context)
-
-
-    if request.method == "POST" and request.POST.get('remove') == "1":
-        w_id = request.POST.get('item')
-        wish = Wishlist.objects.get(pk=w_id)
-        wish.delete()
-
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'addresses': addresses,
-            'wishlist': wishlist,
-        }
-
-    context = {
-        "main_categories": main_categories,
-        'cart': cart,
-        'cart_sum': cart_sum,
-        'addresses': addresses,
-        'wishlist': wishlist,
-
-    }
-    return render(request, 'desktop/account/wishlist.html', context)
 
 
 @login_required(login_url='/account/signin/')
@@ -610,6 +705,8 @@ def addresses(request):
     return render(request, 'account/addresses.html', context)
 
 
+
+
 @login_required(login_url='/account/signin/')
 def addresses_edit(request, id):
     address = Address.objects.filter(pk=id, customer=request.user).last()
@@ -694,86 +791,15 @@ def addresses_edit(request, id):
 
 @login_required(login_url='/account/signin/')
 def addresses_add(request):
-    addresses = None
-    cities = City.objects.all()
-    main_categories = Category.objects.filter(parent=None)
-    cart = None
-    if request.user.is_authenticated:
-        cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
-    cart_sum = 0
-    if request.user.is_authenticated:
-        addresses = Address.objects.filter(customer=request.user)
-        order = Order.objects.filter(is_ordered=False, customer=request.user).last()
-        if order:
-            for o in order.items.all():
-                cart_sum = cart_sum + o.quantity * o.product.prices.last().price
+    if request.method == 'POST':
+        form = AddressForm(request.POST)
+        if form.is_valid():
+            # Save the form data to the database or perform other actions
+            form.save()
+    else:
+        form = AddressForm()
 
-    if request.method == "POST" and request.POST.get('isitsearch') == "1":
-        print("seaaaaaaaaaarch")
-        search = request.POST.get('search')
-        search_products = Product.objects.filter(name__icontains=search)
-
-        context = {
-            'main_categories': main_categories,
-            'cities': cities,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'search_products': search_products,
-            'addresses': addresses,
-        }
-
-        return render(request, 'desktop/page/search.html', context)
-
-
-    if request.method == "POST" and request.POST.get('add') == "1":
-        name = request.POST.get('name')
-        cty = request.POST.get('city')
-        street = request.POST.get('street')
-        building = request.POST.get('building')
-        apartment = request.POST.get('apartment')
-        blok = request.POST.get('blok')
-        blok_code = request.POST.get('blok_code')
-        phone = request.POST.get('phone')
-        default = request.POST.get('default')
-        city = City.objects.get(pk=int(cty))
-
-        print("---------d-d-d-d-d---------")
-        print(default)
-        address_new = Address.objects.create(
-            customer=request.user,
-            name=name,
-            city=city,
-            street=street,
-            building=building,
-            apartment=apartment,
-            blok=blok,
-            blok_code=blok_code,
-            phone=phone
-        )
-        if default == "on":
-            addresses_all = Address.objects.filter(customer=request.user)
-            for a in addresses_all:
-                a.is_selected = False
-                a.save()
-            address_new.is_selected = True
-            address_new.save()
-
-        context = {
-            'main_categories': main_categories,
-            'cart': cart,
-            'cart_sum': cart_sum,
-            'addresses': addresses,
-        }
-
-        return render(request, 'account/addresses.html', context)
-    context = {
-        "main_categories": main_categories,
-        'cart': cart,
-        'cart_sum': cart_sum,
-        'addresses': addresses,
-        'cities': cities,
-    }
-    return render(request, 'account/addresses_add.html', context)
+    return render(request, 'desktop/account/dashboard.html', {'form': form})
 
 
 @login_required(login_url='/account/signin/')
@@ -829,22 +855,6 @@ def password(request):
     return render(request, 'account/password.html', context)
 
 
-@login_required(login_url='/account/signin/')
-def add_to_wishlist(request):
-    if request.method == 'POST':
-        if request.user.is_authenticated:
-            product_id = request.POST.get('product_id')
-            product = Product.objects.get(id=product_id)
-            resp = {}
-            wishlist = Wishlist.objects.filter(product=product, customer=request.user).last()
-            if wishlist:
-                wishlist.delete()
-                resp["liked"] = 0
-            else:
-                Wishlist.objects.create(product=product, customer=request.user)
-                resp["liked"] = 1
-
-        return JsonResponse(resp, status=201)
 
 @login_required(login_url='/account/signin/')
 def change_item(request):
@@ -860,6 +870,8 @@ def change_item(request):
 
 
         return JsonResponse(resp, status=201)
+    
+    
 @login_required(login_url='/account/signin/')
 def select_address(request):
     if request.method == 'POST':
