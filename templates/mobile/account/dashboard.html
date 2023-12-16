@@ -118,6 +118,17 @@
               </div>
             </a>
           </li>
+          <li class="border-bottom-0">
+            <a href="{% url 'logout'%}" class="profile-box">
+              <div class="profile-img">
+                <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+              </div>
+              <div class="profile-details">
+                <h4>Çıxış</h4>
+                <h5>Hesabdan çıxış</h5>
+              </div>
+            </a>
+          </li>
         </ul>
       </div>
     </section>
@@ -126,6 +137,37 @@
     <!-- panel-space start -->
     <section class="panel-space"></section>
     <!-- panel-space end -->
+
+
+    <div class="modal fade" id="categories" tabindex="-1" aria-labelledby="categoriesLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-sm modal-dialog-scrollable">
+        <div class="modal-content border-0 rounded-4 h-75">
+          <div class="modal-header border-0 px-4">
+            <div class="modal-title" id="categoriesLabel">
+              <h5 class="fw-bold text-black mb-1">Kateqoriyalar</h5>
+              <p class="mb-0">{{cats.count}} kateqoriya</p>
+            </div>
+          </div>
+          <div class="modal-body border-top p-4">
+            <div class="row row-cols-3 gy-3">
+               {% for c in cats%}
+              <div class="col">
+                <a href="{% url 'category' c.id%}" class="link-dark">
+                  <div class="card bg-transparent border-0 text-center" style="  box-shadow: 6px 6px 17px 7px #8888884a;  background-color:{{c.color}} !important;  font-size: 11px;  height: 136px;">
+                    <img src="{{c.image.url}}" alt="" class="card-img-top rounded-4 mb-2">
+                    <div class="card-body p-0" style=" padding: 0 4px 0 4px !important; ">
+                      <p class="card-title m-0" style=" font-size:11px; ">{{c.name}}</p>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              {% endfor%}
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- bottom navbar start -->
     <div class="navbar-menu">
@@ -139,7 +181,7 @@
           </a>
         </li>
         <li>
-          <a data-bs-target="#categories">
+          <a data-bs-toggle="modal" data-bs-target="#categories" >
             <div class="icon">
               <img class="unactive" src="{% static 'mobile/img/categories.svg' %}" alt="categories">
               <img class="active" src="{% static 'mobile/img/categories-fill.svg' %}" alt="categories">

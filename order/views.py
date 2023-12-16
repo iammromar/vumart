@@ -86,7 +86,10 @@ def cart(request):
         "order_in_cart": order_in_cart,
 
     }
-    return render(request, "desktop/order/cart.html", context)
+    if request.user_agent.is_mobile:
+        return render(request, "mobile/order/cart.html", context)
+    else:
+        return render(request, "desktop/order/cart.html", context)
 
 def checkout(request):
     # Retrieve necessary data for the context
@@ -260,17 +263,12 @@ def remove(request):
         print(order.items.all().count())
         return JsonResponse(cart, status=201)
 
-
-
-
 def add_to_cart(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
             product_id = request.POST.get('product_id')
             product_quantity = int(request.POST.get('product_quantity'))
             product = Product.objects.get(id=product_id)
-
-
 
             exist_order = Order.objects.filter(customer=request.user, is_ordered=False).last()
             if exist_order:
@@ -318,11 +316,10 @@ def add_to_cart(request):
                     cart_sum = cart_sum + o.quantity * o.product.prices.last().price
         cart['summary'] = cart_sum
 
-        print(order.items.all().count())
-
+    if request.user_agent.is_mobile:
         return JsonResponse(cart, status=201)
-
-
+    else:
+        return JsonResponse(cart, status=201)
 
 def update_cart_count(request):
     if request.user.is_authenticated:
@@ -334,6 +331,8 @@ def update_cart_count(request):
         return JsonResponse({'cart_count': cart_count})
     else:
         return JsonResponse({'cart_count': 1})
+    
+    
 from django.views.decorators.http import require_POST
 
 @require_POST
@@ -348,6 +347,8 @@ def update_cart_count_after_remove(request):
     else:
         return JsonResponse({'cart_count': 0})
     
+
+
 
 @login_required(login_url='/account/signin/')
 def add_to_wishlist(request, id):

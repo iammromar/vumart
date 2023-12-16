@@ -87,34 +87,55 @@
         </div>
         <div class="pt-3">
           <div class="d-flex align-items-center justify-content-between px-3 pb-3">
-            <h5 class="fw-bold text-black mb-0">Great deals on top picks</h5>
-            <a class="text-primary" href="listing.html">View all <i class="icofont-rounded-right"></i>
+            <h5 class="fw-bold text-black mb-0">Seçilmiş Məhsullar</h5>
+            {% comment %} <a class="text-primary" href="listing.html">View all <i class="icofont-rounded-right"></i> {% endcomment %}
             </a>
           </div>
           <div class="top-picks">
            {% for p in featured_products%}
             <div class="top-picks-item">
               <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3">
-                <a href="product-detail.html" class="link-dark">
+                <a href="{% url 'product' p.product.id%}" class="link-dark">
                   <div class="bg-light rounded-4 p-4 position-relative product-box" style="padding: 3px 0 3px 0 !important; height: 130px; ">
-                    <img src="{{p.main_image.url}}" alt="" class="img-fluid h-100 d-block mx-auto">
+                    <img src="{{p.product.main_image.url}}" alt="" class="img-fluid h-100 d-block mx-auto">
                   </div>
                 </a>
-                <div class="bg-info position-absolute top-0 text-white osahan-badge text-center mx-3">
+                {% comment %} <div class="bg-info position-absolute top-0 text-white osahan-badge text-center mx-3">
                   <b>2%</b>
                   <br>OFF
-                </div>
+                </div> {% endcomment %}
                 <div class="card-body p-0">
-                  <small class="text-muted">Amul</small>
-                  <h6 class="card-title fw-bold">{{p.name}}</h6>
-                  <p class="card-text text-muted">100 g x 2</p>
+                  {% comment %} <small class="text-muted">Amul</small> {% endcomment %}
+                  <h6 style="              
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    " class="card-title fw-bold">
+                    {{p.product.name}} 
+                  </h6>
+                  {% comment %} <p class="card-text text-muted">100 g x 2</p> {% endcomment %}
                 </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
+                <div class="card-footer bg-transparent border-0 align-items-center justify-content-between p-0">
                   <div>
-                    <del class="small text-muted">$108</del>
-                    <h6 class="fw-bold m-0">$106</h6>
+                    {% if p.prices.last.is_discount == True %}
+                    <h6 class="fw-bold m-0">{{p.product.prices.last.price}}</h6>
+                    <del class="small text-muted">{{p.product.prices.last.discount_price}}</del>
+                    {% else %}
+                    <span class="theme-color price">{{p.product.prices.last.price}} AZN</span>
+                    {% endif %}
                   </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm"> <i style=" width: 45px; height: 45px; " class="bi bir-cart"></i> </a>
+                  <br>
+                  <a style="
+                    padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) 0;
+                    width: 100%;
+                    font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+                    margin-top: 10px;
+                    color: #4a5568;
+                    border-radius: 50px;
+                    font-weight: 500;
+                    " href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm"> <i style=" width: 45px; height: 45px; " class="bi bir-cart"></i>
+                    Səbət
+                 </a>
                 </div>
               </div>
             </div>
@@ -187,126 +208,98 @@
             </div>
           </div>
         </div>
+
+
         <div class="py-3">
-          <h5 class="fw-bold text-black mb-0 px-3 pb-3">Must Have Items</h5>
+          <h5 style="text-align:center;" class="fw-bold text-black mb-0 px-3 pb-3">Mağazamıza əlavə olunan yeni məhsullar</h5>
           <div class="top-picks">
-            <div class="top-picks-item">
-              <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3">
-                <a href="product-detail.html" class="link-dark">
-                  <div class="bg-light rounded-4 p-4 position-relative product-box">
-                    <img src="{% static 'mobile/img/amul-butter.png'%}" alt="" class="img-fluid h-100 d-block mx-auto">
-                  </div>
-                </a>
-                <div class="bg-success position-absolute top-0 text-white osahan-badge text-center mx-3">
-                  <b>2%</b>
-                  <br>OFF
-                </div>
-                <div class="card-body p-0">
-                  <small class="text-muted">Amul</small>
-                  <h6 class="card-title fw-bold">Pasteuised Butter Pack of 2</h6>
-                  <p class="card-text text-muted">100 g x 2</p>
-                </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
-                  <div>
-                    <del class="small text-muted">$108</del>
-                    <h6 class="fw-bold m-0">$106</h6>
-                  </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">ADD</a>
-                </div>
-              </div>
-            </div>
-            <div class="top-picks-item">
-              <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3">
-                <a href="product-detail.html" class="link-dark">
-                  <div class="bg-light rounded-4 p-2 position-relative product-box">
-                    <img src="{% static 'mobile/img/fortune-oil.png'%}" alt="" class="img-fluid h-100 d-block mx-auto">
-                  </div>
-                </a>
-                <div class="bg-success position-absolute top-0 text-white osahan-badge text-center mx-3">
-                  <b>4%</b>
-                  <br>OFF
-                </div>
-                <div class="card-body p-0">
-                  <small class="text-muted">Fortune</small>
-                  <h6 class="card-title fw-bold">Soya Refined Soybean Oil</h6>
-                  <p class="card-text text-muted">1 L</p>
-                </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
-                  <div>
-                    <del class="small text-muted">$180</del>
-                    <h6 class="fw-bold m-0">$173</h6>
-                  </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">ADD</a>
-                </div>
-              </div>
-            </div>
-            <div class="top-picks-item">
-              <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3">
-                <a href="product-detail.html" class="link-dark">
-                  <div class="bg-light rounded-4 p-2 position-relative product-box">
-                    <img src="{% static 'mobile/img/kachighani-oil.png'%}" alt="" class="img-fluid h-100 d-block mx-auto">
-                  </div>
-                </a>
-                <div class="bg-danger position-absolute top-0 text-white osahan-badge text-center mx-3">
-                  <b>4%</b>
-                  <br>OFF
-                </div>
-                <div class="card-body p-0">
-                  <small class="text-muted">Fortune</small>
-                  <h6 class="card-title fw-bold">Kachi Ghani Pure Mustard Oil</h6>
-                  <p class="card-text text-muted">1 L</p>
-                </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
-                  <div>
-                    <del class="small text-muted">$196</del>
-                    <h6 class="fw-bold m-0">$188</h6>
-                  </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">ADD</a>
-                </div>
-              </div>
-            </div>
-            <div class="top-picks-item">
-              <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3">
-                <a href="product-detail.html" class="link-dark">
-                  <div class="bg-light rounded-4 p-2 product-box">
-                    <img src="{% static 'mobile/img/uncle-chips.png'%}" alt="" class="img-fluid h-100 d-block mx-auto">
-                  </div>
-                </a>
-                <div class="card-body p-0">
-                  <small class="text-muted">Uncle Chipps</small>
-                  <h6 class="card-title fw-bold">Spicy Treat Sweet Chipps</h6>
-                  <p class="card-text text-muted">50 g</p>
-                </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
-                  <div>
-                    <del class="small text-muted">$25</del>
-                    <h6 class="fw-bold m-0">$20</h6>
-                  </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">ADD</a>
-                </div>
-              </div>
-            </div>
-            <div class="top-picks-item">
-              <div class="card bg-transparent border-0 overflow-hidden h-100 ps-3 pe-1">
-                <a href="product-detail.html" class="link-dark">
-                  <div class="bg-light rounded-4 p-2 product-box">
-                    <img src="{% static 'mobile/img/tata-gold.png'%}" alt="" class="img-fluid h-100 d-block mx-auto">
-                  </div>
-                </a>
-                <div class="card-body p-0">
-                  <small class="text-muted">Tata</small>
-                  <h6 class="card-title fw-bold">Tata Gold with 15% Long Leaves</h6>
-                  <p class="card-text text-muted">750 g</p>
-                </div>
-                <div class="card-footer bg-transparent border-0 d-flex align-items-center justify-content-between p-0">
-                  <div>
-                    <del class="small text-muted">$470</del>
-                    <h6 class="fw-bold m-0">$323</h6>
-                  </div>
-                  <a href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">ADD</a>
-                </div>
-              </div>
-            </div>
+
+            {% for p in new_products %}
+            <div>
+                 <div class="row m-0">
+                     <div class="col-12 px-0">
+                         <div class="product-box" style=" padding: 0; ">
+                             <div class="product-image">
+                                 <div style="background-image:url({{p.product.brand.logo.url}});background-size: contain; background-position: center; background-repeat: no-repeat; width: 50px; height: 50px; z-index: 1000; position: absolute; right: 5px; top: 5px;"></div>
+                                 <a href="{% url 'product' p.product.id %}">
+                                     <img src="{{p.product.main_image.url}}" class="img-fluid blur-up lazyload" alt="">
+                                 </a>
+                                 <ul class="product-option">
+                                     <li>
+                                         <a href="{% url 'product' p.product.id%}" >
+                                             <i data-feather="eye"></i>
+                                         </a>
+                                     </li>
+
+
+
+                                     <li>
+                                         <a href="wishlist.html" class="notifi-wishlist">
+                                             <i data-feather="heart"></i>
+                                         </a>
+                                     </li>
+                                 </ul>
+                             </div>
+                             <div class="product-detail" style=" padding: 3px 10px 3px 10px; ">
+                                 <a href="{% url 'product' p.id %}">
+                                     <h6 class="name">{{p.product.name}}</h6>
+                                 </a>
+
+                                 <h5 class="sold text-content">
+                                     {% if p.prices.last %}
+                                     {% if p.prices.last.is_discount == True %}
+                                     <span class="theme-color price">{{p.product.prices.last.discount_price}} AZN</span>
+                                     <del>{{p.product.prices.last.price}} AZN</del>
+                                     {% else %}
+                                      <span class="theme-color price">{{p.product.prices.last.price}} AZN</span>
+                                     {% endif %}
+                                     {% endif %}
+                                 </h5>
+
+                                 <div class="product-rating mt-sm-2 mt-1">
+                                     <ul class="rating">
+                                         <li>
+                                             <i data-feather="star" class="fill"></i>
+                                         </li>
+                                         <li>
+                                             <i data-feather="star" class="fill"></i>
+                                         </li>
+                                         <li>
+                                             <i data-feather="star" class="fill"></i>
+                                         </li>
+                                         <li>
+                                             <i data-feather="star" class="fill"></i>
+                                         </li>
+                                         <li>
+                                             <i data-feather="star"></i>
+                                         </li>
+                                     </ul>
+
+                                     <h6 class="theme-color" style="color:#008849 !important;">Anbarda var</h6>
+                                 </div>
+
+                                 <div class="add-to-cart-box">
+                                    {% if user.is_authenticated %}
+                                      <button class="btn btn-add-cart addcart-button add_to_cart" data-id="{{p.product.id}}">Səbətə At
+                                         <span class="add-icon">
+                                             <img src="{% static 'addtocart.png'%}" style="width:30px;">
+                                         </span>
+                                     </button>
+                                      {% else %}
+                                      <a href="{% url 'signin'%}" class="btn btn-add-cart addcart-button">Səbətə At
+                                         <span class="add-icon">
+                                             <img src="{% static 'addtocart.png'%}" style="width:30px;">
+                                         </span>
+                                     </a>
+                                     {% endif %}
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             {% endfor %}
+
           </div>
         </div>
         <div class="p-3 bg-light">
@@ -338,7 +331,7 @@
             <i class="bi bi-shop h3 m-0"></i>
             <p class="small m-0 pt-1">Kateqoriyalar</p>
           </a>
-          <a href="track-delivery-boy.html" class="text-muted text-center col py-2 p-1">
+          <a href="{% url 'cart' %}" class="text-muted text-center col py-2 p-1">
             <i class="bi bi-cart h3 m-0"></i>
             <p class="small m-0 pt-1">Səbət</p>
           </a>
@@ -638,6 +631,8 @@
           </ul>
         </li>
       </ul>
+
+       <!-- bottom navbar start -->
       <ul class="bottom-nav">
         <li class="home">
           <a href="index.html" class="text-primary">
@@ -662,6 +657,7 @@
         </li>
       </ul>
     </nav>
+
     <script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
     <script src="{% static 'mobile/vender/jquery/jquery.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
     <script src="{% static 'mobile/vender/slick/slick/slick.min.js'%}" type="5b9bc990528566b0bf2e3c8a-text/javascript"></script>
