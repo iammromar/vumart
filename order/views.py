@@ -177,7 +177,10 @@ def checkout(request):
     }
 
     # Render the checkout page
-    return render(request, "desktop/order/checkout.html", context)
+    if request.user_agent.is_mobile:
+        return render(request, "mobile/order/checkout.html", context)
+    else:
+        return render(request, "desktop/order/checkout.html", context)
 
 def success(request):
     general = General.objects.last()
@@ -221,7 +224,11 @@ def success(request):
 
     }
 
-    return render(request, "desktop/order/success.html", context)
+    template_name = "desktop/order/success.html"
+    if request.user_agent.is_mobile:
+        template_name = "mobile/order/payment.html"
+
+    return render(request, template_name, context)
 
 def remove(request):
     if request.method == 'POST':
@@ -263,11 +270,13 @@ def remove(request):
         print(order.items.all().count())
         return JsonResponse(cart, status=201)
 
+
+
 def add_to_cart(request):
     if request.method == 'POST':
         if request.user.is_authenticated:
             product_id = request.POST.get('product_id')
-            product_quantity = int(request.POST.get('product_quantity'))
+            product_quantity = int(request.POST.get('product_quantity',1))
             product = Product.objects.get(id=product_id)
 
             exist_order = Order.objects.filter(customer=request.user, is_ordered=False).last()
@@ -316,10 +325,11 @@ def add_to_cart(request):
                     cart_sum = cart_sum + o.quantity * o.product.prices.last().price
         cart['summary'] = cart_sum
 
-    if request.user_agent.is_mobile:
-        return JsonResponse(cart, status=201)
-    else:
-        return JsonResponse(cart, status=201)
+        if request.user_agent.is_mobile:
+            return JsonResponse(cart, status=201)
+        else:
+            return JsonResponse(cart, status=201)
+
 
 def update_cart_count(request):
     if request.user.is_authenticated:

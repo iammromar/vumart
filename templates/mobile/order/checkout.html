@@ -1,0 +1,200 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="fuzzy">
+    <meta name="keywords" content="fuzzy">
+    <meta name="author" content="fuzzy">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/images/logo/favicon.png" type="image/x-icon">
+    <title>fuzzy app</title>
+    <link rel="apple-touch-icon" href="assets/images/logo/favicon.png">
+    <meta name="theme-color" content="#122636">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="fuzzy">
+    <meta name="msapplication-TileImage" content="assets/images/logo/favicon.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="../css2-7?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'mobile/vender/bootstrap/css/bootstrap.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'mobile/vender/icofont/icofont.min.css'%}">
+    
+    
+    <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+  </head>
+
+  <body>
+    <!-- header start -->
+    <header class="section-t-space">
+      <div class="custom-container">
+        <div class="header-panel">
+          <a href="{% url 'cart' %}">
+            <i class="iconsax back-btn" data-icon="arrow-left"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M9.57141 18.8211C9.38141 18.8211 9.19141 18.7511 9.04141 18.6011L2.97141 12.5311C2.68141 12.2411 2.68141 11.7611 2.97141 11.4711L9.04141 5.40109C9.33141 5.11109 9.81141 5.11109 10.1014 5.40109C10.3914 5.69109 10.3914 6.17109 10.1014 6.46109L4.56141 12.0011L10.1014 17.5411C10.3914 17.8311 10.3914 18.3111 10.1014 18.6011C9.96141 18.7511 9.76141 18.8211 9.57141 18.8211Z" fill="#292D32"></path>
+                <path d="M20.5019 12.75H3.67188C3.26188 12.75 2.92188 12.41 2.92188 12C2.92188 11.59 3.26188 11.25 3.67188 11.25H20.5019C20.9119 11.25 21.2519 11.59 21.2519 12C21.2519 12.41 20.9119 12.75 20.5019 12.75Z" fill="#292D32"></path>
+                </svg>
+                </i>
+          </a>
+          <h3 style="font-size:15px;">Checkout</h3>
+        </div>
+      </div>
+    </header>
+    <!-- header end -->
+
+    <!-- shipping address section start -->
+    <section>
+      <div class="custom-container">
+        <div class="address-section">
+          <h2 style="font-size: 16px;font-weight: 600;">Çatdırılma Ünvanı</h2>
+          {% if user.addresses.count == 0 %}
+        <div class="col-xxl-4 col-xl-6 col-lg-12 col-md-6">
+          <div class="address-box">
+              Heç bir ünvanı əlavə edilməyib.
+          </div>
+        </div>
+      {% endif %}
+   
+   {% for a in user.addresses.all %}
+          <div class="shipping-address p-3 mt-3">
+            <div class="form-check">
+                <input style="
+                border-color: rgb(18, 38, 54);" class="form-check-input" type="radio" name="flexRadio1" id="radio1" checked="">
+              </div>
+            <div class="address-details">
+              <div class="d-block w-75">
+                <h2 style="font-size: 17px;">{{a.name}}</h2>
+                <h4 class="light-text fw-medium">Ünvan : <span> {{a.city}}</h4>
+                <h4 class="light-text fw-medium">Əlavə qeyd : <span> {{a.note}}</h4>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+      </div>
+    </section>
+    <!-- shipping address section end -->
+
+   <!-- cart section start -->
+   <section>
+    <div class="custom-container">
+      <ul class="horizontal-product-list">
+          {% for i in order_in_cart.items.all %}
+
+          <li class="cart-product-box">
+              <div class="horizontal-product-box">
+              <div class="horizontal-product-img">
+                  <a href="product-details.html">
+                  <img class="img-fluid img" src="{{i.product.main_image.url}}" alt="p11">
+                  </a>
+              </div>
+              <div class="horizontal-product-details">
+                  <div class="d-flex align-items-center justify-content-between">
+                  <a href="product-details.html">
+                      <h4>{{i.product.name}}</h4>
+                  </a>
+                  
+
+                  </div>
+                  <ul class="product-info">
+                  <li>Kateqoriya : {{i.product.category.first.name}}</li>
+                  </ul>
+
+                  <div class="d-flex align-items-center justify-content-between mt-3">
+                  <div class="d-flex align-items-center gap-2">
+                      <h3 class="fw-semibold">₼ {{i.unit_price}}</h3>
+                  </div>
+                                                    
+                  </div>
+              </div>
+              </div>
+          </li>
+        
+          {% endfor %}
+      </ul>
+    </div>
+  </section>
+  <!-- cart section end -->
+
+    {% comment %} <!-- shipping section start -->
+    <section class="">
+      <div class="custom-container">
+        <div class="shipping-section">
+          <h2>Choose Shipping</h2>
+          <a href="shipping.html" class="shipping-type p-3 mt-3">
+            <div class="d-flex align-items-center gap-2">
+              <i class="iconsax icon" data-icon="truck-fast"></i>
+              <h4>Choose Shipping Type</h4>
+            </div>
+            <i class="iconsax icon" data-icon="chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- shipping section end --> {% endcomment %}
+
+    {% comment %} <!-- coupon section start -->
+    <section>
+      <div class="custom-container">
+        <div class="apply-coupon">
+          <h2 class="theme-color">apply Coupon</h2>
+          <a href="coupon.html" class="coupon-code">
+            <div>
+              <h6>#GOOGLE20</h6>
+            </div>
+            <i class="iconsax icon" data-icon="chevron-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- coupon section end --> {% endcomment %}
+    <br>
+
+    <!-- billing section start -->
+    <section class="bill-details section-b-space">
+      <div class="custom-container">
+        <div class="total-detail">
+          <div class="sub-total d-flex justify-content-between">
+            <h5 class="light-text">Cəmi məbləğ</h5>
+            <h4 class="fw-medium">₼ {{order_in_cart.get_cart_total}}</h4>
+          </div>
+          <div class="sub-total d-flex justify-content-between">
+            <h5 class="light-text">Çatdırılma</h5>
+            <h4 class="fw-medium">₼ 0.00</h4>
+          </div>
+          <div class="sub-total d-flex justify-content-between">
+            <h5 class="fw-medium light-text">Vergi</h5>
+            <h4 class="fw-medium">₼ 0.00</h4>
+          </div>
+          <div class="sub-total d-flex justify-content-between">
+            <h5 class="fw-medium">Yekun Məbləğ</h5>
+            <h4 class="fw-semibold amount">₼ {{order_in_cart.get_cart_total}}</h4>
+          </div>
+        </div>
+
+        <a href="{% url 'success'%}" class="btn theme-btn w-100 payyy">Sifariş Et</a>
+      </div>
+    </section>
+    <!-- billing section start -->
+
+     <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js'%}"></script><script src="{% static 'mobile/vender/bootstrap/js/bootstrap.bundle.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+
+     <script src="{% static 'mobile/vender/jquery/jquery.min.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+     
+     <script src="{% static 'mobile/vender/sidebar/hc-offcanvas-nav.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+     
+     <script src="{% static 'mobile/js/custom.js'%}" type="ce94a9a36d1b23ed31aafdea-text/javascript"></script>
+     <script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js'%}" data-cf-settings="ce94a9a36d1b23ed31aafdea-|49" defer=""></script><script defer="" src="../../beacon.min.js/v52afc6f149f6479b8c77fa569edb01181681764108816" integrity="sha512-jGCTpDpBAYDGNYR5ztKt4BQPGef1P0giN6ZGVUi835kFF88FOmmn8jBQWNgrNd8g/Yu421NdgWhwQoaOPFflDw==" data-cf-beacon='{"rayId":"7bf7ed0d4e0a8ec8","version":"2023.4.0","r":1,"b":1,"token":"dd471ab1978346bbb991feaa79e6ce5c","si":100}' crossorigin="anonymous"></script>
+    
+  </body>
+</html>

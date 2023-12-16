@@ -48,7 +48,7 @@
       <div class="custom-container">
         <ul class="profile-list">
           <li>
-            <a href="order-history.html" class="profile-box">
+            <a href="{% url 'mobile_order_history' %}" class="profile-box">
               <div class="profile-img">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M11.9991 13.3008C11.8691 13.3008 11.7391 13.2708 11.6191 13.2008L2.78911 8.09083C2.43911 7.88083 2.30911 7.42083 2.51911 7.06083C2.72911 6.70083 3.18911 6.58083 3.54911 6.79083L11.9991 11.6808L20.3991 6.82083C20.7591 6.61083 21.2191 6.74083 21.4291 7.09083C21.6391 7.45083 21.5091 7.91083 21.1591 8.12083L12.3891 13.2008C12.2591 13.2608 12.1291 13.3008 11.9991 13.3008Z" fill="#292D32"></path>
@@ -62,7 +62,7 @@
               </div>
             </a>
           </li>
-          <li>
+          {% comment %} <li>
             <a href="wishlist.html" class="profile-box">
               <div class="profile-img">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -74,7 +74,7 @@
                 <h5>Bəyəndiyiniz məhsullarınız</h5>
               </div>
             </a>
-          </li>
+          </li> {% endcomment %}
           
           <li>
             <a href="{% url 'manage_address'%}" class="profile-box">
@@ -90,7 +90,7 @@
               </div>
             </a>
           </li>
-          <li>
+          {% comment %} <li>
             <a href="terms-conditions.html" class="profile-box">
               <div class="profile-img">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -104,8 +104,8 @@
                 <h5>Platformanın istifadəsi üçün T&C</h5>
               </div>
             </a>
-          </li>
-          <li class="border-bottom-0">
+          </li> {% endcomment %}
+          {% comment %} <li class="border-bottom-0">
             <a href="help.html" class="profile-box">
               <div class="profile-img">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,7 +117,7 @@
                 <h5>Müştəri dəstəyi, tez-tez verilən suallar</h5>
               </div>
             </a>
-          </li>
+          </li> {% endcomment %}
           <li class="border-bottom-0">
             <a href="{% url 'logout'%}" class="profile-box">
               <div class="profile-img">

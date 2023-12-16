@@ -770,28 +770,49 @@ header .top-nav .navbar-top .rightside-box .right-side-menu .right-side .header-
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {% for o in orders %}
+                                                    {% if order_in_cart %}
                                                         <tr>
-                                                            <td class="product-image">#0000{{o.id}}</td>
+                                                            <td class="product-image">#0000{{ order_in_cart.id }}</td>
                                                             <td>
-                                                                {{o.ordered_date_time}}
-                                                            </td>
-                                                            <td>
-                                                                <h6>{{o.address.street}} {{o.address.building}}</h6>
+                                                                {{ order_in_cart.ordered_date_time }}
                                                             </td>
                                                             <td>
-                                                                 <label class="success" style=" color: #0e845b; ">Bank köçürmə</label>
+                                                                <h6>{{ order_in_cart.address.street }} {{ order_in_cart.address.building }}</h6>
                                                             </td>
-                                                             <td>
-                                                                 <label class="success" style="color: #000000;background: #fee332;">{{o.get_status_display}}</label>
+                                                            <td>
+                                                                <label class="success" style="color: #0e845b;">Bank köçürmə</label>
                                                             </td>
-    
-                                                             <td>
-                                                                <h6>₼ {{o.get_cart_total}}</h6>
+                                                            <td>
+                                                                <label class="success" style="color: #000000; background: #fee332;">{{ order_in_cart.get_status_display }}</label>
+                                                            </td>
+                                                            <td>
+                                                                <h6>₼ {{ order_in_cart.get_cart_total }}</h6>
                                                             </td>
                                                         </tr>
-                                                    {% endfor%}
+                                                    {% endif %}
+                                                
+                                                    {% for o in orders %}
+                                                        <tr>
+                                                            <td class="product-image">#0000{{ o.id }}</td>
+                                                            <td>
+                                                                {{ o.ordered_date_time }}
+                                                            </td>
+                                                            <td>
+                                                                <h6>{{ o.address.street }} {{ o.address.building }}</h6>
+                                                            </td>
+                                                            <td>
+                                                                <label class="success" style="color: #0e845b;">Bank köçürmə</label>
+                                                            </td>
+                                                            <td>
+                                                                <label class="success" style="color: #000000; background: #fee332;">{{ o.get_status_display }}</label>
+                                                            </td>
+                                                            <td>
+                                                                <h6>₼ {{ o.get_cart_total }}</h6>
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
                                                 </tbody>
+                                                
                                             </table>
                                         </div>
 

@@ -47,6 +47,7 @@ urlpatterns = [
    path('order/<int:id>/', views.order, name="order"),
 
 
+  path('orderhistory/', views.mobile_order_history, name='mobile_order_history'),
 
 
    path('infos/', views.infos, name="infos"),

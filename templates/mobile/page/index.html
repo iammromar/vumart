@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{% static 'mobile/vender/slick/slick/slick-theme.css'%}">
     <link rel="stylesheet" href="{% static 'mobile/vender/sidebar/demo.css'%}">
     <link rel="stylesheet" href="{% static 'mobile/css/style.css'%}">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   </head>
   <body>
     <div class="homepage d-flex flex-column vh-100">
@@ -125,22 +127,66 @@
                     {% endif %}
                   </div>
                   <br>
-                  <a style="
-                    padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320))) 0;
-                    width: 100%;
-                    font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
-                    margin-top: 10px;
-                    color: #4a5568;
-                    border-radius: 50px;
-                    font-weight: 500;
-                    " href="cart.html" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm"> <i style=" width: 45px; height: 45px; " class="bi bir-cart"></i>
-                    Səbət
-                 </a>
+                  
+                  {% if user.is_authenticated %}
+                  <button style="
+                  background: #f1fff3;
+                  border-color: #0d8420;
+                  " class="btn btn-add-cart addcart-button add_to_cart" data-id="{{ p.product.id }}">Səbətə At
+                    
+                </button>
+                
+                
+{% else %}
+    <a style="
+        padding: calc(8px + (10 - 8) * ((100vw - 320px) / (1920 - 320)));
+        width: 100%;
+        font-size: calc(14px + (15 - 14) * ((100vw - 320px) / (1920 - 320)));
+        margin-top: 10px;
+        color: #4a5568;
+        border-radius: 50px;
+        font-weight: 500;
+        " href="{% url 'signin' %}" class="btn btn-outline-success fw-bold rounded-3 shadow-sm btn-sm">
+        <i style="width: 45px; height: 45px;" class="bi bir-cart"></i>
+        Səbət
+    </a>
+{% endif %}
+
                 </div>
               </div>
             </div>
             {% endfor %}
           </div>
+          <!-- Replace the existing AJAX code with this -->
+<script>
+  $('.add_to_cart').on('click', function () {
+    var product_id = $(this).data('id');
+    var url = "{% url 'add_to_cart' %}";
+
+    $.ajax({
+        type: 'POST',
+        url: url,
+        data: {
+            'product_id': product_id,
+            'product_quantity': 1,
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+        },
+        success: function (data) {
+            // Handle success
+            console.log(data);
+        },
+        error: function (xhr, errmsg, err) {
+            // Handle error
+            console.log(xhr.status + ": " + xhr.responseText);
+        }
+    });
+});
+
+</script>
+
+          
+          
+          
           <div class="p-3">
             <a href="#" class="bg-success shadow text-white rounded-4 d-flex align-items-center px-3 py-2"> Explore <span class="bg-primary px-2 py-1 rounded-2 small text-uppercase fw-bold text-white m-2">Mega Savings</span> Store <i class="bi bi-arrow-right text-warning fs-5 ms-auto"></i>
             </a>
@@ -394,7 +440,7 @@
                                 document.getElementById("unvanforma{{a.id}}").onclick = function() {
                                     document.getElementById("unvanform{{a.id}}").submit();
                                 }
-                            </script>
+                            </>
           {% endfor %}
           <div class="d-flex align-items-center justify-content-between"  >
             <div class="w-75">

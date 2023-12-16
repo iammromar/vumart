@@ -4,7 +4,7 @@ from order import views
 
 urlpatterns = [
    path('search/', views.search, name="search_results"),
-   path('addtocart/', views.add_to_cart, name="add_to_cart"),
+   path('add_to_cart/', views.add_to_cart, name="add_to_cart"),
    #path('add_to_cart_mobile/', views.add_to_cart_mobile, name="add_to_cart_mobile"),
    path('remove/', views.remove, name="remove"),
    path('cart/', views.cart, name="cart"),
@@ -20,4 +20,3 @@ urlpatterns = [
 
 
 ]
-

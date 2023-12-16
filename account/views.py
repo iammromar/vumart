@@ -279,8 +279,9 @@ def profile(request):
     addresses = Address.objects.filter(customer=request.user)
     main_categories = Category.objects.filter(parent=None)
     main_address = Address.objects.filter(customer=request.user, is_selected=True).last()
-    orders = Order.objects.filter(customer=request.user, is_ordered=True).order_by('-id')
+    orders = Order.objects.filter(customer=request.user, is_ordered=True)[:3]
 
+    order_in_cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
         
 
     cart = None
@@ -373,6 +374,7 @@ def profile(request):
         'orders': orders,
         'total_orders':total_orders,
         'pending_orders' : pending_orders,
+        "order_in_cart": order_in_cart,
         'form': form,
 
     }
@@ -380,6 +382,33 @@ def profile(request):
     return render(request, template_name, context)
 
 
+@login_required(login_url='/account/signin/')
+def mobile_order_history(request):
+    # Reuse the logic from the existing 'profile' view
+    general = General.objects.last()
+    socials = Social.objects.all()
+    cats = Category.objects.filter(is_active=True)
+    total_orders = Order.objects.filter(customer=request.user, is_ordered=True).count()
+    addresses = Address.objects.filter(customer=request.user)
+    main_categories = Category.objects.filter(parent=None)
+    orders = Order.objects.filter(customer=request.user, is_ordered=True)
+    order_in_cart = Order.objects.filter(customer=request.user, is_ordered=False).last()
+
+    # Determine the template based on the user's agent
+    template_name = 'mobile/account/order.html'
+
+    context = {
+        "socials": socials,
+        "general": general,
+        "cats": cats,
+        "main_categories": main_categories,
+        'addresses': addresses,
+        'orders': orders,
+        'total_orders': total_orders,
+        "order_in_cart": order_in_cart,
+    }
+
+    return render(request, template_name, context)
 
 def change_password(request):
     if request.method == 'POST':
@@ -575,7 +604,7 @@ def order(request, id):
         "order_detail": order_detail,
 
     }
-    return render(request, 'desktop/account/order.html', context)
+    return render(request, 'mobile/account/order.html', context)
 
 
 @login_required(login_url='/account/signin/')

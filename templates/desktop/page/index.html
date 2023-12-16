@@ -97,33 +97,33 @@
                                                             </a>
                                                         </li>
                                                         <!-- in your product.html template -->
-<li>
-    <button class="add-to-wishlist notifi-wishlist" data-product-id="{{ product.id }}">
-        <i data-feather="heart"></i>
-    </button>
-</li>
+                                                    <li>
+                                                        <button class="add-to-wishlist notifi-wishlist" data-product-id="{{ product.id }}">
+                                                            <i data-feather="heart"></i>
+                                                        </button>
+                                                    </li>
 
-<script>
-    $(document).ready(function () {
-        $(".add-to-wishlist").on("click", function () {
-            var productId = $(this).data("product-id");
-            $.ajax({
-                type: "GET",
-                url: "/add_to_wishlist/" + productId + "/",
-                success: function (data) {
-                    if (data.added) {
-                        alert("Product added to wishlist!");
-                    } else {
-                        alert("Product removed from wishlist!");
-                    }
-                    // Update the wishlist count in the UI
-                    $("#wishlist-count").text(data.wishlist_count);
-                },
-            });
-        });
-    });
-</script>
-</script>
+                                                    <script>
+                                                        $(document).ready(function () {
+                                                            $(".add-to-wishlist").on("click", function () {
+                                                                var productId = $(this).data("product-id");
+                                                                $.ajax({
+                                                                    type: "GET",
+                                                                    url: "/add_to_wishlist/" + productId + "/",
+                                                                    success: function (data) {
+                                                                        if (data.added) {
+                                                                            alert("Product added to wishlist!");
+                                                                        } else {
+                                                                            alert("Product removed from wishlist!");
+                                                                        }
+                                                                        // Update the wishlist count in the UI
+                                                                        $("#wishlist-count").text(data.wishlist_count);
+                                                                    },
+                                                                });
+                                                            });
+                                                        });
+                                                    </script>
+                                                    </script>
 
                                                     </ul>
                                                 </div>
@@ -165,10 +165,6 @@
                                                         <h6 class="theme-color" style="color:#008849 !important;">Anbarda var</h6>
                                                     </div>
                                                     
-                                                   
-                                                    
-
-
                                                     <div class="add-to-cart-box">
                                                          {% if user.is_authenticated %}
                                                          <button class="btn btn-add-cart addcart-button add_to_cart" data-id="{{p.product.id}}">Səbətə At
